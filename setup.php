@@ -49,6 +49,8 @@ function plugin_quicktree_install()
 
     api_plugin_register_hook('quicktree', 'page_head', 'quicktree_page_head', "setup.php");
 
+    quicktree_setup_table();
+
     return true;
 }
 
@@ -62,7 +64,7 @@ function quicktree_show_tab()
             $cp = true;
         }
 
-        print '<a href="' . $config['url_path'] . 'plugins/quicktree/quicktree.php"><img src="' . $config['url_path'] . 'plugins/quicktree/images/tab_quicktree' . ($cp ? '_down' : '') . '.gif" alt="thold" align="absmiddle" border="0"></a>';
+        print '<a href="' . $config['url_path'] . 'plugins/quicktree/quicktree.php"><img src="' . $config['url_path'] . 'plugins/quicktree/images/tab_quicktree' . ($cp ? '_active' : '') . '.gif" alt="quicktree" align="absmiddle" border="0"></a>';
     }
 }
 
@@ -194,7 +196,6 @@ function plugin_quicktree_uninstall()
 function plugin_quicktree_check_config()
 {
     /* Here we will check to ensure everything is configured */
-    quicktree_check_upgrade();
     return TRUE;
 }
 

@@ -3,10 +3,7 @@ $guest_account = true;
 
 chdir('../../');
 
-include_once "./include/auth.php";
-include_once "./include/global.php";
-include_once $config["library_path"] . "/tree.php";
-include_once $config["library_path"] . "/api_tree.php";
+include_once('./include/auth.php');
 
 $action = "";
 
