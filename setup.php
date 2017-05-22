@@ -1,35 +1,30 @@
 <?php
-function plugin_quicktree_version() { return array
-(
-    'name' => 'quicktree',
-    'version' => '0.2',
-    'longname' => 'QuickTree',
-    'author' => 'Howard Jones',
-    'homepage' => 'http://wotsit.thingy.com/haj/cacti/quicktree-plugin.html',
-    'email' => 'howie@thingy.com',
-    'url' => 'http://wotsit.thingy.com/haj/cacti/versions.php'
-); }
 
-function quicktree_version() { return (plugin_quicktree_version()); }
+function plugin_quicktree_version()
+{
+    global $config;
+    $info = parse_ini_file($config['base_path'] . '/plugins/quicktree/INFO', true);
+    return $info['info'];
+}
 
 function quicktree_config_settings()
 {
     global $tabs, $settings;
     $tabs["misc"] = "Misc";
 
-    $temp = array (
-        "quicktree_header" => array (
-            "friendly_name" => "Quicktree",
+    $temp = array(
+        "quicktree_header" => array(
+            "friendly_name" => __("Quicktree"),
             "method" => "spacer",
         ),
-        "quicktree_pagestyle" => array (
-            "friendly_name" => "Page style",
-            "description" => "Where to display the QuickTree",
+        "quicktree_pagestyle" => array(
+            "friendly_name" => __("Page style"),
+            "description" => __("Where to display the QuickTree"),
             "method" => "drop_array",
-            "array" => array (
-                0 => "Tab",
-                1 => "Console Menu",
-                2 => "Both Tab and Console Menu"
+            "array" => array(
+                0 => __("Tab"),
+                1 => __("Console Menu"),
+                2 => __("Both Tab and Console Menu")
             )
         )
     );
@@ -51,71 +46,34 @@ function plugin_quicktree_install()
     api_plugin_register_hook('quicktree', 'draw_navigation_text', 'quicktree_draw_navigation_text', "setup.php");
     api_plugin_register_hook('quicktree', 'graph_buttons', 'quicktree_graph_buttons', "setup.php");
     api_plugin_register_hook('quicktree', 'graph_buttonsgre', 'quicktree_graph_buttons', "setup.php");
-    
+
     api_plugin_register_hook('quicktree', 'page_head', 'quicktree_page_head', "setup.php");
 
-    return (true);
+    return true;
 }
 
 function quicktree_show_tab()
 {
-    global $config, $user_auth_realms, $user_auth_realm_filenames;
+    global $config;
 
-    $realm_id2 = 0;
+    if (api_user_realm_auth('quicktree.php')) {
+        $cp = false;
+        if (basename($_SERVER['PHP_SELF']) == 'quicktree.php') {
+            $cp = true;
+        }
 
-        
-    if (isset($user_auth_realm_filenames[basename('quicktree.php')]))
-    {
-        $realm_id2 = $user_auth_realm_filenames[basename('quicktree.php')];
+        print '<a href="' . $config['url_path'] . 'plugins/quicktree/quicktree.php"><img src="' . $config['url_path'] . 'plugins/quicktree/images/tab_quicktree' . ($cp ? '_down' : '') . '.gif" alt="thold" align="absmiddle" border="0"></a>';
     }
-
-    $tabname = "tab_quicktree.gif";
-
-    if (strstr($_SERVER['REQUEST_URI'], '/plugins\/quicktree\/quicktree.php/') != false)
-    {
-        $tabname = "tab_quicktree_red.gif";
-    }
-
-    if ((db_fetch_assoc("select user_auth_realm.realm_id from user_auth_realm where user_auth_realm.user_id='"
-        . $_SESSION["sess_user_id"] . "' and user_auth_realm.realm_id='$realm_id2'")) || (empty($realm_id2)))
-    {
-
-        if(intval(read_config_option("quicktree_pagestyle")) != 1) {
-
-        print '<a id="qt_link" href="' . $config['url_path']
-            . 'plugins/quicktree/quicktree.php"><img class="qt_drophover" id="qt_tab" src="' . $config['url_path']
-            . 'plugins/quicktree/images/';
-        print $tabname;
-        print '" alt="quicktree" align="absmiddle" border="0"></a>';
-       }
-    }
-
-    quicktree_setup_table();
 }
 
 function quicktree_graph_buttons($data)
 {
-// $user = db_fetch_row("select * from user_auth where id=" .$_SESSION["sess_user_id"]. " and realm = 0");
-// print "X";
-// if (sizeof(db_fetch_assoc("select realm_id from user_auth_realm where user_id=" . $user["id"] . " and realm_id=212")) > 0)
-// {	global $config;
+    global $config;
 
-    global $config, $user_auth_realms, $user_auth_realm_filenames;
-    $realm_id2 = 0;
-
-    if (isset($user_auth_realm_filenames[basename('quicktree.php')]))
-    {
-        $realm_id2 = $user_auth_realm_filenames[basename('quicktree.php')];
-    }
-
-    if ((db_fetch_assoc("select user_auth_realm.realm_id from user_auth_realm where user_auth_realm.user_id='"
-        . $_SESSION["sess_user_id"] . "' and user_auth_realm.realm_id='$realm_id2'")) || (empty($realm_id2)))
-    {
+    if (api_user_realm_auth('quicktree.php')) {
 
         $local_graph_id = $data[1]['local_graph_id'];
         $rra_id = $data[1]['rra'];
-
-        # print_r($data);
 
         print '<a title="Add this graph to QuickTree" href="' . $config['url_path']
             . 'plugins/quicktree/quicktree.php?action=add&rra_id=' . $rra_id . '&graph_id=' . $local_graph_id
@@ -126,12 +84,11 @@ function quicktree_graph_buttons($data)
 
 function quicktree_config_arrays()
 {
-    global $user_auth_realms, $user_auth_realm_filenames, $menu;
+    global $menu;
 
-    $user_auth_realms[212] = 'Plugin -> QuickTree: Access';
-    $user_auth_realm_filenames['quicktree.php'] = 212;
+    api_plugin_register_realm("quicktree", 'quicktree.php', __('Plugin -> QuickTree: Access'), 1);
 
-    if(read_config_option("quicktree_pagestyle")>0) {
+    if (read_config_option("quicktree_pagestyle") > 0) {
         $menu["Management"]['plugins/quicktree/quicktree.php'] = "QuickTree";
     }
 }
@@ -140,21 +97,17 @@ function quicktree_page_head()
 {
     global $config;
 
-   if( strstr($_SERVER['REQUEST_URI'], "quicktree.php") !== false) {
-        print '<script type="text/javascript" src="' . $config['url_path']
-            . 'plugins/quicktree/jquery-latest.min.js"></script>';
-        print '<script type="text/javascript">jQuery.noConflict();</script>';
-        # print '<script type="text/javascript" src="' . $config['url_path'] . 'plugins/quicktree/interface.js"></script>';
+    if (strstr($_SERVER['REQUEST_URI'], "quicktree.php") !== false) {
         print '<script type="text/javascript" src="' . $config['url_path'] . 'plugins/quicktree/quicktree.js"></script>';
         print '<link rel="stylesheet" href="' . $config['url_path'] . 'plugins/quicktree/quicktree.css"></link>';
-   }
+    }
 }
 
 function quicktree_draw_navigation_text($nav)
 {
     $nav["quicktree.php:"] = array
     (
-        "title" => "QuickTree",
+        "title" => __("QuickTree"),
         "mapping" => "index.php:",
         "url" => "quicktree.php",
         "level" => "1"
@@ -162,7 +115,7 @@ function quicktree_draw_navigation_text($nav)
 
     $nav["quicktree.php:add_ajax"] = array
     (
-        "title" => "QuickTree",
+        "title" => __("QuickTree"),
         "mapping" => "index.php:",
         "url" => "quicktree.php",
         "level" => "1"
@@ -170,7 +123,7 @@ function quicktree_draw_navigation_text($nav)
 
     $nav["quicktree.php:add"] = array
     (
-        "title" => "QuickTree",
+        "title" => __("QuickTree"),
         "mapping" => "index.php:",
         "url" => "quicktree.php",
         "level" => "1"
@@ -178,7 +131,7 @@ function quicktree_draw_navigation_text($nav)
 
     $nav["quicktree.php:remove"] = array
     (
-        "title" => "QuickTree",
+        "title" => __("QuickTree"),
         "mapping" => "index.php:",
         "url" => "quicktree.php",
         "level" => "1"
@@ -186,7 +139,7 @@ function quicktree_draw_navigation_text($nav)
 
     $nav["quicktree.php:save"] = array
     (
-        "title" => "QuickTree",
+        "title" => __("QuickTree"),
         "mapping" => "index.php:",
         "url" => "quicktree.php",
         "level" => "1"
@@ -194,120 +147,56 @@ function quicktree_draw_navigation_text($nav)
 
     $nav["quicktree.php:clear"] = array
     (
-        "title" => "QuickTree",
+        "title" => __("QuickTree"),
         "mapping" => "index.php:",
         "url" => "quicktree.php",
         "level" => "1"
     );
 
-    return ($nav);
+    return $nav;
 }
 
 function quicktree_setup_table()
 {
-    global $config, $database_default;
-    include_once($config["library_path"] . DIRECTORY_SEPARATOR . "database.php");
+    $data = array();
 
-    $sql = "show tables from " . $database_default;
-    $result = db_fetch_assoc($sql) or die(mysql_error());
-
-    $tables = array ();
-    $sql = array ();
-
-    foreach ($result as $index => $arr)
-    {
-        foreach ($arr as $t)
-        {
-            $tables[] = $t;
-        }
-    }
-
-    if (!in_array('quicktree_graphs', $tables))
-    {
-        $sql[]
-            = "CREATE TABLE quicktree_graphs (
-                        id int(11) NOT NULL auto_increment,
-                        userid int(11) NOT NULL,
-  			local_graph_id mediumint(8) unsigned NOT NULL default '0',
-  			rra_id smallint(8) unsigned NOT NULL default '0',
-  			title varchar(255) default NULL,
-                        PRIMARY KEY  (id)
-                ) TYPE=MyISAM;";
-    }
-
- $pagestyle = read_config_option("quicktree_pagestyle");
-
-        if ($pagestyle == '' or $pagestyle < 0 or $pagestyle > 2) {
-            $sql[] = "replace into settings values('quicktree_pagestyle',0)";
-        }
+    $data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
+    $data['columns'][] = array('name' => 'userid', 'type' => 'int(11)', 'NULL' => false);
+    $data['columns'][] = array('name' => 'local_graph_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+    $data['columns'][] = array('name' => 'rra_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+    $data['columns'][] = array('name' => 'title', 'type' => 'varchar(191)', 'NULL' => false, 'default' => '');
+    $data['primary'] = 'id';
+    $data['type'] = 'InnoDB';
+    $data['comment'] = 'Quicktree data';
+    api_plugin_db_table_create('quicktree', 'quicktree_graphs', $data);
 
 
-    if (!empty($sql))
-    {
-        for ($a = 0; $a < count($sql); $a++)
-        {
-            $result = db_execute($sql[$a]);
-        }
+    $pagestyle = read_config_option("quicktree_pagestyle");
+
+    if ($pagestyle == '' or $pagestyle < 0 or $pagestyle > 2) {
+        db_execute("replace into settings values('quicktree_pagestyle',0)");
     }
 }
 
 
-
-
-function plugin_quicktree_upgrade () {
-        /* Here we will upgrade to the newest version */
-        quicktree_check_upgrade();
-        return FALSE;
+function plugin_quicktree_upgrade()
+{
+    /* Here we will upgrade to the newest version */
+    quicktree_check_upgrade();
+    return FALSE;
 }
 
-function plugin_quicktree_uninstall () {
-        /* Do any extra Uninstall stuff here */
+function plugin_quicktree_uninstall()
+{
+    /* Do any extra Uninstall stuff here */
 }
 
-function plugin_quicktree_check_config () {
-        /* Here we will check to ensure everything is configured */
-        quicktree_check_upgrade();
-        return TRUE;
-}
-
-function quicktree_check_upgrade () {
-        global $config;
-
-        $files = array('index.php', 'plugins.php');
-        if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
-                return;
-        }
-
-        $current = plugin_quicktree_version();
-        $current = $current['version'];
-        $old     = db_fetch_row("SELECT * FROM plugin_config WHERE directory='quicktree'");
-        if (sizeof($old) && $current != $old["version"]) {
-                /* if the plugin is installed and/or active */
-                if ($old["status"] == 1 || $old["status"] == 4) {
-                        /* re-register the hooks */
-                        plugin_quicktree_install();
-
-                        /* perform a database upgrade */
-                        quicktree_database_upgrade();
-                }
-
-                /* update the plugin information */
-                $info = plugin_quicktree_version();
-                $id   = db_fetch_cell("SELECT id FROM plugin_config WHERE directory='quicktree'");
-                db_execute("UPDATE plugin_config
-                        SET name='" . $info["longname"] . "',
-                        author='"   . $info["author"]   . "',
-                        webpage='"  . $info["homepage"] . "',
-                        version='"  . $info["version"]  . "'
-                        WHERE id='$id'");
-        }
-}
-
-function quicktree_database_upgrade() {
-        global $plugins, $config;
-        return TRUE;
+function plugin_quicktree_check_config()
+{
+    /* Here we will check to ensure everything is configured */
+    quicktree_check_upgrade();
+    return TRUE;
 }
 
 
 // vim:ts=4:sw=4:
-?>
