@@ -2,8 +2,7 @@
 $guest_account = true;
 
 chdir('../../');
-
-include_once('./include/auth.php');
+include_once('include/auth.php');
 
 $action = "";
 
@@ -50,6 +49,7 @@ switch ($action) {
         $graphs = db_fetch_assoc_prepared("select * from quicktree_graphs where userid=?", array($user));
 
         if (sizeof($graphs) > 0) {
+	    include_once($config['base_path'] . '/lib/api_tree.php');
             // if no existing tree was picked, create one
             if ($new_tree_id < 1) {
                 $save = array();
@@ -58,7 +58,7 @@ switch ($action) {
                 $save["sort_type"] = TREE_ORDERING_NONE;
 
                 $new_tree_id = sql_save($save, "graph_tree");
-                sort_tree(SORT_TYPE_TREE, $new_tree_id, TREE_ORDERING_NONE);
+                //sort_tree(SORT_TYPE_TREE, $new_tree_id, TREE_ORDERING_NONE);
             } else {
                 // if an existing tree was picked, create a new heading to
                 // be the parent for all our graphs
@@ -95,25 +95,56 @@ switch ($action) {
         break;
 
     default:
-        include_once($config["base_path"] . "/include/top_header.php");
+	top_header(); ?>
+	<p>These are the graphs that you have added to your QuickTree. You can keep them here for as long as you like, or you can (click the gray headers)</p>
+	<ul class='qt_list'>
+		<li>
+			<div class='qt_listtitle'><div class='qt_listtext'>
+				<a class='qt_hyperlink' href='quicktree.php?action=save'>Save To New Tree</a>
+			</div></div>
+			<div class='qt_listtext'>Save your selection to a new Graph Tree so you can keep them for later and work on something new.</div>
+		</li>
+		<li>
+			<div class='qt_listtitle'><div class='qt_listtext'>
+				<a id='qt_existing' class='qt_hyperlink'>Save To Branch</a>
+			</div></div>
+			<div class='qt_listtext'>Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree.</div>
+		</li>
+		<li>
+			<div class='qt_listtitle'><div class='qt_listtext'>
+				<a class='qt_hyperlink' href='quicktree.php?action=clear'>Clear all graphs</a>
+			</div></div>
+			<div class='qt_listtext'>Clear the page so that you have a blank QuickTree reading for new selections</div>
+		</li>
+	</ul>
 
-        print
-            "<p>These are the graphs that you have added to your QuickTree. You can keep them here for as long as you like, or you can <a href='quicktree.php?action=save'>save them to a new Graph Tree</a> so you can keep them for later and work on something new. (you can also <a id='qt_existing'>save them as a branch to an existing tree</a>) The idea is to collect together the graphs for a situation you are monitoring, as easily as possible.</p>";
+        <p>You can manage the individual graphs that appear here by clicking:</p>
+	<ul class='qt_list'>
+		<li><div class='qt_listtext'>the <img src='images/add.png'> icon next to a graph on the <a href="../../graph_view.php">graph</a> tab.</div></li>
+		<li><div class='qt_listtext'>the <img src='images/delete.png'> icon next to the graph on this page.</div></li>
+		<li><div class='qt_listtext'>the graph itself to see the full history of it.</div></li>
+	</ul>
+        <p>Don't Worry!</p>
+	<ul>
+		<li>Each user gets their own QuickTree as the idea is to collect together the graphs <b>you</b> want to quickly monitor, as easily as possible.</li>
+		<li>Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)</li>
+	</ul>
+	<?php
 
         $SQL = "select g.id, g.name from graph_tree g order by g.name";
         $queryrows = db_fetch_assoc($SQL);
+        print "<div id='qt_treeselector'>";
         if (sizeof($queryrows) > 0) {
-            print "<div id='qt_treeselector'><h3>Add to which graph tree?</h3><form method='post' action='quicktree.php'><input name='action' type='hidden' value='save' /><select name='tree_id'>";
+            print "<h3>Add to which graph tree?</h3><form method='post' action='quicktree.php'><input name='action' type='hidden' value='save' /><select name='tree_id'>";
             foreach ($queryrows as $tr) {
                 printf("<option value='%d'>%s</option>", $tr['id'], htmlspecialchars($tr['name']));
             }
-            print "</select><input type='submit' value='Add to this tree' /></form></div>";
+            print "</select><input type='submit' value='Add to this tree' /></form>";
+        } else {
+            print "<p>Unable to find any trees to add graphs to</p>";
         }
+        print "</div>";
 
-        print
-            "<p>You can add more graphs here by clicking the <img src='images/add.png'> icon next to a graph. You can remove them from this list by clicking the <img src='images/delete.png'> next to the graph on this page. You can see the full history for any graph by clicking on it. Finally, you can <a href='quicktree.php?action=clear'>clear all the graphs from this QuickTree</a>.</p>";
-        print
-            "<p>Don't Worry! Deleting a graph on this page does not affect the rest of Cacti. Each user gets their own QuickTree, if they have permission.</p>";
         print "<hr>";
 
         $queryrows = db_fetch_assoc_prepared("select qt.*, gtg.title_cache from quicktree_graphs qt,graph_templates_graph gtg where qt.local_graph_id = gtg.local_graph_id and userid=?", array($user));
@@ -143,7 +174,6 @@ switch ($action) {
         } else {
             print "<p><em>No graphs yet</em></p>";
         }
-
-        include_once($config["base_path"] . "/include/bottom_footer.php");
+        bottom_footer();
         break;
 }
