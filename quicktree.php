@@ -4,17 +4,34 @@ $guest_account = true;
 chdir('../../');
 include_once('include/auth.php');
 
-$action = "";
-
 $form_actions = array(
 	1 => __('Save To New Tree'),
 	2 => __('Save To Branch'),
 	3 => __('Clear All Graphs')
 );
 
-set_default_action();
+$code_actions = array(
+	1 => 'save',
+	2 => 'add_branch',
+	3 => 'clear'
+);
 
+set_default_action();
+$action = get_request_var('action');
+print "<!-- action:$action -->";
 $user = $_SESSION["sess_user_id"];
+
+/* ================= input validation ================= */
+$drp_action = get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z0-9_]+)$/')));
+/* ==================================================== */
+
+//if ($drp_action != null && array_key_exists($drp_action,$code_actions)) {
+header('action_1_pre: '.$action);
+header('action_2_drp: '.$drp_action);
+if ($drp_action != null) {
+	$action = $code_actions[$drp_action];
+}
+header('action_3_new: '.$action);
 
 switch ($action) {
     case 'add':
@@ -31,9 +48,37 @@ switch ($action) {
         header("Location: quicktree.php");
         break;
 
+    case 'add_branch':
+	if (get_nfilter_request_var('header') == null) {
+		top_header();
+	}
+	form_start('quicktree.php','quicktree_form');
+        html_start_box($form_actions[$drp_action], '60%', '', '3', 'center', '');
+        $SQL = "select g.id, g.name from graph_tree g order by g.name";
+        $queryrows = db_fetch_assoc($SQL);
+	print "<tr>
+		<td colspan='2' class='textArea'>
+			<p>" . __('Click \'Continue\' to add the following branch.') . "</p>";
+            print "<h3>Add to which graph tree?</h3><form method='post' action='quicktree.php'><select name='tree_id'>";
+            foreach ($queryrows as $tr) {
+                printf("<option value='%d'>%s</option>", $tr['id'], htmlspecialchars($tr['name']));
+            }
+	print "	</select></td>
+	</tr>\n";
+	print "<tr>
+		<td colspan='2' class='saveRow'>
+			<input type='hidden' name='action' value='save'>
+			<input type='button' value='" . __esc('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue') . "' title='" . __esc('Add To Branch') . "'>
+		</td>
+	</tr>\n";
+
+	html_end_box();
+	form_end();
+	break;
+
     case 'clear':
         $SQL = db_execute_prepared("delete from  quicktree_graphs where userid=?;", array($user));
-        header("Location: quicktree.php");
+        header("Location: quicktree.php?header=false&drp_action=&action=");
         break;
 
     case 'save':
@@ -58,7 +103,7 @@ switch ($action) {
             // if no existing tree was picked, create one
             if ($new_tree_id < 1) {
                 $seq = db_fetch_cell("select max(sequence) from graph_tree");
-                if (seq == NULL || $seq < 0) {
+                if ($seq == NULL || $seq < 0) {
                     $seq = 1;
                 }
                 $save = array();
@@ -89,8 +134,9 @@ switch ($action) {
                     "", $gr['local_graph_id'], $gr['rra_id'], 0, 1, 1, false);
             }
         }
+	print '<script text=\'text/javascript\'>window.location.href=\''.$config['url_path'].
+		'tree.php?action=edit&id='.$new_tree_id.'\';</script>';
 
-        header("Location: ../../tree.php?action=edit&id=" . $new_tree_id);
         break;
 
     case 'remove':
@@ -110,7 +156,9 @@ switch ($action) {
         break;
 
     default:
-	top_header();
+	if (get_nfilter_request_var('header') == null) {
+		top_header();
+	}
 	form_start('quicktree.php','quicktree_form');
         html_start_box('QuickTree', '100%', true, '3', 'center', '');
 
@@ -143,20 +191,6 @@ switch ($action) {
 	draw_actions_dropdown($form_actions);
 	html_end_box(false,true);
 	form_end();
-
-        $SQL = "select g.id, g.name from graph_tree g order by g.name";
-        $queryrows = db_fetch_assoc($SQL);
-        print "<div id='qt_treeselector'>";
-        if (sizeof($queryrows) > 0) {
-            print "<h3>Add to which graph tree?</h3><form method='post' action='quicktree.php'><input name='action' type='hidden' value='save' /><select name='tree_id'>";
-            foreach ($queryrows as $tr) {
-                printf("<option value='%d'>%s</option>", $tr['id'], htmlspecialchars($tr['name']));
-            }
-            print "</select><input type='submit' value='Add to this tree' /></form>";
-        } else {
-            print "<p>Unable to find any trees to add graphs to</p>";
-        }
-        print "</div>";
 
         print "<hr>";
 
