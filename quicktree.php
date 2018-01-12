@@ -52,10 +52,20 @@ switch ($action) {
 	    include_once($config['base_path'] . '/lib/api_tree.php');
             // if no existing tree was picked, create one
             if ($new_tree_id < 1) {
+                $seq = db_fetch_cell("select max(sequence) from graph_tree");
+                if (seq == NULL || $seq < 0) {
+                    $seq = 1;
+                }
                 $save = array();
                 $save["id"] = "";
                 $save["name"] = $tree_name;
                 $save["sort_type"] = TREE_ORDERING_NONE;
+                $save["sequence"] = $seq;
+                $save['last_modified'] = date('Y-m-d H:i:s', time());
+                $save['modified_by']   = $_SESSION['sess_user_id'];
+                if (empty($save['id'])) {
+                        $save['user_id'] = $_SESSION['sess_user_id'];
+                }
 
                 $new_tree_id = sql_save($save, "graph_tree");
                 //sort_tree(SORT_TYPE_TREE, $new_tree_id, TREE_ORDERING_NONE);
