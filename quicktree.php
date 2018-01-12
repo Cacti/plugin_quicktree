@@ -6,9 +6,14 @@ include_once('include/auth.php');
 
 $action = "";
 
-if (isset($_REQUEST['action'])) {
-    $action = $_REQUEST['action'];
-}
+$form_actions = array(
+	1 => __('Save To New Tree'),
+	2 => __('Save To Branch'),
+	3 => __('Clear All Graphs')
+);
+
+set_default_action();
+
 $user = $_SESSION["sess_user_id"];
 
 switch ($action) {
@@ -105,41 +110,39 @@ switch ($action) {
         break;
 
     default:
-	top_header(); ?>
-	<p>These are the graphs that you have added to your QuickTree. You can keep them here for as long as you like, or you can (click the gray headers)</p>
-	<ul class='qt_list'>
-		<li>
-			<div class='qt_listtitle'><div class='qt_listtext'>
-				<a class='qt_hyperlink' href='quicktree.php?action=save'>Save To New Tree</a>
-			</div></div>
-			<div class='qt_listtext'>Save your selection to a new Graph Tree so you can keep them for later and work on something new.</div>
-		</li>
-		<li>
-			<div class='qt_listtitle'><div class='qt_listtext'>
-				<a id='qt_existing' class='qt_hyperlink'>Save To Branch</a>
-			</div></div>
-			<div class='qt_listtext'>Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree.</div>
-		</li>
-		<li>
-			<div class='qt_listtitle'><div class='qt_listtext'>
-				<a class='qt_hyperlink' href='quicktree.php?action=clear'>Clear all graphs</a>
-			</div></div>
-			<div class='qt_listtext'>Clear the page so that you have a blank QuickTree reading for new selections</div>
-		</li>
-	</ul>
+	top_header();
+	form_start('quicktree.php','quicktree_form');
+        html_start_box('QuickTree', '100%', true, '3', 'center', '');
 
-        <p>You can manage the individual graphs that appear here by clicking:</p>
-	<ul class='qt_list'>
-		<li><div class='qt_listtext'>the <img src='images/add.png'> icon next to a graph on the <a href="../../graph_view.php">graph</a> tab.</div></li>
-		<li><div class='qt_listtext'>the <img src='images/delete.png'> icon next to the graph on this page.</div></li>
-		<li><div class='qt_listtext'>the graph itself to see the full history of it.</div></li>
-	</ul>
-        <p>Don't Worry!</p>
-	<ul>
-		<li>Each user gets their own QuickTree as the idea is to collect together the graphs <b>you</b> want to quickly monitor, as easily as possible.</li>
-		<li>Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)</li>
-	</ul>
-	<?php
+	print "<div class='spacer formHeader collapsible' id='row_info'><div class='formHeaderText'>Information<div class='formHeaderAnchor'><i class='fa fa-angle-double-up'></i></div></div></div>";
+	print "<table class='cactiTable' id='row_info_child' width='100%'>";
+	$form_items = array(
+		array('<br>These are the graphs that you have added to your QuickTree. You can keep them here for as long as you like, or you can perform one of the following actions:<br>&nbsp;'),
+		array('Save To New Tree','Save your selection to a new Graph Tree so you can keep them for later and work on something new.'),
+		array('Save To Branch','Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree.'),
+		array('Clear all graphs','Clear the page so that you have a blank QuickTree reading for new selections'),
+		array('<br>You can manage the individual graphs that appear here by clicking:<br>&nbsp;'),
+		array('<img src=\'images/add.png\'> Add','This icon is next to a graph on the <a href="../../graph_view.php">graph</a> tab.'),
+		array('<img src=\'images/delete.png\'> Delete','This icon next to the graph on this page.'),
+                array('&lt;graph&gt;','Any graph itself to see the full history of it.'),
+		array('<br>Don\'t Worry!<ul><li>Each user gets their own QuickTree as the idea is to collect together the graphs <b>you</b> want to quickly monitor, as easily as possible.</li><li>Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)</li></ul>')
+	);
+
+	foreach ($form_items as $details) {
+		form_alternate_row();
+		if (sizeof($details) == 1) {
+			print '<td style=\'vertical-align:top;\' colspan=\'2\'>'.$details[0].'</td>';
+		} else {
+			print '<td class=\'nowrap\' style=\'vertical-align:top;\'>'.$details[0].'</td>';
+			print '<td>'.$details[1].'</td>';
+		}
+		form_end_row();
+	}
+	print '</table>';
+	print "<div class='spacer formHeader' id='row_actio'><div class='formHeaderText'>Actions</div></div>";
+	draw_actions_dropdown($form_actions);
+	html_end_box(false,true);
+	form_end();
 
         $SQL = "select g.id, g.name from graph_tree g order by g.name";
         $queryrows = db_fetch_assoc($SQL);
@@ -184,6 +187,7 @@ switch ($action) {
         } else {
             print "<p><em>No graphs yet</em></p>";
         }
+
         bottom_footer();
         break;
 }
