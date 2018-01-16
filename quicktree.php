@@ -2,15 +2,36 @@
 $guest_account = true;
 
 chdir('../../');
+include_once('include/auth.php');
 
-include_once('./include/auth.php');
+$form_actions = array(
+	1 => __('Save To New Tree'),
+	2 => __('Save To Branch'),
+	3 => __('Clear All Graphs')
+);
 
-$action = "";
+$code_actions = array(
+	1 => 'save',
+	2 => 'add_branch',
+	3 => 'clear'
+);
 
-if (isset($_REQUEST['action'])) {
-    $action = $_REQUEST['action'];
-}
+set_default_action();
+$action = get_request_var('action');
+print "<!-- action:$action -->";
 $user = $_SESSION["sess_user_id"];
+
+/* ================= input validation ================= */
+$drp_action = get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z0-9_]+)$/')));
+/* ==================================================== */
+
+//if ($drp_action != null && array_key_exists($drp_action,$code_actions)) {
+header('action_1_pre: '.$action);
+header('action_2_drp: '.$drp_action);
+if ($drp_action != null) {
+	$action = $code_actions[$drp_action];
+}
+header('action_3_new: '.$action);
 
 switch ($action) {
     case 'add':
@@ -27,9 +48,37 @@ switch ($action) {
         header("Location: quicktree.php");
         break;
 
+    case 'add_branch':
+	if (get_nfilter_request_var('header') == null) {
+		top_header();
+	}
+	form_start('quicktree.php','quicktree_form');
+        html_start_box($form_actions[$drp_action], '60%', '', '3', 'center', '');
+        $SQL = "select g.id, g.name from graph_tree g order by g.name";
+        $queryrows = db_fetch_assoc($SQL);
+	print "<tr>
+		<td colspan='2' class='textArea'>
+			<p>" . __('Click \'Continue\' to add the following branch.') . "</p>";
+            print "<h3>Add to which graph tree?</h3><form method='post' action='quicktree.php'><select name='tree_id'>";
+            foreach ($queryrows as $tr) {
+                printf("<option value='%d'>%s</option>", $tr['id'], htmlspecialchars($tr['name']));
+            }
+	print "	</select></td>
+	</tr>\n";
+	print "<tr>
+		<td colspan='2' class='saveRow'>
+			<input type='hidden' name='action' value='save'>
+			<input type='button' value='" . __esc('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue') . "' title='" . __esc('Add To Branch') . "'>
+		</td>
+	</tr>\n";
+
+	html_end_box();
+	form_end();
+	break;
+
     case 'clear':
         $SQL = db_execute_prepared("delete from  quicktree_graphs where userid=?;", array($user));
-        header("Location: quicktree.php");
+        header("Location: quicktree.php?header=false&drp_action=&action=");
         break;
 
     case 'save':
@@ -50,15 +99,26 @@ switch ($action) {
         $graphs = db_fetch_assoc_prepared("select * from quicktree_graphs where userid=?", array($user));
 
         if (sizeof($graphs) > 0) {
+	    include_once($config['base_path'] . '/lib/api_tree.php');
             // if no existing tree was picked, create one
             if ($new_tree_id < 1) {
+                $seq = db_fetch_cell("select max(sequence) from graph_tree");
+                if ($seq == NULL || $seq < 0) {
+                    $seq = 1;
+                }
                 $save = array();
                 $save["id"] = "";
                 $save["name"] = $tree_name;
                 $save["sort_type"] = TREE_ORDERING_NONE;
+                $save["sequence"] = $seq;
+                $save['last_modified'] = date('Y-m-d H:i:s', time());
+                $save['modified_by']   = $_SESSION['sess_user_id'];
+                if (empty($save['id'])) {
+                        $save['user_id'] = $_SESSION['sess_user_id'];
+                }
 
                 $new_tree_id = sql_save($save, "graph_tree");
-                sort_tree(SORT_TYPE_TREE, $new_tree_id, TREE_ORDERING_NONE);
+                //sort_tree(SORT_TYPE_TREE, $new_tree_id, TREE_ORDERING_NONE);
             } else {
                 // if an existing tree was picked, create a new heading to
                 // be the parent for all our graphs
@@ -74,8 +134,9 @@ switch ($action) {
                     "", $gr['local_graph_id'], $gr['rra_id'], 0, 1, 1, false);
             }
         }
+	print '<script text=\'text/javascript\'>window.location.href=\''.$config['url_path'].
+		'tree.php?action=edit&id='.$new_tree_id.'\';</script>';
 
-        header("Location: ../../tree.php?action=edit&id=" . $new_tree_id);
         break;
 
     case 'remove':
@@ -95,25 +156,42 @@ switch ($action) {
         break;
 
     default:
-        include_once($config["base_path"] . "/include/top_header.php");
+	if (get_nfilter_request_var('header') == null) {
+		top_header();
+	}
+	form_start('quicktree.php','quicktree_form');
+        html_start_box('QuickTree', '100%', true, '3', 'center', '');
 
-        print
-            "<p>These are the graphs that you have added to your QuickTree. You can keep them here for as long as you like, or you can <a href='quicktree.php?action=save'>save them to a new Graph Tree</a> so you can keep them for later and work on something new. (you can also <a id='qt_existing'>save them as a branch to an existing tree</a>) The idea is to collect together the graphs for a situation you are monitoring, as easily as possible.</p>";
+	print "<div class='spacer formHeader collapsible' id='row_info'><div class='formHeaderText'>Information<div class='formHeaderAnchor'><i class='fa fa-angle-double-up'></i></div></div></div>";
+	print "<table class='cactiTable' id='row_info_child' width='100%'>";
+	$form_items = array(
+		array('<br>These are the graphs that you have added to your QuickTree. You can keep them here for as long as you like, or you can perform one of the following actions:<br>&nbsp;'),
+		array('Save To New Tree','Save your selection to a new Graph Tree so you can keep them for later and work on something new.'),
+		array('Save To Branch','Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree.'),
+		array('Clear all graphs','Clear the page so that you have a blank QuickTree reading for new selections'),
+		array('<br>You can manage the individual graphs that appear here by clicking:<br>&nbsp;'),
+		array('<img src=\'images/add.png\'> Add','This icon is next to a graph on the <a href="../../graph_view.php">graph</a> tab.'),
+		array('<img src=\'images/delete.png\'> Delete','This icon next to the graph on this page.'),
+                array('&lt;graph&gt;','Any graph itself to see the full history of it.'),
+		array('<br>Don\'t Worry!<ul><li>Each user gets their own QuickTree as the idea is to collect together the graphs <b>you</b> want to quickly monitor, as easily as possible.</li><li>Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)</li></ul>')
+	);
 
-        $SQL = "select g.id, g.name from graph_tree g order by g.name";
-        $queryrows = db_fetch_assoc($SQL);
-        if (sizeof($queryrows) > 0) {
-            print "<div id='qt_treeselector'><h3>Add to which graph tree?</h3><form method='post' action='quicktree.php'><input name='action' type='hidden' value='save' /><select name='tree_id'>";
-            foreach ($queryrows as $tr) {
-                printf("<option value='%d'>%s</option>", $tr['id'], htmlspecialchars($tr['name']));
-            }
-            print "</select><input type='submit' value='Add to this tree' /></form></div>";
-        }
+	foreach ($form_items as $details) {
+		form_alternate_row();
+		if (sizeof($details) == 1) {
+			print '<td style=\'vertical-align:top;\' colspan=\'2\'>'.$details[0].'</td>';
+		} else {
+			print '<td class=\'nowrap\' style=\'vertical-align:top;\'>'.$details[0].'</td>';
+			print '<td>'.$details[1].'</td>';
+		}
+		form_end_row();
+	}
+	print '</table>';
+	print "<div class='spacer formHeader' id='row_actio'><div class='formHeaderText'>Actions</div></div>";
+	draw_actions_dropdown($form_actions);
+	html_end_box(false,true);
+	form_end();
 
-        print
-            "<p>You can add more graphs here by clicking the <img src='images/add.png'> icon next to a graph. You can remove them from this list by clicking the <img src='images/delete.png'> next to the graph on this page. You can see the full history for any graph by clicking on it. Finally, you can <a href='quicktree.php?action=clear'>clear all the graphs from this QuickTree</a>.</p>";
-        print
-            "<p>Don't Worry! Deleting a graph on this page does not affect the rest of Cacti. Each user gets their own QuickTree, if they have permission.</p>";
         print "<hr>";
 
         $queryrows = db_fetch_assoc_prepared("select qt.*, gtg.title_cache from quicktree_graphs qt,graph_templates_graph gtg where qt.local_graph_id = gtg.local_graph_id and userid=?", array($user));
@@ -144,6 +222,6 @@ switch ($action) {
             print "<p><em>No graphs yet</em></p>";
         }
 
-        include_once($config["base_path"] . "/include/bottom_footer.php");
+        bottom_footer();
         break;
 }

@@ -1,2 +1,39 @@
 
+.qt_hyperlink, .qt_hyper_link:active, .qt_hyperlink:link, .qt_hyperlink:visited { font-weight: bold; font-style: italic; text-decoration: none; }
+.qt_hyperlink:hover { text-decoration: underline; }
+
+.qt_list {
+	display: inline-block;
+	border: 1px solid black;
+}
+
+.qt_list, .qt_list li {
+	margin: 0;
+	padding: 0;
+}
+
+.qt_list li {
+	width: 250px;
+	display: table-cell;
+	vertical-align: top;
+	border-left: black 1px solid;
+}
+
+.qt_list li:first-child {
+	border-left: none;
+}
+
+.qt_listtitle, .qt_listtext {
+}
+
+.qt_listtitle { 
+	display: block;
+	background: #ddd;
+}
+
+.qt_listtext {
+	display: inline-block;
+	padding: 2px 10px 5px 10px;
+}
+
 #qt_treeselector { display: none; position: absolute; z-index: 1000; background: white; border: solid gray 3px; padding: 20px;}
