@@ -1,7 +1,7 @@
 # cacti-quicktree
 Make playlists of graphs in Cacti
 
-***NOTE*** Version 1.0 of QuickTree only works on Cacti 1.x or above!
+***NOTE*** Version 1.0 of QuickTree only works on Cacti 1.0.9 or above!
 
 ***NOTE*** Version 0.2 of QuickTree only works on Cacti 0.8.x!
 
