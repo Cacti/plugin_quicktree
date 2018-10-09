@@ -4,6 +4,8 @@ $guest_account = true;
 chdir('../../');
 include_once('include/auth.php');
 
+define('QUICKTREE_BASE_URI', $config['url_path'] .'plugins/quicktree/');
+
 $form_actions = array(
 	1 => __('Save To New Tree'),
 	2 => __('Save To Branch'),
@@ -109,7 +111,7 @@ switch ($action) {
                 $save = array();
                 $save["id"] = "";
                 $save["name"] = $tree_name;
-                $save["sort_type"] = TREE_ORDERING_NONE;
+                $save["sort_type"] = TREE_ORDERING_ALPHABETIC;
                 $save["sequence"] = $seq;
                 $save['last_modified'] = date('Y-m-d H:i:s', time());
                 $save['modified_by']   = $_SESSION['sess_user_id'];
@@ -125,13 +127,13 @@ switch ($action) {
 
                 $parent_id = api_tree_item_save(0, $new_tree_id, TREE_ITEM_TYPE_HEADER,
                     0, // all items are children of the root item
-                    $tree_name, 0, 0, 0, 1, 1, false);
+                    $tree_name, 0, 0, 0, 1, TREE_ORDERING_INHERIT, false);
             }
 
             foreach ($graphs as $gr) {
                 $tree_item_id = api_tree_item_save(0, $new_tree_id, TREE_ITEM_TYPE_GRAPH,
                     $parent_id, // all items are children of the root item
-                    "", $gr['local_graph_id'], $gr['rra_id'], 0, 1, 1, false);
+                    "", $gr['local_graph_id'], $gr['rra_id'], 0, 1, TREE_ORDERING_INHERIT, false);
             }
         }
 	print '<script text=\'text/javascript\'>window.location.href=\''.$config['url_path'].
@@ -170,8 +172,8 @@ switch ($action) {
 		array('Save To Branch','Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree.'),
 		array('Clear all graphs','Clear the page so that you have a blank QuickTree reading for new selections'),
 		array('<br>You can manage the individual graphs that appear here by clicking:<br>&nbsp;'),
-		array('<img src=\'images/add.png\'> Add','This icon is next to a graph on the <a href="../../graph_view.php">graph</a> tab.'),
-		array('<img src=\'images/delete.png\'> Delete','This icon next to the graph on this page.'),
+		array('<img src=\'' . QUICKTREE_BASE_URI . 'images/add.png\'> Add','This icon is next to a graph on the <a href="../../graph_view.php">graph</a> tab.'),
+		array('<img src=\'' . QUICKTREE_BASE_URI . 'images/delete.png\'> Delete','This icon next to the graph on this page.'),
                 array('&lt;graph&gt;','Any graph itself to see the full history of it.'),
 		array('<br>Don\'t Worry!<ul><li>Each user gets their own QuickTree as the idea is to collect together the graphs <b>you</b> want to quickly monitor, as easily as possible.</li><li>Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)</li></ul>')
 	);
@@ -187,7 +189,7 @@ switch ($action) {
 		form_end_row();
 	}
 	print '</table>';
-	print "<div class='spacer formHeader' id='row_actio'><div class='formHeaderText'>Actions</div></div>";
+	print "<div class='spacer formHeader' id='row_action'><div class='formHeaderText'>Actions</div></div>";
 	draw_actions_dropdown($form_actions);
 	html_end_box(false,true);
 	form_end();
@@ -202,7 +204,7 @@ switch ($action) {
                 print "<table><thead><tr><th>";
                 print htmlspecialchars($graph_title);
                 print "&nbsp;&nbsp;<a href='quicktree.php?action=remove&id=" . $gr['id']
-                    . "'><img border=0 src='images/delete.png' title='Remove This Graph From QuickTree'></a>";
+                    . "'><img border=0 src='" . QUICKTREE_BASE_URI . "images/delete.png' title='Remove This Graph From QuickTree'></a>";
                 print "</th></tr></thead>\n";
                 print "<tbody><tr><td>";
                 ?>
