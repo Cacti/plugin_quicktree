@@ -34,12 +34,12 @@ This is true for Cacti-created trees too, so it seems to just be how it is.
 Version | Description
 ---: | :---
 v1.1 | Correct some image issues
- |  Made default sorting Alphabetic for new trees
- | Made default sorting Inherited for new branches/graphs
- |
+&nbsp; | Made default sorting Alphabetic for new trees
+&nbsp; | Made default sorting Inherited for new branches/graphs
+&nbsp; | &nbsp;
 v1.0 | Updated to work with 1.x
- |
+&nbsp; | &nbsp;
 v0.2 | Added option to display as a console menu item instead
- | Added option to save to an existing Graph Tree
- |
+&nbsp; | Added option to save to an existing Graph Tree
+&nbsp; | &nbsp;
 v0.1 | Initial Release
