@@ -1,0 +1,248 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2022-01-30 20:48-0500\n"
+"PO-Revision-Date: 2022-01-30 20:56-0500\n"
+"Last-Translator: Olivier VOGEL <olivier.vogel@st.com>\n"
+"Language-Team: French <http://translate.cacti.net/projects/cacti/monitor/fr-FR/>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: quicktree.php:10 quicktree.php:343
+#, fuzzy
+msgid "Save To New Tree"
+msgstr "Enregistrer dans un nouvel arbre"
+
+#: quicktree.php:11 quicktree.php:344
+#, fuzzy
+msgid "Save To Branch"
+msgstr "Ajouter une branche à la racine"
+
+#: quicktree.php:12
+#, fuzzy
+msgid "Clear All Graphs"
+msgstr "Effacer tous les graphiques"
+
+#: quicktree.php:60
+#, fuzzy
+msgid "Graph Added to QuickTree"
+msgstr "Graphique ajouté à QuickTree"
+
+#: quicktree.php:61
+#, fuzzy, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Graphique %s ajouté à QuickTree. Accédez à la page QuickTree pour déplacer tous les graphiques vers un arbre nouveau ou existant."
+
+#: quicktree.php:64
+#, fuzzy
+msgid "Graph Not Added to QuickTree"
+msgstr "Graphique non ajouté à QuickTree"
+
+#: quicktree.php:65
+#, fuzzy, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Le graphique %s n'a PAS été ajouté à QuickTree car il attend déjà d'être placé sur un arbre. Accédez à la page QuickTree pour déplacer tous les graphiques vers un arbre nouveau ou existant."
+
+#: quicktree.php:69
+#, fuzzy
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "Graphique non spécifié. Non ajouté à QuickTree"
+
+#: quicktree.php:70
+#, fuzzy
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "Aucun graphique n'a été ajouté à QuickTree car aucun graphique n'a été spécifié."
+
+#: quicktree.php:88
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "Cliquez sur'Continuer' pour accéder à la surveillance en %s sur ce(s) dispositif(s)."
+
+#: quicktree.php:94 quicktree.php:145
+msgid "Tree Name"
+msgstr "Nom de l'arbre"
+
+#: quicktree.php:97
+#, fuzzy
+msgid "New Tree"
+msgstr "Arbre"
+
+#: quicktree.php:103 quicktree.php:162
+msgid "Branch Name"
+msgstr "Nom Succursale"
+
+#: quicktree.php:106 quicktree.php:165 quicktree.php:329 setup.php:129
+#: setup.php:136 setup.php:143 setup.php:150 setup.php:157 setup.php:164
+#, fuzzy
+msgid "QuickTree"
+msgstr "Arbre"
+
+#: quicktree.php:114 quicktree.php:173
+#, fuzzy
+msgid "Add To Branch"
+msgstr "Ajouter une branche à la racine"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Cancel"
+msgstr "Abandonner"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Continue"
+msgstr "Continuer"
+
+#: quicktree.php:137
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "Cliquez sur'Continuer' pour accéder à la surveillance en %s sur ce(s) dispositif(s)."
+
+#: quicktree.php:139
+#, fuzzy
+msgid "Add to which Graph Tree?"
+msgstr "Ajouter à quel arbre graphique ?"
+
+#: quicktree.php:279
+#, fuzzy
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTree a créé un arbre et/ou une branche et ajouté des graphiques"
+
+#: quicktree.php:293
+#, fuzzy
+msgid "QuickTree has no Graphs Queued"
+msgstr "QuickTree n'a pas de graphiques en file d'attente"
+
+#: quicktree.php:332
+#, fuzzy
+msgid "Information/Directions"
+msgstr "Informations/Itinéraire"
+
+#: quicktree.php:342
+#, fuzzy
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "Les graphiques ci-dessous sont une file d'attente à ajouter à un arbre à cactus. Vous pouvez les conserver ici aussi longtemps que vous le souhaitez, ou vous pouvez effectuer l'une des actions suivantes"
+
+#: quicktree.php:343
+#, fuzzy
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "Enregistrez votre sélection dans un nouvel arbre graphique afin de pouvoir les conserver pour plus tard et travailler sur quelque chose de nouveau."
+
+#: quicktree.php:344
+#, fuzzy
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "Enregistrez votre sélection en tant que branche d'une arborescence existante afin qu'elle apparaisse dans une section spécifique d'une arborescence existante."
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear all graphs"
+msgstr "Effacer tous les graphiques"
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "Effacez les graphiques de cette page de la file d'attente des graphiques afin d'avoir un QuickTree vierge prêt pour de nouvelles sélections"
+
+#: quicktree.php:346
+#, fuzzy
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "Vous pouvez gérer les graphiques individuels qui apparaissent ici en cliquant sur :"
+
+#: quicktree.php:347
+msgid "Add"
+msgstr "Ajouter"
+
+#: quicktree.php:347
+#, fuzzy
+msgid "Graph View Page"
+msgstr "Page d'affichage graphique"
+
+#: quicktree.php:347
+#, fuzzy, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "Cette icône se trouve à côté d'un graphique dans l'onglet %s."
+
+#: quicktree.php:348
+msgid "Delete"
+msgstr "Supprimer"
+
+#: quicktree.php:348
+#, fuzzy
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "Cette icône à côté des graphiques ci-dessous pour les supprimer de la file d'attente QuickTree."
+
+#: quicktree.php:349
+msgid "Note:"
+msgstr "Note :"
+
+#: quicktree.php:350
+#, fuzzy
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "L'ajout, la suppression ou la suppression sur cette page n'affecte aucune autre partie de Cacti (seulement la création/l'enregistrement le fait)"
+
+#: quicktree.php:367
+msgid "Actions"
+msgstr "Actions"
+
+#: quicktree.php:391
+#, fuzzy
+msgid "Remove This Graph From QuickTree"
+msgstr "Supprimer ce graphique de QuickTree"
+
+#: quicktree.php:402
+#, fuzzy
+msgid "No Graphs Added Yet"
+msgstr "Aucun graphique ajouté pour le moment"
+
+#: setup.php:29
+msgid "Misc"
+msgstr "Divers"
+
+#: setup.php:33 setup.php:87
+#, fuzzy
+msgid "Quicktree"
+msgstr "Quicktree"
+
+#: setup.php:37
+msgid "Page Style"
+msgstr "Style de page"
+
+#: setup.php:38
+#, fuzzy
+msgid "Where to display the QuickTree page"
+msgstr "Où afficher la page QuickTree"
+
+#: setup.php:41
+msgid "Tab"
+msgstr "Onglet"
+
+#: setup.php:42
+#, fuzzy
+msgid "Console Menu"
+msgstr "Menu de la console"
+
+#: setup.php:43
+#, fuzzy
+msgid "Both Tab and Console Menu"
+msgstr "Onglet et menu de la console"
+
+#: setup.php:99
+#, fuzzy
+msgid "Add this graph to QuickTree"
+msgstr "Ajouter ce graphique à QuickTree"
+
+#: setup.php:108
+#, fuzzy
+msgid "QuickTree Tree Management"
+msgstr "Gestion de l'arborescence QuickTree"
+
+#: setup.php:111
+msgid "Management"
+msgstr "Gestion"
+
+#: setup.php:111
+#, fuzzy
+msgid "QuickTree Trees"
+msgstr "Arbres QuickTree"

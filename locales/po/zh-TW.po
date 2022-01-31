@@ -1,0 +1,248 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2022-01-30 20:48-0500\n"
+"PO-Revision-Date: 2022-01-30 21:02-0500\n"
+"Last-Translator: Linya Huang <linya0405@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <http://translate.cacti.net/projects/cacti/monitor/zh_Hant/>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: quicktree.php:10 quicktree.php:343
+#, fuzzy
+msgid "Save To New Tree"
+msgstr "保存到新樹"
+
+#: quicktree.php:11 quicktree.php:344
+#, fuzzy
+msgid "Save To Branch"
+msgstr "根科"
+
+#: quicktree.php:12
+#, fuzzy
+msgid "Clear All Graphs"
+msgstr "清除所有圖表"
+
+#: quicktree.php:60
+#, fuzzy
+msgid "Graph Added to QuickTree"
+msgstr "添加到 QuickTree 的圖表"
+
+#: quicktree.php:61
+#, fuzzy, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "圖表 %s 添加到 QuickTree。轉到 QuickTree 頁面以將所有圖表移動到新的或現有的樹中。"
+
+#: quicktree.php:64
+#, fuzzy
+msgid "Graph Not Added to QuickTree"
+msgstr "圖形未添加到 QuickTree"
+
+#: quicktree.php:65
+#, fuzzy, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "圖表 %s 未添加到 QuickTree，因為它已經在那裡等待放置在樹上。轉到 QuickTree 頁面以將所有圖表移動到新的或現有的樹中。"
+
+#: quicktree.php:69
+#, fuzzy
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "未指定圖表。未添加到 QuickTree"
+
+#: quicktree.php:70
+#, fuzzy
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "由於未指定圖形，因此未將圖形添加到 QuickTree。"
+
+#: quicktree.php:88
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "點擊“繼續”以對這些設備進行％s監控"
+
+#: quicktree.php:94 quicktree.php:145
+msgid "Tree Name"
+msgstr "樹名"
+
+#: quicktree.php:97
+#, fuzzy
+msgid "New Tree"
+msgstr "樹"
+
+#: quicktree.php:103 quicktree.php:162
+#, fuzzy
+msgid "Branch Name"
+msgstr "分支：％s"
+
+#: quicktree.php:106 quicktree.php:165 quicktree.php:329 setup.php:129
+#: setup.php:136 setup.php:143 setup.php:150 setup.php:157 setup.php:164
+#, fuzzy
+msgid "QuickTree"
+msgstr "樹"
+
+#: quicktree.php:114 quicktree.php:173
+#, fuzzy
+msgid "Add To Branch"
+msgstr "添加根分支"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Cancel"
+msgstr "取消"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Continue"
+msgstr "繼續"
+
+#: quicktree.php:137
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "點擊“繼續”以對這些設備進行％s監控"
+
+#: quicktree.php:139
+#, fuzzy
+msgid "Add to which Graph Tree?"
+msgstr "添加到哪個圖樹？"
+
+#: quicktree.php:279
+#, fuzzy
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTree 已創建樹和/或分支並添加了圖表"
+
+#: quicktree.php:293
+#, fuzzy
+msgid "QuickTree has no Graphs Queued"
+msgstr "QuickTree 沒有 Graphs Queued"
+
+#: quicktree.php:332
+#, fuzzy
+msgid "Information/Directions"
+msgstr "信息/方向"
+
+#: quicktree.php:342
+#, fuzzy
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "下面的圖表是要添加到仙人掌樹的隊列。您可以將它們保留在這裡只要您願意，或者您可以執行以下操作之一"
+
+#: quicktree.php:343
+#, fuzzy
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "將您的選擇保存到新的 Graph Tree 中，以便您可以保留它們以供以後使用並處理新的東西。"
+
+#: quicktree.php:344
+#, fuzzy
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "將您的選擇保存為現有樹的分支，以便它們出現在現有樹的特定部分中。"
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear all graphs"
+msgstr "清除所有圖表"
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "從 Graphs Queue 中清除此頁面上的 Graphs，以便您有一個空白 QuickTree 準備好進行新選擇"
+
+#: quicktree.php:346
+#, fuzzy
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "您可以通過單擊來管理此處顯示的各個圖表："
+
+#: quicktree.php:347
+msgid "Add"
+msgstr "新增"
+
+#: quicktree.php:347
+#, fuzzy
+msgid "Graph View Page"
+msgstr "圖表查看頁面"
+
+#: quicktree.php:347
+#, fuzzy, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "此圖標位於 %s 標籤上的圖表旁邊。"
+
+#: quicktree.php:348
+msgid "Delete"
+msgstr "刪除"
+
+#: quicktree.php:348
+#, fuzzy
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "下方圖表旁邊的此圖標可將其從 QuickTree 隊列中刪除。"
+
+#: quicktree.php:349
+msgid "Note:"
+msgstr "備註："
+
+#: quicktree.php:350
+#, fuzzy
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "在此頁面上添加、刪除或清除不會影響 Cacti 的任何其他部分（僅創建/保存會）"
+
+#: quicktree.php:367
+msgid "Actions"
+msgstr "動作"
+
+#: quicktree.php:391
+#, fuzzy
+msgid "Remove This Graph From QuickTree"
+msgstr "從 QuickTree 中刪除此圖"
+
+#: quicktree.php:402
+#, fuzzy
+msgid "No Graphs Added Yet"
+msgstr "尚未添加圖表"
+
+#: setup.php:29
+msgid "Misc"
+msgstr "雜項"
+
+#: setup.php:33 setup.php:87
+#, fuzzy
+msgid "Quicktree"
+msgstr "快樹"
+
+#: setup.php:37
+msgid "Page Style"
+msgstr "頁面樣式"
+
+#: setup.php:38
+#, fuzzy
+msgid "Where to display the QuickTree page"
+msgstr "在哪裡顯示 QuickTree 頁面"
+
+#: setup.php:41
+msgid "Tab"
+msgstr "標籤"
+
+#: setup.php:42
+msgid "Console Menu"
+msgstr "控制台菜單"
+
+#: setup.php:43
+#, fuzzy
+msgid "Both Tab and Console Menu"
+msgstr "選項卡和控制台菜單"
+
+#: setup.php:99
+#, fuzzy
+msgid "Add this graph to QuickTree"
+msgstr "將此圖添加到 QuickTree"
+
+#: setup.php:108
+#, fuzzy
+msgid "QuickTree Tree Management"
+msgstr "QuickTree 樹管理"
+
+#: setup.php:111
+msgid "Management"
+msgstr "管理"
+
+#: setup.php:111
+#, fuzzy
+msgid "QuickTree Trees"
+msgstr "QuickTree 樹"
