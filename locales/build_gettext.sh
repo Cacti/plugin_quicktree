@@ -1,6 +1,6 @@
 #!/bin/sh
 #+-------------------------------------------------------------------------+
-#| Copyright (C) 2004-2020 The Cacti Group                                 |
+#| Copyright (C) 2004-2021 Howard Jones                                    |
 #|                                                                         |
 #| This program is free software; you can redistribute it and/or           |
 #| modify it under the terms of the GNU General Public License             |
@@ -54,8 +54,8 @@ cd ${BASE_PATH}
 
 ${XGETTEXT_BIN} --no-wrap --copyright-holder="The Cacti Group" --package-name="Cacti" --package-version=`cat include/cacti_version` --msgid-bugs-address="developers@cacti.net" -F -k__gettext -k__ -k__n:1,2 -k__x:1c,2 -k__xn:1c,2,3 -k__esc -k__esc_n:1,2 -k__esc_x:1c,2 -k__esc_xn:1c,2,3 -k__date -o locales/po/cacti.pot `find . -maxdepth 2 -name \*.php`
 
-sed -i 's/FULL NAME <EMAIL@ADDRESS\>/Cacti Developers <developers@cacti.net>/g' locales/po/cacti.pot
-sed -i 's/LANGUAGE <LL@li.org>/Cacti Developers <developers@cacti.net>/g' locales/po/cacti.pot
+sed -i 's/FULL NAME <EMAIL@ADDRESS\>/Howard Jones <howie@thingy.com>/g' locales/po/cacti.pot
+sed -i 's/LANGUAGE <LL@li.org>/Howard Jones <howie@thingy.com>/g' locales/po/cacti.pot
 sed -i 's/CHARSET/UTF-8/g' locales/po/cacti.pot
 
 # Merge any changes to POT file into language files
