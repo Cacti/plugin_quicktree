@@ -1,6 +1,9 @@
 # cacti-quicktree
 
-Make playlists of graphs in Cacti
+Make play-lists of graphs in Cacti
+
+
+***NOTE*** Version 2.0 of QuickTree only works on Cacti 1.2.17 or above!
 
 ***NOTE*** Version 1.0 of QuickTree only works on Cacti 1.1.9 or above!
 
@@ -15,7 +18,7 @@ Cacti install very quickly. If it turns out that the set of graphs will be
 useful in the future too, you can save them as a normal Cacti graph tree,
 provided that you have permissions to do so.
 
-Each user (with QuickTree permssions) gets their own QuickTree.
+Each user (with QuickTree permissions) gets their own QuickTree.
 
 Make sure that you rename the folder to `quicktree` so that the plugin system is
 happy.

@@ -1,0 +1,248 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2022-01-30 20:48-0500\n"
+"PO-Revision-Date: 2022-01-30 20:57-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: quicktree.php:10 quicktree.php:343
+#, fuzzy
+msgid "Save To New Tree"
+msgstr "新しいツリーに保存"
+
+#: quicktree.php:11 quicktree.php:344
+#, fuzzy
+msgid "Save To Branch"
+msgstr "ルートブランチ"
+
+#: quicktree.php:12
+#, fuzzy
+msgid "Clear All Graphs"
+msgstr "すべてのグラフをクリア"
+
+#: quicktree.php:60
+#, fuzzy
+msgid "Graph Added to QuickTree"
+msgstr "QuickTreeにグラフを追加"
+
+#: quicktree.php:61
+#, fuzzy, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "グラフ%sがQuickTreeに追加されました。クイックツリーページに移動して、すべてのグラフを新規または既存のツリーに移動します。"
+
+#: quicktree.php:64
+#, fuzzy
+msgid "Graph Not Added to QuickTree"
+msgstr "グラフがQuickTreeに追加されていません"
+
+#: quicktree.php:65
+#, fuzzy, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "グラフ%sは、ツリーに配置されるのを待っているため、QuickTreeに追加されませんでした。クイックツリーページに移動して、すべてのグラフを新規または既存のツリーに移動します。"
+
+#: quicktree.php:69
+#, fuzzy
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "グラフが指定されていません。 QuickTreeに追加されていません"
+
+#: quicktree.php:70
+#, fuzzy
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "グラフが指定されていないため、QuickTreeにグラフは追加されませんでした。"
+
+#: quicktree.php:88
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "これらのデバイスで％sモニタリングを継続する"
+
+#: quicktree.php:94 quicktree.php:145
+#, fuzzy
+msgid "Tree Name"
+msgstr "差出人名"
+
+#: quicktree.php:97
+#, fuzzy
+msgid "New Tree"
+msgstr "ツリー"
+
+#: quicktree.php:103 quicktree.php:162
+msgid "Branch Name"
+msgstr "支店名"
+
+#: quicktree.php:106 quicktree.php:165 quicktree.php:329 setup.php:129
+#: setup.php:136 setup.php:143 setup.php:150 setup.php:157 setup.php:164
+#, fuzzy
+msgid "QuickTree"
+msgstr "ツリー"
+
+#: quicktree.php:114 quicktree.php:173
+#, fuzzy
+msgid "Add To Branch"
+msgstr "ルートブランチ"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Cancel"
+msgstr "取り消し"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Continue"
+msgstr "続ける"
+
+#: quicktree.php:137
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "これらのデバイスで％sモニタリングを継続する"
+
+#: quicktree.php:139
+#, fuzzy
+msgid "Add to which Graph Tree?"
+msgstr "どのグラフツリーに追加しますか？"
+
+#: quicktree.php:279
+#, fuzzy
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTreeはツリーやブランチを作成し、グラフを追加しました"
+
+#: quicktree.php:293
+#, fuzzy
+msgid "QuickTree has no Graphs Queued"
+msgstr "QuickTreeにはキューに入れられたグラフがありません"
+
+#: quicktree.php:332
+#, fuzzy
+msgid "Information/Directions"
+msgstr "情報/方向性"
+
+#: quicktree.php:342
+#, fuzzy
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "以下のグラフは、サボテンの木に追加されるキューです。好きなだけここに置いておくか、次のいずれかのアクションを実行できます"
+
+#: quicktree.php:343
+#, fuzzy
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "選択内容を新しいグラフツリーに保存して、後で使用できるように保持して、新しい作業に取り掛かることができます。"
+
+#: quicktree.php:344
+#, fuzzy
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "選択内容を既存のツリーへのブランチとして保存して、既存のツリーの特定のセクションに表示されるようにします。"
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear all graphs"
+msgstr "すべてのグラフをクリアする"
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "グラフキューからこのページのグラフをクリアして、新しい選択の準備ができている空白のQuickTreeを用意します"
+
+#: quicktree.php:346
+#, fuzzy
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "ここに表示される個々のグラフは、次をクリックして管理できます。"
+
+#: quicktree.php:347
+msgid "Add"
+msgstr "追加"
+
+#: quicktree.php:347
+#, fuzzy
+msgid "Graph View Page"
+msgstr "グラフビューページ"
+
+#: quicktree.php:347
+#, fuzzy, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "このアイコンは、[%s]タブのグラフの横にあります。"
+
+#: quicktree.php:348
+msgid "Delete"
+msgstr "削除"
+
+#: quicktree.php:348
+#, fuzzy
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "下のグラフの横にあるこのアイコンは、QuickTreeキューからグラフを削除します。"
+
+#: quicktree.php:349
+msgid "Note:"
+msgstr "メモ："
+
+#: quicktree.php:350
+#, fuzzy
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "このページでの追加、削除、またはクリアは、Cactiの他の部分には影響しません（作成/保存のみが影響します）"
+
+#: quicktree.php:367
+msgid "Actions"
+msgstr "操作"
+
+#: quicktree.php:391
+#, fuzzy
+msgid "Remove This Graph From QuickTree"
+msgstr "QuickTreeからこのグラフを削除する"
+
+#: quicktree.php:402
+#, fuzzy
+msgid "No Graphs Added Yet"
+msgstr "グラフはまだ追加されていません"
+
+#: setup.php:29
+msgid "Misc"
+msgstr "その他"
+
+#: setup.php:33 setup.php:87
+#, fuzzy
+msgid "Quicktree"
+msgstr "クイックツリー"
+
+#: setup.php:37
+msgid "Page Style"
+msgstr "ページスタイル"
+
+#: setup.php:38
+#, fuzzy
+msgid "Where to display the QuickTree page"
+msgstr "QuickTreeページを表示する場所"
+
+#: setup.php:41
+msgid "Tab"
+msgstr "タブ"
+
+#: setup.php:42
+#, fuzzy
+msgid "Console Menu"
+msgstr "コンソールメニュー"
+
+#: setup.php:43
+#, fuzzy
+msgid "Both Tab and Console Menu"
+msgstr "タブとコンソールメニューの両方"
+
+#: setup.php:99
+#, fuzzy
+msgid "Add this graph to QuickTree"
+msgstr "このグラフをQuickTreeに追加します"
+
+#: setup.php:108
+#, fuzzy
+msgid "QuickTree Tree Management"
+msgstr "QuickTreeツリー管理"
+
+#: setup.php:111
+msgid "Management"
+msgstr "マネジメント"
+
+#: setup.php:111
+#, fuzzy
+msgid "QuickTree Trees"
+msgstr "クイックツリーツリー"

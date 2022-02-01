@@ -1,0 +1,248 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2022-01-30 20:48-0500\n"
+"PO-Revision-Date: 2022-01-30 21:01-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: quicktree.php:10 quicktree.php:343
+#, fuzzy
+msgid "Save To New Tree"
+msgstr "Lưu vào cây mới"
+
+#: quicktree.php:11 quicktree.php:344
+#, fuzzy
+msgid "Save To Branch"
+msgstr "Chi nhánh gốc"
+
+#: quicktree.php:12
+#, fuzzy
+msgid "Clear All Graphs"
+msgstr "Xóa tất cả đồ thị"
+
+#: quicktree.php:60
+#, fuzzy
+msgid "Graph Added to QuickTree"
+msgstr "Biểu đồ được thêm vào QuickTree"
+
+#: quicktree.php:61
+#, fuzzy, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Biểu đồ %s đã được thêm vào QuickTree. Di chuyển trang QuickTree để di chuyển tất cả các Đồ thị sang một Cây mới hoặc hiện có."
+
+#: quicktree.php:64
+#, fuzzy
+msgid "Graph Not Added to QuickTree"
+msgstr "Biểu đồ không được thêm vào QuickTree"
+
+#: quicktree.php:65
+#, fuzzy, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Biểu đồ %s KHÔNG được thêm vào QuickTree vì nó đã ở đó chờ được đặt trên Cây. Di chuyển trang QuickTree để di chuyển tất cả các Đồ thị sang một Cây mới hoặc hiện có."
+
+#: quicktree.php:69
+#, fuzzy
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "Biểu đồ không được chỉ định. Không được thêm vào QuickTree"
+
+#: quicktree.php:70
+#, fuzzy
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "Không có Đồ thị nào được thêm vào QuickTree vì không có Đồ thị nào được chỉ định."
+
+#: quicktree.php:88
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "Nhấp vào 'Tiếp tục' để theo dõi %s trên các Thiết bị này"
+
+#: quicktree.php:94 quicktree.php:145
+#, fuzzy
+msgid "Tree Name"
+msgstr "Tên người gửi"
+
+#: quicktree.php:97
+#, fuzzy
+msgid "New Tree"
+msgstr "Cây thân gỗ"
+
+#: quicktree.php:103 quicktree.php:162
+msgid "Branch Name"
+msgstr "Tên chi nhánh"
+
+#: quicktree.php:106 quicktree.php:165 quicktree.php:329 setup.php:129
+#: setup.php:136 setup.php:143 setup.php:150 setup.php:157 setup.php:164
+#, fuzzy
+msgid "QuickTree"
+msgstr "Cây thân gỗ"
+
+#: quicktree.php:114 quicktree.php:173
+#, fuzzy
+msgid "Add To Branch"
+msgstr "Chi nhánh gốc"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Cancel"
+msgstr "Hủy"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#: quicktree.php:137
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "Nhấp vào 'Tiếp tục' để theo dõi %s trên các Thiết bị này"
+
+#: quicktree.php:139
+#, fuzzy
+msgid "Add to which Graph Tree?"
+msgstr "Thêm vào Cây đồ thị nào?"
+
+#: quicktree.php:279
+#, fuzzy
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTree đã Tạo Cây và / hoặc Nhánh và thêm Đồ thị"
+
+#: quicktree.php:293
+#, fuzzy
+msgid "QuickTree has no Graphs Queued"
+msgstr "QuickTree không có đồ thị nào được xếp hàng đợi"
+
+#: quicktree.php:332
+#, fuzzy
+msgid "Information/Directions"
+msgstr "Thông tin / Chỉ đường"
+
+#: quicktree.php:342
+#, fuzzy
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "Các Đồ thị dưới đây là Hàng đợi được thêm vào Cây Xương rồng. Bạn có thể giữ chúng ở đây bao lâu tùy thích hoặc bạn có thể thực hiện một trong các hành động sau"
+
+#: quicktree.php:343
+#, fuzzy
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "Lưu lựa chọn của bạn vào một Cây đồ thị mới để bạn có thể giữ chúng cho sau này và làm việc trên một cái gì đó mới."
+
+#: quicktree.php:344
+#, fuzzy
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "Lưu lựa chọn của bạn dưới dạng một nhánh vào cây hiện có để chúng xuất hiện trong một phần cụ thể của cây hiện có."
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear all graphs"
+msgstr "Xóa tất cả các đồ thị"
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "Xóa các Đồ thị trên trang này khỏi Hàng đợi Đồ thị để bạn có một QuickTree trống sẵn sàng cho các lựa chọn mới"
+
+#: quicktree.php:346
+#, fuzzy
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "Bạn có thể quản lý các biểu đồ riêng lẻ xuất hiện ở đây bằng cách nhấp vào:"
+
+#: quicktree.php:347
+msgid "Add"
+msgstr "Thêm"
+
+#: quicktree.php:347
+#, fuzzy
+msgid "Graph View Page"
+msgstr "Trang xem biểu đồ"
+
+#: quicktree.php:347
+#, fuzzy, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "Biểu tượng này bên cạnh Biểu đồ trên tab %s."
+
+#: quicktree.php:348
+msgid "Delete"
+msgstr "Xóa"
+
+#: quicktree.php:348
+#, fuzzy
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "Biểu tượng này bên cạnh Đồ thị bên dưới để xóa chúng khỏi Hàng đợi QuickTree."
+
+#: quicktree.php:349
+msgid "Note:"
+msgstr "Ghi chú:"
+
+#: quicktree.php:350
+#, fuzzy
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "Việc thêm, xóa hoặc xóa trên trang này không ảnh hưởng đến bất kỳ phần nào khác của Xương rồng (chỉ Tạo / Lưu mới có)"
+
+#: quicktree.php:367
+msgid "Actions"
+msgstr "Hành động"
+
+#: quicktree.php:391
+#, fuzzy
+msgid "Remove This Graph From QuickTree"
+msgstr "Xóa đồ thị này khỏi QuickTree"
+
+#: quicktree.php:402
+#, fuzzy
+msgid "No Graphs Added Yet"
+msgstr "Chưa có đồ thị nào được thêm vào"
+
+#: setup.php:29
+msgid "Misc"
+msgstr "Linh tinh"
+
+#: setup.php:33 setup.php:87
+#, fuzzy
+msgid "Quicktree"
+msgstr "Quicktree"
+
+#: setup.php:37
+msgid "Page Style"
+msgstr "Kiểu trang"
+
+#: setup.php:38
+#, fuzzy
+msgid "Where to display the QuickTree page"
+msgstr "Nơi hiển thị trang QuickTree"
+
+#: setup.php:41
+msgid "Tab"
+msgstr "Tab"
+
+#: setup.php:42
+#, fuzzy
+msgid "Console Menu"
+msgstr "Menu bảng điều khiển"
+
+#: setup.php:43
+#, fuzzy
+msgid "Both Tab and Console Menu"
+msgstr "Cả Menu Tab và Bảng điều khiển"
+
+#: setup.php:99
+#, fuzzy
+msgid "Add this graph to QuickTree"
+msgstr "Thêm biểu đồ này vào QuickTree"
+
+#: setup.php:108
+#, fuzzy
+msgid "QuickTree Tree Management"
+msgstr "Quản lý cây QuickTree"
+
+#: setup.php:111
+msgid "Management"
+msgstr "Sự quản lý"
+
+#: setup.php:111
+#, fuzzy
+msgid "QuickTree Trees"
+msgstr "Cây QuickTree"

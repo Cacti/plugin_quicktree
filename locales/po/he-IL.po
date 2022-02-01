@@ -1,0 +1,249 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2022-01-30 20:48-0500\n"
+"PO-Revision-Date: 2022-01-30 20:56-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: quicktree.php:10 quicktree.php:343
+#, fuzzy
+msgid "Save To New Tree"
+msgstr "שמור לעץ חדש"
+
+#: quicktree.php:11 quicktree.php:344
+#, fuzzy
+msgid "Save To Branch"
+msgstr "ענף רוט"
+
+#: quicktree.php:12
+#, fuzzy
+msgid "Clear All Graphs"
+msgstr "נקה את כל הגרפים"
+
+#: quicktree.php:60
+#, fuzzy
+msgid "Graph Added to QuickTree"
+msgstr "גרף נוסף ל-QuickTree"
+
+#: quicktree.php:61
+#, fuzzy, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "גרף %s נוסף ל-QuickTree. עבור לדף QuickTree כדי להעביר את כל הגרפים לעץ חדש או קיים."
+
+#: quicktree.php:64
+#, fuzzy
+msgid "Graph Not Added to QuickTree"
+msgstr "גרף לא נוסף ל-QuickTree"
+
+#: quicktree.php:65
+#, fuzzy, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "גרף %s לא נוסף ל-QuickTree מכיוון שהוא כבר שם וממתין להצבה על עץ. עבור לדף QuickTree כדי להעביר את כל הגרפים לעץ חדש או קיים."
+
+#: quicktree.php:69
+#, fuzzy
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "גרף לא צוין. לא נוסף ל-QuickTree"
+
+#: quicktree.php:70
+#, fuzzy
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "לא התווסף גרף ל-QuickTree מכיוון שלא צוין גרף."
+
+#: quicktree.php:88
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "לחץ על 'המשך' לניטור %s בהתקנים אלה."
+
+#: quicktree.php:94 quicktree.php:145
+#, fuzzy
+msgid "Tree Name"
+msgstr "שם השולח"
+
+#: quicktree.php:97
+#, fuzzy
+msgid "New Tree"
+msgstr "עץ"
+
+#: quicktree.php:103 quicktree.php:162
+#, fuzzy
+msgid "Branch Name"
+msgstr "סניף: %s"
+
+#: quicktree.php:106 quicktree.php:165 quicktree.php:329 setup.php:129
+#: setup.php:136 setup.php:143 setup.php:150 setup.php:157 setup.php:164
+#, fuzzy
+msgid "QuickTree"
+msgstr "עץ"
+
+#: quicktree.php:114 quicktree.php:173
+#, fuzzy
+msgid "Add To Branch"
+msgstr "ענף רוט"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Cancel"
+msgstr "ביטול"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Continue"
+msgstr "המשך"
+
+#: quicktree.php:137
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "לחץ על 'המשך' לניטור %s בהתקנים אלה."
+
+#: quicktree.php:139
+#, fuzzy
+msgid "Add to which Graph Tree?"
+msgstr "הוסף לאיזה עץ גרפים?"
+
+#: quicktree.php:279
+#, fuzzy
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTree יצרה עץ ו/או ענף והוסיפה גרפים"
+
+#: quicktree.php:293
+#, fuzzy
+msgid "QuickTree has no Graphs Queued"
+msgstr "ל-QuickTree אין תור גרפים"
+
+#: quicktree.php:332
+#, fuzzy
+msgid "Information/Directions"
+msgstr "מידע/כיוונים"
+
+#: quicktree.php:342
+#, fuzzy
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "הגרפים למטה הם תור להוספת עץ קקטוסים. אתה יכול לשמור אותם כאן כל עוד תרצה, או שאתה יכול לבצע אחת מהפעולות הבאות"
+
+#: quicktree.php:343
+#, fuzzy
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "שמור את הבחירה שלך בעץ גרפי חדש כדי שתוכל לשמור אותם למועד מאוחר יותר ולעבוד על משהו חדש."
+
+#: quicktree.php:344
+#, fuzzy
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "שמור את הבחירה שלך כסניף לעץ קיים כך שהם יופיעו בחלק מסוים של עץ קיים."
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear all graphs"
+msgstr "נקה את כל הגרפים"
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "נקה את הגרפים בדף זה מתור הגרפים כך שיהיה לך QuickTree ריק מוכן לבחירות חדשות"
+
+#: quicktree.php:346
+#, fuzzy
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "אתה יכול לנהל את הגרפים הבודדים המופיעים כאן על ידי לחיצה על:"
+
+#: quicktree.php:347
+msgid "Add"
+msgstr "הוסף"
+
+#: quicktree.php:347
+#, fuzzy
+msgid "Graph View Page"
+msgstr "עמוד תצוגת גרף"
+
+#: quicktree.php:347
+#, fuzzy, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "סמל זה נמצא ליד גרף בכרטיסייה %s."
+
+#: quicktree.php:348
+msgid "Delete"
+msgstr "מחק"
+
+#: quicktree.php:348
+#, fuzzy
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "סמל זה ליד הגרפים למטה כדי להסיר אותם מהתור QuickTree."
+
+#: quicktree.php:349
+msgid "Note:"
+msgstr "הערה:"
+
+#: quicktree.php:350
+#, fuzzy
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "הוספה, הסרה או ניקוי בדף זה לא משפיעה על חלקים אחרים של קקטוסים (רק יצירה/שמירה עושה זאת)"
+
+#: quicktree.php:367
+msgid "Actions"
+msgstr "פעולות"
+
+#: quicktree.php:391
+#, fuzzy
+msgid "Remove This Graph From QuickTree"
+msgstr "הסר גרף זה מ-QuickTree"
+
+#: quicktree.php:402
+#, fuzzy
+msgid "No Graphs Added Yet"
+msgstr "עדיין לא נוספו גרפים"
+
+#: setup.php:29
+msgid "Misc"
+msgstr "שונות"
+
+#: setup.php:33 setup.php:87
+#, fuzzy
+msgid "Quicktree"
+msgstr "קוויקטרי"
+
+#: setup.php:37
+msgid "Page Style"
+msgstr "סגנון דף"
+
+#: setup.php:38
+#, fuzzy
+msgid "Where to display the QuickTree page"
+msgstr "היכן להציג את דף QuickTree"
+
+#: setup.php:41
+msgid "Tab"
+msgstr "טאב"
+
+#: setup.php:42
+#, fuzzy
+msgid "Console Menu"
+msgstr "תפריט קונסולה"
+
+#: setup.php:43
+#, fuzzy
+msgid "Both Tab and Console Menu"
+msgstr "גם כרטיסיות וגם תפריט מסוף"
+
+#: setup.php:99
+#, fuzzy
+msgid "Add this graph to QuickTree"
+msgstr "הוסף את הגרף הזה ל-QuickTree"
+
+#: setup.php:108
+#, fuzzy
+msgid "QuickTree Tree Management"
+msgstr "ניהול עץ QuickTree"
+
+#: setup.php:111
+msgid "Management"
+msgstr "ניהול"
+
+#: setup.php:111
+#, fuzzy
+msgid "QuickTree Trees"
+msgstr "QuickTree Trees"

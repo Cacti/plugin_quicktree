@@ -1,0 +1,250 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2022-01-30 20:48-0500\n"
+"PO-Revision-Date: 2022-01-30 20:54-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: quicktree.php:10 quicktree.php:343
+#, fuzzy
+msgid "Save To New Tree"
+msgstr "حفظ في شجرة جديدة"
+
+#: quicktree.php:11 quicktree.php:344
+#, fuzzy
+msgid "Save To Branch"
+msgstr "فرع الجذر"
+
+#: quicktree.php:12
+#, fuzzy
+msgid "Clear All Graphs"
+msgstr "مسح كافة الرسوم البيانية"
+
+#: quicktree.php:60
+#, fuzzy
+msgid "Graph Added to QuickTree"
+msgstr "تمت إضافة الرسم البياني إلى QuickTree"
+
+#: quicktree.php:61
+#, fuzzy, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "تمت إضافة الرسم البياني %s إلى QuickTree. انتقل إلى صفحة QuickTree لنقل جميع الرسوم البيانية إلى شجرة جديدة أو موجودة."
+
+#: quicktree.php:64
+#, fuzzy
+msgid "Graph Not Added to QuickTree"
+msgstr "الرسم البياني غير مضاف إلى QuickTree"
+
+#: quicktree.php:65
+#, fuzzy, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "لم تتم إضافة الرسم البياني %s إلى QuickTree لأنه موجود بالفعل في انتظار وضعه على شجرة. انتقل إلى صفحة QuickTree لنقل جميع الرسوم البيانية إلى شجرة جديدة أو موجودة."
+
+#: quicktree.php:69
+#, fuzzy
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "الرسم البياني غير محدد. لم يضاف إلى QuickTree"
+
+#: quicktree.php:70
+#, fuzzy
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "لم تتم إضافة رسم بياني إلى QuickTree حيث لم يتم تحديد رسم بياني."
+
+#: quicktree.php:88
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "انقر فوق \"متابعة\" لمراقبة٪ s على هذه الأجهزة (الأجهزة)"
+
+#: quicktree.php:94 quicktree.php:145
+msgid "Tree Name"
+msgstr "اسم الشجرة"
+
+#: quicktree.php:97
+#, fuzzy
+msgid "New Tree"
+msgstr "شجرة"
+
+#: quicktree.php:103 quicktree.php:162
+#, fuzzy
+msgid "Branch Name"
+msgstr "الفرع:٪ s"
+
+#: quicktree.php:106 quicktree.php:165 quicktree.php:329 setup.php:129
+#: setup.php:136 setup.php:143 setup.php:150 setup.php:157 setup.php:164
+#, fuzzy
+msgid "QuickTree"
+msgstr "شجرة"
+
+#: quicktree.php:114 quicktree.php:173
+#, fuzzy
+msgid "Add To Branch"
+msgstr "إضافة فرع الجذر"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: quicktree.php:114 quicktree.php:173
+msgid "Continue"
+msgstr "إستمرار"
+
+#: quicktree.php:137
+#, fuzzy
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "انقر فوق \"متابعة\" لمراقبة٪ s على هذه الأجهزة (الأجهزة)"
+
+#: quicktree.php:139
+#, fuzzy
+msgid "Add to which Graph Tree?"
+msgstr "إضافة إلى أي شجرة رسم بياني؟"
+
+#: quicktree.php:279
+#, fuzzy
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "قامت QuickTree بإنشاء شجرة و / أو فرع وإضافة رسوم بيانية"
+
+#: quicktree.php:293
+#, fuzzy
+msgid "QuickTree has no Graphs Queued"
+msgstr "لا توجد رسوم بيانية في قائمة انتظار QuickTree"
+
+#: quicktree.php:332
+#, fuzzy
+msgid "Information/Directions"
+msgstr "المعلومات / الاتجاهات"
+
+#: quicktree.php:342
+#, fuzzy
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "الرسوم البيانية أدناه هي قائمة انتظار ليتم إضافتها إلى شجرة الصبار. يمكنك الاحتفاظ بها هنا للمدة التي تريدها ، أو يمكنك تنفيذ أحد الإجراءات التالية"
+
+#: quicktree.php:343
+#, fuzzy
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "احفظ اختيارك في شجرة رسم جديدة حتى تتمكن من الاحتفاظ بها لوقت لاحق والعمل على شيء جديد."
+
+#: quicktree.php:344
+#, fuzzy
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "احفظ اختيارك كفرع لشجرة موجودة حتى تظهر في قسم معين من شجرة موجودة."
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear all graphs"
+msgstr "مسح كافة الرسوم البيانية"
+
+#: quicktree.php:345
+#, fuzzy
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "امسح الرسوم البيانية الموجودة في هذه الصفحة من قائمة انتظار الرسوم البيانية بحيث يكون لديك QuickTree فارغًا جاهزًا للتحديدات الجديدة"
+
+#: quicktree.php:346
+#, fuzzy
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "يمكنك إدارة الرسوم البيانية الفردية التي تظهر هنا من خلال النقر فوق:"
+
+#: quicktree.php:347
+msgid "Add"
+msgstr "إضافة"
+
+#: quicktree.php:347
+#, fuzzy
+msgid "Graph View Page"
+msgstr "صفحة عرض الرسم البياني"
+
+#: quicktree.php:347
+#, fuzzy, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "يقع هذا الرمز بجوار الرسم البياني في علامة التبويب %s."
+
+#: quicktree.php:348
+msgid "Delete"
+msgstr "حذف"
+
+#: quicktree.php:348
+#, fuzzy
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "هذا الرمز بجوار الرسوم البيانية أدناه لإزالتها من قائمة انتظار QuickTree."
+
+#: quicktree.php:349
+msgid "Note:"
+msgstr "التذکر:"
+
+#: quicktree.php:350
+#, fuzzy
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "لا تؤثر الإضافة أو الإزالة أو المسح في هذه الصفحة على أي أجزاء أخرى من Cacti (فقط الإنشاء / الحفظ)"
+
+#: quicktree.php:367
+msgid "Actions"
+msgstr "أفعال"
+
+#: quicktree.php:391
+#, fuzzy
+msgid "Remove This Graph From QuickTree"
+msgstr "قم بإزالة هذا الرسم البياني من QuickTree"
+
+#: quicktree.php:402
+#, fuzzy
+msgid "No Graphs Added Yet"
+msgstr "لا توجد رسوم بيانية مضافة حتى الآن"
+
+#: setup.php:29
+#, fuzzy
+msgid "Misc"
+msgstr "متفرقات"
+
+#: setup.php:33 setup.php:87
+#, fuzzy
+msgid "Quicktree"
+msgstr "كويك تري"
+
+#: setup.php:37
+#, fuzzy
+msgid "Page Style"
+msgstr "نمط الصفحة"
+
+#: setup.php:38
+#, fuzzy
+msgid "Where to display the QuickTree page"
+msgstr "مكان عرض صفحة QuickTree"
+
+#: setup.php:41
+#, fuzzy
+msgid "Tab"
+msgstr "فتح في علامة تبويب جديدة"
+
+#: setup.php:42
+msgid "Console Menu"
+msgstr "قائمة وحدة التحكم"
+
+#: setup.php:43
+#, fuzzy
+msgid "Both Tab and Console Menu"
+msgstr "كل من علامة التبويب وقائمة وحدة التحكم"
+
+#: setup.php:99
+#, fuzzy
+msgid "Add this graph to QuickTree"
+msgstr "أضف هذا الرسم البياني إلى QuickTree"
+
+#: setup.php:108
+#, fuzzy
+msgid "QuickTree Tree Management"
+msgstr "إدارة شجرة QuickTree"
+
+#: setup.php:111
+msgid "Management"
+msgstr "الإدارة"
+
+#: setup.php:111
+#, fuzzy
+msgid "QuickTree Trees"
+msgstr "أشجار QuickTree"

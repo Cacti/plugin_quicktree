@@ -1,10 +1,10 @@
 [info]
-compat = 1.1.9
+compat = 1.2.17
 author=Howard Jones
 homepage=https://github.com/howardjones/cacti-quicktree
 webpage=https://github.com/howardjones/cacti-quicktree
-longname=QuickTree for Cacti 1.x
+longname=QuickTree for Cacti
 name=quicktree
-version=1.1.0
+version=2.0
 email=howie@thingy.com
 url=http://www.network-weathermap.com/versions.php
