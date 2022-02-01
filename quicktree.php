@@ -209,7 +209,7 @@ switch ($action) {
 			$tree_name = get_nfilter_request_var('tree');
 		}
 
-		if ($tree_name == '') {
+		if (empty($tree_name)) {
 			$tree_name = 'New Tree';
 		}
 
