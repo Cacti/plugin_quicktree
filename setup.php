@@ -128,8 +128,6 @@ function quicktree_config_arrays() {
 
 	quicktree_check_upgrade();
 
-	api_plugin_register_realm('quicktree', 'quicktree.php', __('QuickTree Tree Management', 'quicktree'), 1);
-
 	if (read_config_option('quicktree_pagestyle') > 0) {
 		$menu[__('Management')]['plugins/quicktree/quicktree.php?location=console'] = __('QuickTree Trees', 'quicktree');
 	}
