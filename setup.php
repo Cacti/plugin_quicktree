@@ -32,6 +32,8 @@ function plugin_quicktree_install() {
 	api_plugin_register_hook('quicktree', 'graph_buttons',            'quicktree_graph_buttons',        'setup.php');
 	api_plugin_register_hook('quicktree', 'graph_buttons_thumbnails', 'quicktree_graph_buttons',        'setup.php');
 
+	api_plugin_register_realm('quicktree', 'quicktree.php', __('QuickTree Management', 'quicktree'), 1);
+
 	api_plugin_register_hook('quicktree', 'page_head', 'quicktree_page_head', 'setup.php');
 
 	quicktree_setup_table();
