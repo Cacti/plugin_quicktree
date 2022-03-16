@@ -32,6 +32,8 @@ function plugin_quicktree_install() {
 	api_plugin_register_hook('quicktree', 'graph_buttons',            'quicktree_graph_buttons',        'setup.php');
 	api_plugin_register_hook('quicktree', 'graph_buttons_thumbnails', 'quicktree_graph_buttons',        'setup.php');
 
+	api_plugin_register_realm('quicktree', 'quicktree.php', __('QuickTree Management', 'quicktree'), 1);
+
 	api_plugin_register_hook('quicktree', 'page_head', 'quicktree_page_head', 'setup.php');
 
 	quicktree_setup_table();
@@ -127,8 +129,6 @@ function quicktree_config_arrays() {
 	global $menu;
 
 	quicktree_check_upgrade();
-
-	api_plugin_register_realm('quicktree', 'quicktree.php', __('QuickTree Tree Management', 'quicktree'), 1);
 
 	if (read_config_option('quicktree_pagestyle') > 0) {
 		$menu[__('Management')]['plugins/quicktree/quicktree.php?location=console'] = __('QuickTree Trees', 'quicktree');
