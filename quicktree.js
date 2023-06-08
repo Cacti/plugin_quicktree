@@ -1,6 +1,6 @@
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2010-2022 Howard Jones                                    |
+ | Copyright (C) 2004-2023 Howard Jones                                    |
  | Copyright (C) 2022 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
