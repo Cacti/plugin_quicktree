@@ -1,8 +1,8 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 Howard Jones                                    |
- | Copyright (C) 2022 The Cacti Group                                      |
+ | Copyright (C) 2004-2022 Howard Jones                                    |
+ | Copyright (C) 2022-2024 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -246,17 +246,21 @@ function quicktree_check_upgrade() {
 
         quicktree_setup_table();
 
-        db_execute_prepared('UPDATE plugin_config SET
-            version = ?, name = ?, author = ?, webpage = ?
-            WHERE directory = ?',
-			array(
-				$info['version'],
-				$info['longname'],
-				$info['author'],
-				$info['homepage'],
-				$info['name']
-			)
-		);
+		if (function_exists('api_plugin_upgrade_register')) {
+			api_plugin_upgrade_register('quicktree');
+		} else {
+        	db_execute_prepared('UPDATE plugin_config SET
+				version = ?, name = ?, author = ?, webpage = ?
+				WHERE directory = ?',
+				array(
+					$info['version'],
+					$info['longname'],
+					$info['author'],
+					$info['homepage'],
+					$info['name']
+				)
+			);
+		}
     }
 }
 
