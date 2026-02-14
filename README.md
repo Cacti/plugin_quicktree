@@ -35,3 +35,6 @@ This is true for Cacti-created trees too, so it seems to just be how it is.
 ## History
 
 See CHANGELOG.md
+
+-----------------------------------------------
+Copyright (c) 2004-2026 - The Cacti Group, Inc.
