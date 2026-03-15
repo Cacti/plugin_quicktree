@@ -139,9 +139,10 @@ switch ($action) {
 	case 'add_branch':
 		quicktree_action_form_begin($form_actions[$drp_action]);
 
-		$queryrows = db_fetch_assoc("SELECT g.id, g.name
+		$queryrows = db_fetch_assoc_prepared('SELECT g.id, g.name
 			FROM graph_tree AS g
-			ORDER BY g.name");
+			ORDER BY g.name',
+			array());
 
 		print '<tr><td>';
 
@@ -237,7 +238,9 @@ switch ($action) {
 			include_once($config['base_path'] . '/lib/api_tree.php');
 
 			if (empty($new_tree_id)) {
-				$seq = db_fetch_cell('SELECT MAX(sequence) FROM graph_tree');
+				$seq = db_fetch_cell_prepared('SELECT MAX(sequence)
+					FROM graph_tree',
+					array());
 
 				if ($seq == NULL || $seq < 0) {
 					$seq = 1;

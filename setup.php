@@ -237,9 +237,10 @@ function quicktree_check_upgrade() {
     $info    = plugin_quicktree_version();
     $current = $info['version'];
 
-	$old = db_fetch_cell('SELECT version
+	$old = db_fetch_cell_prepared('SELECT version
 		FROM plugin_config
-		WHERE directory = "quicktree"');
+		WHERE directory = ?',
+		array('quicktree'));
 
     if ($current != $old) {
     	api_plugin_register_hook('quicktree', 'page_head', 'quicktree_page_head', 'setup.php', 1);
@@ -263,4 +264,3 @@ function quicktree_check_upgrade() {
 		}
     }
 }
-
