@@ -11,8 +11,21 @@
  * Verify setup.php defines required plugin hooks and info function.
  */
 
-describe('quicktree setup.php structure', function () {
-	$source = file_get_contents(realpath(__DIR__ . '/../../setup.php'));
+$setupPath = realpath(__DIR__ . '/../../setup.php');
+if ($setupPath === false) {
+	throw new RuntimeException('Unable to resolve setup.php');
+}
+
+$source = file_get_contents($setupPath);
+if ($source === false) {
+	throw new RuntimeException('Unable to read setup.php');
+}
+
+$infoFile = parse_ini_file(__DIR__ . '/../../INFO', true);
+if (!is_array($infoFile) || !isset($infoFile['info']) || !is_array($infoFile['info'])) {
+	throw new RuntimeException('Unable to parse the INFO section');
+}
+$info = $infoFile['info'];
 
 	it('defines plugin_quicktree_install function', function () use ($source) {
 		expect($source)->toContain('function plugin_quicktree_install');
@@ -26,11 +39,10 @@ describe('quicktree setup.php structure', function () {
 		expect($source)->toContain('function plugin_quicktree_uninstall');
 	});
 
-	it('returns version array with name key', function () use ($source) {
-		expect($source)->toMatch('/[\'\""]name[\'\""]\s*=>/');
+it('declares a plugin name in INFO', function () use ($info) {
+	expect($info)->toHaveKey('name');
 	});
 
-	it('returns version array with version key', function () use ($source) {
-		expect($source)->toMatch('/[\'\""]version[\'\""]\s*=>/');
-	});
+it('declares a plugin version in INFO', function () use ($info) {
+	expect($info)->toHaveKey('version');
 });
