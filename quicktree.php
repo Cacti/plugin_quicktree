@@ -27,6 +27,7 @@ $guest_account = true;
 
 chdir('../../');
 include_once('include/auth.php');
+include_once('plugins/quicktree/quicktree_security.php');
 
 define('QUICKTREE_BASE_URI', $config['url_path'] . 'plugins/quicktree/');
 
@@ -45,6 +46,7 @@ $code_actions = array(
 set_default_action();
 
 $action = get_request_var('action');
+$location = quicktree_normalize_location(get_nfilter_request_var('location'));
 $user   = $_SESSION['sess_user_id'];
 
 /* ================= input validation ================= */
@@ -54,8 +56,6 @@ $drp_action = get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, array
 if ($drp_action != null) {
 	$action = $code_actions[$drp_action];
 }
-
-header('action_3_new: '. $action);
 
 switch ($action) {
 	case 'add':
@@ -152,9 +152,10 @@ switch ($action) {
 
 		html_start_box($form_actions[$drp_action], '60%', '', '3', 'center', '');
 
-		$queryrows = db_fetch_assoc("SELECT g.id, g.name
+		$queryrows = db_fetch_assoc_prepared('SELECT g.id, g.name
 			FROM graph_tree AS g
-			ORDER BY g.name");
+			ORDER BY g.name',
+			array());
 
 		print '<tr><td>';
 
@@ -205,7 +206,7 @@ switch ($action) {
 	case 'clear':
 		$SQL = db_execute_prepared('DELETE FROM quicktree_graphs WHERE userid = ?', array($user));
 
-		header('Location: quicktree.php?header=false&drp_action=&action=&location=' . get_nfilter_request_var('location'));
+		header('Location: quicktree.php?header=false&drp_action=&action=&location=' . $location);
 
 		break;
 	case 'save':
@@ -252,7 +253,9 @@ switch ($action) {
 			include_once($config['base_path'] . '/lib/api_tree.php');
 
 			if (empty($new_tree_id)) {
-				$seq = db_fetch_cell('SELECT MAX(sequence) FROM graph_tree');
+				$seq = db_fetch_cell_prepared('SELECT MAX(sequence)
+					FROM graph_tree',
+					array());
 
 				if ($seq == NULL || $seq < 0) {
 					$seq = 1;
@@ -333,7 +336,7 @@ switch ($action) {
 				array($user, $graph));
 		}
 
-		header('Location: quicktree.php?location=' . get_nfilter_request_var('location'));
+		header('Location: quicktree.php?location=' . $location);
 
 		break;
 	case 'add_ajax':
@@ -343,13 +346,13 @@ switch ($action) {
 
 		break;
 	default:
-		if (get_nfilter_request_var('location') == 'console') {
+		if ($location == 'console') {
 			top_header();
 		} else {
 			general_header();
 		}
 
-		form_start('quicktree.php?location=' . get_nfilter_request_var('location'), 'quicktree_form');
+		form_start('quicktree.php?location=' . $location, 'quicktree_form');
 		html_start_box(__('QuickTree', 'quicktree'), '100%', true, '3', 'center', '');
 
 		print "<div class='spacer formHeader collapsible' id='row_info'>
@@ -411,7 +414,7 @@ switch ($action) {
 
 				print '<table class="cactiTable"><thead><tr><th class="center">' . $graph_title;
 
-				print '&nbsp;&nbsp;<a class="pic iconLink" href="' . html_escape('quicktree.php?location=' . get_nfilter_request_var('location') . '&action=remove&id=' . $gr['id'])
+				print '&nbsp;&nbsp;<a class="pic iconLink" href="' . html_escape('quicktree.php?location=' . $location . '&action=remove&id=' . $gr['id'])
 					. '" title="' . __esc('Remove This Graph From QuickTree', 'quicktree') . '"><i class="deviceDown fas fa-times-circle"></i></a>';
 				print '</th></tr></thead>';
 
@@ -430,4 +433,3 @@ switch ($action) {
 
 		break;
 }
-
