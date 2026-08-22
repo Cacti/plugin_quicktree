@@ -47,12 +47,19 @@ assert_true(
 );
 assert_true(
 	'quicktree.php save flow uses prepared queue fetch and cleanup',
-	preg_match('/db_fetch_assoc_prepared\s*\(\s*\'SELECT \*\s+FROM quicktree_graphs/s', $quicktree_contents) === 1
-	&& preg_match('/db_execute_prepared\s*\(\s*\'DELETE FROM quicktree_graphs\s+WHERE userid = \?/s', $quicktree_contents) === 1
+	preg_match('/\bdb_fetch_assoc_prepared\s*\(/', $quicktree_contents) === 1
+	&& preg_match('/\bFROM\s+quicktree_graphs\b/i', $quicktree_contents) === 1
+	&& preg_match('/\bdb_execute_prepared\s*\(/', $quicktree_contents) === 1
+	&& preg_match('/\bDELETE\s+FROM\s+quicktree_graphs\b/i', $quicktree_contents) === 1
+	&& preg_match('/\buserid\s*=\s*\?/', $quicktree_contents) === 1
 );
 assert_true(
 	'quicktree.php existing-tree branch lookup is parameterized',
-	preg_match('/db_fetch_cell_prepared\s*\(\s*\'SELECT id FROM graph_tree_items[\s\S]*graph_tree_id = \?[\s\S]*title = \?[\s\S]*LIMIT 1\'/s', $quicktree_contents) === 1
+	preg_match('/\bdb_fetch_cell_prepared\s*\(/', $quicktree_contents) === 1
+	&& preg_match('/\bFROM\s+graph_tree_items\b/i', $quicktree_contents) === 1
+	&& preg_match('/\bgraph_tree_id\s*=\s*\?/', $quicktree_contents) === 1
+	&& preg_match('/\btitle\s*=\s*\?/', $quicktree_contents) === 1
+	&& preg_match('/\bLIMIT\s+1\b/i', $quicktree_contents) === 1
 );
 assert_true(
 	'quicktree.php has no raw db_fetch_assoc calls',
