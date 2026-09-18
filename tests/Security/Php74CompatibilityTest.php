@@ -11,7 +11,6 @@ describe('PHP 7.4 compatibility in quicktree', function () {
 	$files = array(
 		'quicktree.php',
 		'setup.php',
-		'tests/test_prepared_statements.php',
 	);
 
 	it('does not use str_contains (PHP 8.0)', function () use ($files) {

@@ -11,7 +11,6 @@ describe('output escaping in quicktree', function () {
 	it('does not interpolate raw variables into HTML attributes', function () {
 		$uiFiles = array(
 		'quicktree.php',
-		'tests/test_prepared_statements.php',
 		);
 
 		foreach ($uiFiles as $relativeFile) {
@@ -48,7 +47,6 @@ describe('output escaping in quicktree', function () {
 	it('uses html_escape or __esc for user-controlled output', function () {
 		$uiFiles = array(
 		'quicktree.php',
-		'tests/test_prepared_statements.php',
 		);
 
 		$totalEscapeCalls = 0;

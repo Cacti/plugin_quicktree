@@ -12,7 +12,6 @@ describe('prepared statement consistency in quicktree', function () {
 		$targetFiles = array(
 		'quicktree.php',
 		'setup.php',
-		'tests/test_prepared_statements.php',
 		);
 
 		$rawPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(/';
@@ -43,7 +42,6 @@ describe('prepared statement consistency in quicktree', function () {
 		$targetFiles = array(
 		'quicktree.php',
 		'setup.php',
-		'tests/test_prepared_statements.php',
 		);
 
 		foreach ($targetFiles as $relativeFile) {

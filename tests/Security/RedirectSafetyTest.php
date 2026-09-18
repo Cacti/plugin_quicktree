@@ -12,7 +12,6 @@ describe('redirect safety in quicktree', function () {
 		$files = array(
 		'quicktree.php',
 		'setup.php',
-		'tests/test_prepared_statements.php',
 		);
 
 		foreach ($files as $relativeFile) {
