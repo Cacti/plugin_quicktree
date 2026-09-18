@@ -128,7 +128,7 @@ jobs:
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
           composer config --no-plugins allow-plugins.pestphp/pest-plugin true
-          composer require --dev --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
+          sudo composer require --dev --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
           rm -f composer.lock
           composer install --dev --no-progress
         fi
