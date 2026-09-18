@@ -27,6 +27,7 @@ $guest_account = true;
 
 chdir('../../');
 include_once('include/auth.php');
+include_once('plugins/quicktree/ui_helpers.php');
 
 define('QUICKTREE_BASE_URI', $config['url_path'] . 'plugins/quicktree/');
 
@@ -99,13 +100,7 @@ switch ($action) {
 
 		break;
 	case 'add_tree':
-		if (get_nfilter_request_var('header') == null) {
-			top_header();
-		}
-
-		form_start('quicktree.php', 'quicktree_form');
-
-		html_start_box($form_actions[$drp_action], '60%', '', '3', 'center', '');
+		quicktree_action_form_begin($form_actions[$drp_action]);
 
 		print '<tr><td>';
 
@@ -138,19 +133,11 @@ switch ($action) {
 			<input type="button" value="' . __esc('Cancel') . '" onClick="cactiReturnTo()">&nbsp;<input type="submit" value="' . __esc('Continue') . '" title="' . __esc('Add To Branch', 'quicktree') . '">
 		</td></tr>';
 
-		html_end_box();
-
-		form_end();
+		quicktree_action_form_end();
 
 		break;
 	case 'add_branch':
-		if (get_nfilter_request_var('header') == null) {
-			top_header();
-		}
-
-		form_start('quicktree.php', 'quicktree_form');
-
-		html_start_box($form_actions[$drp_action], '60%', '', '3', 'center', '');
+		quicktree_action_form_begin($form_actions[$drp_action]);
 
 		$queryrows = db_fetch_assoc("SELECT g.id, g.name
 			FROM graph_tree AS g
@@ -197,9 +184,7 @@ switch ($action) {
 			<input type="button" value="' . __esc('Cancel') . '" onClick="cactiReturnTo()"><input type="submit" value="' . __esc('Continue') . '" title="' . __esc('Add To Branch', 'quicktree') . '">
 		</td></tr>';
 
-		html_end_box();
-
-		form_end();
+		quicktree_action_form_end();
 
 		break;
 	case 'clear':
@@ -430,4 +415,3 @@ switch ($action) {
 
 		break;
 }
-
