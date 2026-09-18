@@ -140,10 +140,10 @@ function quicktree_page_head() {
 
 	$page = get_current_page();
 
-	print '<script type="text/javascript" src="' . $config['url_path'] . 'plugins/quicktree/quicktree.js"></script>';
+	print '<script type="text/javascript" src="' . $config['url_path'] . 'plugins/quicktree/js/quicktree.js"></script>';
 
     if (strstr($page, 'quicktree.php') !== false) {
-		print '<link rel="stylesheet" href="' . $config['url_path'] . 'plugins/quicktree/quicktree.css"></link>';
+		print '<link rel="stylesheet" href="' . $config['url_path'] . 'plugins/quicktree/css/quicktree.css"></link>';
 	}
 }
 
