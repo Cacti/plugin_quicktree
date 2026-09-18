@@ -9,6 +9,7 @@
 
 describe('quicktree setup.php structure', function () {
 	$source = file_get_contents(realpath(__DIR__ . '/../../setup.php'));
+	$info   = parse_ini_file(realpath(__DIR__ . '/../../INFO'), true)['info'];
 
 	it('defines plugin_quicktree_install function', function () use ($source) {
 		expect($source)->toContain('function plugin_quicktree_install');
@@ -22,12 +23,12 @@ describe('quicktree setup.php structure', function () {
 		expect($source)->toContain('function plugin_quicktree_uninstall');
 	});
 
-	it('returns version array with name key', function () use ($source) {
-		expect($source)->toMatch('/[\'\""]name[\'\""]\s*=>/');
+	it('declares a plugin name in INFO', function () use ($info) {
+		expect($info)->toHaveKey('name');
 	});
 
-	it('returns version array with version key', function () use ($source) {
-		expect($source)->toMatch('/[\'\""]version[\'\""]\s*=>/');
+	it('declares a plugin version in INFO', function () use ($info) {
+		expect($info)->toHaveKey('version');
 	});
 
 	it('registers hooks in install function', function () use ($source) {

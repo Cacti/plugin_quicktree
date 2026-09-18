@@ -192,6 +192,7 @@ switch ($action) {
 		$SQL = db_execute_prepared('DELETE FROM quicktree_graphs WHERE userid = ?', array($user));
 
 		header('Location: quicktree.php?header=false&drp_action=&action=&location=' . $location);
+		exit;
 
 		break;
 	case 'save':
@@ -322,6 +323,7 @@ switch ($action) {
 		}
 
 		header('Location: quicktree.php?location=' . $location);
+		exit;
 
 		break;
 	case 'add_ajax':
