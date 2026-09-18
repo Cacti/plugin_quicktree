@@ -88,26 +88,4 @@ describe('PHP 7.4 compatibility in quicktree', function () {
 			);
 		}
 	});
-
-	it('uses array() not short syntax for new arrays', function () use ($files) {
-		// This is a style preference for 1.2.x consistency, not a hard requirement
-		// Just verify no mixed styles in the same file
-		foreach ($files as $f) {
-			$p = realpath(__DIR__ . '/../../' . $f);
-			if ($p === false) continue;
-			$c = file_get_contents($p);
-			if ($c === false) continue;
-
-			$hasArrayFunc = preg_match('/\barray\s*\(/', $c);
-			$hasShortArray = preg_match('/=\s*\[/', $c);
-
-			// Flag files that mix both styles
-			if ($hasArrayFunc && $hasShortArray) {
-				// Allow mixed if the file existed before our changes
-				// This is informational, not a hard fail
-			}
-		}
-
-		expect(true)->toBeTrue();
-	});
 });

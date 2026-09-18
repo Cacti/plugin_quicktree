@@ -215,7 +215,7 @@ if (!function_exists('get_request_var')) {
 
 if (!function_exists('get_nfilter_request_var')) {
 	function get_nfilter_request_var($name) {
-		return '';
+		return isset($GLOBALS['__test_request_vars'][$name]) ? $GLOBALS['__test_request_vars'][$name] : '';
 	}
 }
 
@@ -307,5 +307,40 @@ function evidence_test_load($path) {
 		if (!array_key_exists($__name, $__before) && strncmp($__name, '__', 2) !== 0) {
 			$GLOBALS[$__name] = $__value;
 		}
+	}
+}
+
+/*
+ * quicktree's ui_helpers.php calls these Cacti UI functions directly. They
+ * live here, in the single bootstrap entry point, rather than in individual
+ * specs, so a spec can never race another spec's own guarded declaration.
+ */
+if (!function_exists('top_header')) {
+	function top_header() {
+		$GLOBALS['__form_wrapper_events'][] = 'top_header';
+	}
+}
+
+if (!function_exists('form_start')) {
+	function form_start($action, $form) {
+		$GLOBALS['__form_wrapper_events'][] = "form_start:$action:$form";
+	}
+}
+
+if (!function_exists('html_start_box')) {
+	function html_start_box($title) {
+		$GLOBALS['__form_wrapper_events'][] = "html_start_box:$title";
+	}
+}
+
+if (!function_exists('html_end_box')) {
+	function html_end_box() {
+		$GLOBALS['__form_wrapper_events'][] = 'html_end_box';
+	}
+}
+
+if (!function_exists('form_end')) {
+	function form_end() {
+		$GLOBALS['__form_wrapper_events'][] = 'form_end';
 	}
 }

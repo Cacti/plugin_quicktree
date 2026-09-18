@@ -57,17 +57,19 @@ describe('prepared statement consistency in quicktree', function () {
 				$trimmed = ltrim($line);
 				if (strpos($trimmed, '//') === 0 || strpos($trimmed, '*') === 0) continue;
 
-				// Detect _prepared calls with $ interpolation instead of ? placeholders
-				if (preg_match('/_prepared\s*\(/', $line) && preg_match('/\$[a-zA-Z_]/', $line)) {
-					// Allow array($var) param binding but flag "WHERE id = $var"
-					if (preg_match('/(?:SELECT|INSERT|UPDATE|DELETE|WHERE|SET|FROM|JOIN).*\$/', $line)) {
+				if (preg_match('/_prepared\s*\(/', $line)) {
+					// Bound params passed via array($var) are legitimate, not
+					// interpolation, so only inspect the SQL literal before it.
+					$sqlPortion = preg_split('/,\s*array\s*\(/', $line, 2)[0];
+
+					if (preg_match('/\$[a-zA-Z_]/', $sqlPortion)
+						&& preg_match('/(?:SELECT|INSERT|UPDATE|DELETE|WHERE|SET|FROM|JOIN).*\$/', $sqlPortion)) {
 						$interpolatedSql++;
 					}
 				}
 			}
 
-			// This is a heuristic; some false positives expected for complex queries
-			expect($interpolatedSql)->toBeLessThanOrEqual(2,
+			expect($interpolatedSql)->toBe(0,
 				"File {$relativeFile} may have SQL interpolation in prepared calls"
 			);
 		}

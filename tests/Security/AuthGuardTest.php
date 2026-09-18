@@ -42,23 +42,19 @@ describe('auth guard presence in quicktree', function () {
 
 		foreach ($uiFiles as $relativeFile) {
 			$path = realpath(__DIR__ . '/../../' . $relativeFile);
-			if ($path === false) continue;
+			expect($path)->not->toBeFalse();
+
 			$contents = file_get_contents($path);
-			if ($contents === false) continue;
+			expect($contents)->not->toBeFalse();
 
-			// Check for get_filter_request_var usage for numeric IDs
-			if (preg_match('/get_request_var\s*\(\s*[\'\"]id[\'\"]/', $contents)) {
-				// Should use get_filter_request_var for 'id' params
-				$hasFilter = (
-					strpos($contents, 'get_filter_request_var') !== false ||
-					strpos($contents, 'input_validate_input_number') !== false ||
-					strpos($contents, 'form_input_validate') !== false
-				);
+			// 'id' must always be read through the filtered helper, never the raw one
+			expect(preg_match('/get_request_var\s*\(\s*[\'\"]id[\'\"]/', $contents))->toBe(0,
+				"File {$relativeFile} reads 'id' via get_request_var() without validation"
+			);
 
-				expect($hasFilter)->toBeTrue(
-					"File {$relativeFile} uses get_request_var for IDs without validation"
-				);
-			}
+			expect(preg_match('/get_filter_request_var\s*\(\s*[\'\"]id[\'\"]/', $contents))->toBeGreaterThan(0,
+				"File {$relativeFile} does not validate 'id' via get_filter_request_var()"
+			);
 		}
 	});
 });
