@@ -3,6 +3,8 @@
 --- develop ---
 
 - issue: Quicktree continually registers a realm
+- security: Migrate quicktree SQL helpers to prepared statements, normalize location handling, and ensure redirects terminate execution
+- test: Migrate test suite to Pest with a Cacti-provided test harness and CI workflow
 
 
 --- 2.0 ---
