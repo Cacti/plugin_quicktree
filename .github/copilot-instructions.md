@@ -167,7 +167,7 @@ existing code or adding new code, not just in dedicated cleanup passes:
 - **Plugin table-creation API.** Use `api_plugin_db_table_create()`/`api_plugin_db_add_column()`
   (from Cacti core's `lib/plugins.php`) instead of raw `CREATE TABLE`/`ALTER TABLE ... ADD COLUMN`.
   Both are idempotent (safe no-ops when already applied), so the same call can run unconditionally
-  from both the install AND upgrade paths.
+  from both the install and upgrade paths.
 - **PHPDoc shape.** Every function gets a PHPDoc block: a one-line description, a blank comment
   line, `@param` lines, a blank comment line, then `@return`. Infer parameter/return types from
   actual usage; don't change the function's real type-hints in the same pass (let static analysis
