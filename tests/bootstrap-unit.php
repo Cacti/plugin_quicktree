@@ -125,9 +125,18 @@ if (!function_exists('db_fetch_cell')) {
 	}
 }
 
+$GLOBALS['__test_db_fetch_cell_prepared_return'] = '';
+
 if (!function_exists('db_fetch_cell_prepared')) {
 	function db_fetch_cell_prepared($sql, $params = array()) {
-		return '';
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'db_fetch_cell_prepared', 'sql' => $sql, 'params' => $params);
+		return $GLOBALS['__test_db_fetch_cell_prepared_return'];
+	}
+}
+
+if (!function_exists('quicktree_test_set_db_fetch_cell_prepared_return')) {
+	function quicktree_test_set_db_fetch_cell_prepared_return($value) {
+		$GLOBALS['__test_db_fetch_cell_prepared_return'] = $value;
 	}
 }
 
@@ -155,14 +164,17 @@ if (!function_exists('api_plugin_db_table_create')) {
 	}
 }
 
+$GLOBALS['__test_config_options'] = array();
+
 if (!function_exists('read_config_option')) {
 	function read_config_option($name, $force = false) {
-		return '';
+		return isset($GLOBALS['__test_config_options'][$name]) ? $GLOBALS['__test_config_options'][$name] : '';
 	}
 }
 
 if (!function_exists('set_config_option')) {
 	function set_config_option($name, $value) {
+		$GLOBALS['__test_config_options'][$name] = $value;
 	}
 }
 
@@ -239,6 +251,34 @@ if (!function_exists('is_error_message')) {
 if (!function_exists('sql_save')) {
 	function sql_save($array, $table, $key = 'id') {
 		return isset($array['id']) ? $array['id'] : 1;
+	}
+}
+
+$GLOBALS['__test_registered_hooks']  = array();
+$GLOBALS['__test_registered_realms'] = array();
+
+if (!function_exists('api_plugin_register_hook')) {
+	function api_plugin_register_hook($name, $hook, $function, $file, $enabled = 1) {
+		$GLOBALS['__test_registered_hooks'][] = array(
+			'name'     => $name,
+			'hook'     => $hook,
+			'function' => $function,
+			'file'     => $file,
+			'enabled'  => $enabled,
+		);
+		return true;
+	}
+}
+
+if (!function_exists('api_plugin_register_realm')) {
+	function api_plugin_register_realm($name, $file, $description, $enabled = 1) {
+		$GLOBALS['__test_registered_realms'][] = array(
+			'name'        => $name,
+			'file'        => $file,
+			'description' => $description,
+			'enabled'     => $enabled,
+		);
+		return true;
 	}
 }
 
