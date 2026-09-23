@@ -12,6 +12,16 @@
  */
 
 if (!function_exists('quicktree_action_form_begin')) {
+	/**
+	 * Opens a QuickTree action form: prints the page header (unless
+	 * suppressed via the 'header' request variable), then starts the form
+	 * and its enclosing box. Called from quicktree.php before rendering an
+	 * action's input fields.
+	 *
+	 * @param string $title The box title to display above the form.
+	 *
+	 * @return void Outputs HTML directly.
+	 */
 	function quicktree_action_form_begin($title) {
 		if (get_nfilter_request_var('header') == null) {
 			top_header();
@@ -23,6 +33,13 @@ if (!function_exists('quicktree_action_form_begin')) {
 }
 
 if (!function_exists('quicktree_action_form_end')) {
+	/**
+	 * Closes a QuickTree action form opened by quicktree_action_form_begin():
+	 * ends the enclosing box and the form itself. Called from quicktree.php
+	 * after rendering an action's input fields.
+	 *
+	 * @return void Outputs HTML directly.
+	 */
 	function quicktree_action_form_end() {
 		html_end_box();
 		form_end();
