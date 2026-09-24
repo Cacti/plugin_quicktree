@@ -115,7 +115,7 @@ function quicktree_config_settings() {
  * Resolves whether QuickTree should actually render at $preferred's
  * location ('tab' or 'console'), based on the 'quicktree_pagestyle'
  * setting (Tab only, Console Menu only, or Both). Called from
- * quicktree_show_tab() and quicktree.php when building links/navigation.
+ * quicktree_show_tab() when building the tab/console menu link.
  *
  * @param string $preferred The caller's preferred location, 'tab' or
  *                           'console'; defaults to 'tab'.

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-21 13:14-0400\n"
+"POT-Creation-Date: 2026-09-24 13:43-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Howard Jones <howie@thingy.com>>\n"
 "Language-Team: Howard Jones <howie@thingy.com>\n"
@@ -71,8 +71,8 @@ msgstr ""
 msgid "Branch Name"
 msgstr ""
 
-#: quicktree.php:125 quicktree.php:177 quicktree.php:343 setup.php:152
-#: setup.php:159 setup.php:166 setup.php:173 setup.php:180 setup.php:187
+#: quicktree.php:125 quicktree.php:177 quicktree.php:343 setup.php:266
+#: setup.php:273 setup.php:280 setup.php:287 setup.php:294 setup.php:301
 msgid "QuickTree"
 msgstr ""
 
@@ -173,46 +173,46 @@ msgstr ""
 msgid "No Graphs Added Yet"
 msgstr ""
 
-#: setup.php:35
+#: setup.php:45
 msgid "QuickTree Management"
 msgstr ""
 
-#: setup.php:54
+#: setup.php:88
 msgid "Misc"
 msgstr ""
 
-#: setup.php:58 setup.php:112
+#: setup.php:92 setup.php:172
 msgid "Quicktree"
 msgstr ""
 
-#: setup.php:62
+#: setup.php:96
 msgid "Page Style"
 msgstr ""
 
-#: setup.php:63
+#: setup.php:97
 msgid "Where to display the QuickTree page"
 msgstr ""
 
-#: setup.php:66
+#: setup.php:100
 msgid "Tab"
 msgstr ""
 
-#: setup.php:67
+#: setup.php:101
 msgid "Console Menu"
 msgstr ""
 
-#: setup.php:68
+#: setup.php:102
 msgid "Both Tab and Console Menu"
 msgstr ""
 
-#: setup.php:124
+#: setup.php:200
 msgid "Add this graph to QuickTree"
 msgstr ""
 
-#: setup.php:134
+#: setup.php:223
 msgid "Management"
 msgstr ""
 
-#: setup.php:134
+#: setup.php:223
 msgid "QuickTree Trees"
 msgstr ""
