@@ -23,6 +23,16 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Normalizes a requested QuickTree page location to one of two allowed
+ * values, treating anything other than 'console' as 'tab'. Called from
+ * quicktree.php's dispatcher to sanitize the 'location' request variable
+ * before it is used to build URLs or navigation entries.
+ *
+ * @param string $value The raw requested location value.
+ *
+ * @return string Either 'console' or 'tab'.
+ */
 function quicktree_normalize_location($value) {
 	if ($value === 'console') {
 		return 'console';

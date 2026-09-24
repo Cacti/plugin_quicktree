@@ -23,6 +23,16 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Installs the quicktree plugin: registers its Cacti hooks (top_header_tabs,
+ * top_graph_header_tabs, config_arrays, config_settings,
+ * draw_navigation_text, graph_buttons, graph_buttons_thumbnails, page_head),
+ * adds its quicktree.php realm, and creates its database table. Invoked by
+ * Cacti's plugin architecture when an administrator installs this plugin
+ * from Console > Plugin Management.
+ *
+ * @return bool Always returns true.
+ */
 function plugin_quicktree_install() {
 	api_plugin_register_hook('quicktree', 'top_header_tabs',          'quicktree_show_tab',             'setup.php');
 	api_plugin_register_hook('quicktree', 'top_graph_header_tabs',    'quicktree_show_tab',             'setup.php');
@@ -41,6 +51,17 @@ function plugin_quicktree_install() {
 	return true;
 }
 
+/**
+ * Reads this plugin's INFO file and returns its [info] section. Used by
+ * Cacti's plugin architecture via the api_plugin_version hook, and
+ * internally by quicktree_check_upgrade() to detect version changes.
+ *
+ * @return array The parsed [info] section of the plugin's INFO file (keys
+ *               such as name, version, author, description).
+ *
+ * @global array $config Cacti global configuration array; used to locate
+ *                        the plugin's base path.
+ */
 function plugin_quicktree_version() {
 	global $config;
 
@@ -48,6 +69,19 @@ function plugin_quicktree_version() {
 	return $info['info'];
 }
 
+/**
+ * Hook implementation for Cacti's 'config_settings' filter. Registers the
+ * "Misc" tab's Quicktree Page Style setting (tab, console menu, or both).
+ * Called by Cacti core via api_plugin_hook('config_settings', ...) while
+ * building the Settings page.
+ *
+ * @return void
+ *
+ * @global array $tabs     Cacti's registered Settings page tabs, extended
+ *                          here with the 'misc' tab label.
+ * @global array $settings Cacti's registered Settings page fields, extended
+ *                          here under the 'misc' key.
+ */
 function quicktree_config_settings() {
 	global $tabs, $settings;
 
@@ -77,6 +111,19 @@ function quicktree_config_settings() {
 	}
 }
 
+/**
+ * Resolves whether QuickTree should actually render at $preferred's
+ * location ('tab' or 'console'), based on the 'quicktree_pagestyle'
+ * setting (Tab only, Console Menu only, or Both). Called from
+ * quicktree_show_tab() when building the tab/console menu link.
+ *
+ * @param string $preferred The caller's preferred location, 'tab' or
+ *                           'console'; defaults to 'tab'.
+ *
+ * @return string The location to actually use: $preferred when allowed by
+ *                the current page-style setting, otherwise the other
+ *                location.
+ */
 function quicktree_page_location($preferred = 'tab') {
 	$locsetting = read_config_option('quicktree_pagestyle');
 
@@ -99,6 +146,19 @@ function quicktree_page_location($preferred = 'tab') {
 	}
 }
 
+/**
+ * Hook implementation for Cacti's 'top_header_tabs'/'top_graph_header_tabs'
+ * filters. Prints the QuickTree tab icon (highlighted when quicktree.php is
+ * the current page) when the user is authorized and the page style
+ * includes the tab. Called by Cacti core via
+ * api_plugin_hook('top_header_tabs'/'top_graph_header_tabs', ...) while
+ * rendering the page header tabs.
+ *
+ * @return void Outputs HTML directly.
+ *
+ * @global array $config Cacti global configuration array; used to build
+ *                        the tab's image/link URLs.
+ */
 function quicktree_show_tab() {
 	global $config;
 
@@ -114,6 +174,22 @@ function quicktree_show_tab() {
 	}
 }
 
+/**
+ * Hook implementation for Cacti's 'graph_buttons'/'graph_buttons_thumbnails'
+ * filters. Prints an "Add this graph to QuickTree" icon/link for the
+ * current graph, when the user is authorized. Called by Cacti core via
+ * api_plugin_hook('graph_buttons'/'graph_buttons_thumbnails', ...) while
+ * rendering a graph's action buttons.
+ *
+ * @param array $data Hook payload; $data[1] contains the current graph's
+ *                     'local_graph_id' and 'rra' (RRA id).
+ *
+ * @return void Outputs HTML directly.
+ *
+ * @global array $config Cacti global configuration array (unused directly
+ *                        here; declared for parity with other graph_buttons
+ *                        hook implementations).
+ */
 function quicktree_graph_buttons($data) {
 	global $config;
 
@@ -125,6 +201,19 @@ function quicktree_graph_buttons($data) {
 	}
 }
 
+/**
+ * Hook implementation for Cacti's 'config_arrays' filter. Adds the
+ * "QuickTree Trees" entry under the Management section of Cacti's menu
+ * when the page style setting allows the console view, and triggers the
+ * version-upgrade check. Called by Cacti core via
+ * api_plugin_hook('config_arrays', ...) while building the navigation
+ * menu.
+ *
+ * @return void
+ *
+ * @global array $menu Cacti's main navigation menu array, extended here
+ *                      with this plugin's entry when applicable.
+ */
 function quicktree_config_arrays() {
 	global $menu;
 
@@ -135,6 +224,17 @@ function quicktree_config_arrays() {
 	}
 }
 
+/**
+ * Hook implementation for Cacti's 'page_head' filter. Includes this
+ * plugin's JavaScript on every page, and its stylesheet specifically on
+ * quicktree.php. Called by Cacti core via api_plugin_hook('page_head', ...)
+ * while rendering the page <head> section.
+ *
+ * @return void Outputs HTML directly.
+ *
+ * @global array $config Cacti global configuration array; used to build
+ *                        the JS/CSS asset URLs.
+ */
 function quicktree_page_head() {
 	global $config;
 
@@ -147,6 +247,20 @@ function quicktree_page_head() {
 	}
 }
 
+/**
+ * Hook implementation for Cacti's 'draw_navigation_text' filter. Adds
+ * breadcrumb entries for quicktree.php's default, add_ajax, add, remove,
+ * save, and clear views, mapping back to the console index when viewed in
+ * console mode. Called by Cacti core via
+ * api_plugin_hook('draw_navigation_text', ...) while rendering the page
+ * breadcrumb trail.
+ *
+ * @param array $nav The existing breadcrumb map contributed by Cacti core
+ *                    and other plugins.
+ *
+ * @return array The $nav array with this plugin's breadcrumb entries
+ *               added.
+ */
 function quicktree_draw_navigation_text($nav) {
 	$nav['quicktree.php:'] = array (
 		'title' => __('QuickTree', 'quicktree'),
@@ -193,6 +307,14 @@ function quicktree_draw_navigation_text($nav) {
 	return $nav;
 }
 
+/**
+ * Creates the quicktree_graphs database table used to store each user's
+ * saved QuickTree graphs, and initializes the 'quicktree_pagestyle' setting
+ * to a valid default if it is currently unset or out of range. Called from
+ * plugin_quicktree_install() and quicktree_check_upgrade().
+ *
+ * @return void
+ */
 function quicktree_setup_table() {
 	$data = array();
 
@@ -213,21 +335,55 @@ function quicktree_setup_table() {
 	}
 }
 
+/**
+ * Triggers this plugin's version-upgrade check. Invoked by Cacti's plugin
+ * architecture to determine whether the plugin needs to run an upgrade
+ * routine.
+ *
+ * @return bool Always returns false (no separate upgrade routine to run).
+ */
 function plugin_quicktree_upgrade() {
 	/* Here we will upgrade to the newest version */
 	quicktree_check_upgrade();
 	return FALSE;
 }
 
+/**
+ * Uninstalls the quicktree plugin. Invoked by Cacti's plugin architecture
+ * when an administrator uninstalls this plugin from Console > Plugin
+ * Management; currently a no-op (the quicktree_graphs table is
+ * intentionally left in place).
+ *
+ * @return void
+ */
 function plugin_quicktree_uninstall() {
 	/* Do any extra Uninstall stuff here */
 }
 
+/**
+ * Verifies the plugin's configuration is up to date. Invoked by Cacti's
+ * plugin architecture on relevant page loads; currently a no-op
+ * placeholder.
+ *
+ * @return bool Always returns true.
+ */
 function plugin_quicktree_check_config() {
 	/* Here we will check to ensure everything is configured */
 	return TRUE;
 }
 
+/**
+ * Compares the plugin's INFO-file version against the version recorded in
+ * plugin_config and, if they differ, re-registers the page_head hook,
+ * re-runs the table setup, and updates the stored plugin_config row (or,
+ * on newer Cacti versions, registers the upgrade via
+ * api_plugin_upgrade_register()). Skips its work on requests other than
+ * plugins.php, quicktree.php, index.php, or graph_view.php to avoid
+ * unnecessary database access on every page load. Called from
+ * quicktree_config_arrays() and plugin_quicktree_upgrade().
+ *
+ * @return void
+ */
 function quicktree_check_upgrade() {
     $files = array('plugins.php', 'quicktree.php', 'index.php', 'graph_view.php');
     if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
