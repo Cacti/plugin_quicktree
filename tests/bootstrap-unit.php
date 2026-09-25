@@ -213,9 +213,12 @@ if (!function_exists('is_realm_allowed')) {
 	}
 }
 
-if (!function_exists('raise_message')) {
-	function raise_message($id, $text = '', $level = 0) {
-	}
+$GLOBALS['__test_realm_auth'] = true;
+
+if (!function_exists('api_user_realm_auth')) {
+        function api_user_realm_auth($filename = '') {
+                return $GLOBALS['__test_realm_auth'];
+        }
 }
 
 if (!function_exists('get_request_var')) {

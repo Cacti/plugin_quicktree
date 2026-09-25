@@ -351,7 +351,7 @@ switch ($action) {
 			['<b>' . __('Clear all graphs', 'quicktree') . '</b>', __('Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections', 'quicktree')],
 			['<hr>' . __('You can manage the individual graphs that appear here by clicking:', 'quicktree')],
 			['<i class="deviceUp fas fa-plus-circle"></i>' . __('Add', 'quicktree'), __('This icon is next to a Graph on the %s tab.', '<a href="../../graph_view.php">' . __('Graph View Page', 'quicktree') . '</a>', 'quicktree')],
-			['<i class="deviceDown fas fa-times-circle"></i>' . __('Delete', 'quicktree'), __('This icon next to the Graphs below to remove them from the QuickTree Queue.', 'qucktree')],
+			['<i class="deviceDown fas fa-times-circle"></i>' . __('Delete', 'quicktree'), __('This icon next to the Graphs below to remove them from the QuickTree Queue.', 'quicktree')],
 			['<hr><b>' . __('Note:', 'quicktree') . '</br>'],
 			[__('Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)', 'quicktree')]
 		];

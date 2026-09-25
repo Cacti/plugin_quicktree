@@ -3,6 +3,7 @@
 --- develop ---
 
 - issue: Quicktree continually registers a realm
+- issue: Fix quicktree_show_tab() building an invalid `?location=tabtab`/`?location=tabconsole` URL, an undefined-variable text-domain typo in the QuickTree page's "no graph specified" message, and a misspelled `qucktree` text domain
 - security: Migrate quicktree SQL helpers to prepared statements, normalize location handling, and ensure redirects terminate execution
 - test: Migrate test suite to Pest with a Cacti-provided test harness and CI workflow
 
