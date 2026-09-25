@@ -30,29 +30,30 @@ include_once('include/auth.php');
 include_once('plugins/quicktree/ui_helpers.php');
 include_once('plugins/quicktree/quicktree_security.php');
 
+/** @var array<string,mixed> $config */
 define('QUICKTREE_BASE_URI', $config['url_path'] . 'plugins/quicktree/');
 
-$form_actions = array(
+$form_actions = [
 	1 => __('Save To New Tree', 'quicktree'),
 	2 => __('Save To Branch', 'quicktree'),
 	3 => __('Clear All Graphs', 'quicktree')
-);
+];
 
-$code_actions = array(
+$code_actions = [
 	1 => 'add_tree',
 	2 => 'add_branch',
 	3 => 'clear'
-);
+];
 
 set_default_action();
 
-$action = get_request_var('action');
+$action   = get_request_var('action');
 $location = quicktree_normalize_location(get_nfilter_request_var('location'));
-$user   = $_SESSION['sess_user_id'];
+$user     = $_SESSION['sess_user_id'];
 
-/* ================= input validation ================= */
-$drp_action = get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z0-9_]+)$/')));
-/* ==================================================== */
+// ================= input validation =================
+$drp_action = get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/^([a-zA-Z0-9_]+)$/']]);
+// ====================================================
 
 if ($drp_action != null) {
 	$action = $code_actions[$drp_action];
@@ -69,18 +70,18 @@ switch ($action) {
 			$title = db_fetch_cell_prepared('SELECT title_cache
 				FROM graph_templates_graph
 				WHERE local_graph_id = ?',
-				array($graph));
+				[$graph]);
 
 			$exists = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM quicktree_graphs
 				WHERE local_graph_id = ?',
-				array($graph));
+				[$graph]);
 
 			if (!$exists) {
 				db_execute_prepared('INSERT INTO quicktree_graphs
 					(userid, local_graph_id, rra_id, title)
 					VALUES (?, ?, ?, ?)',
-					array($user, $graph, $rra, $title));
+					[$user, $graph, $rra, $title]);
 
 				$message['title']   = __('Graph Added to QuickTree', 'quicktree');
 				$message['message'] = __('Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree.', $title, 'quicktree');
@@ -92,7 +93,7 @@ switch ($action) {
 			}
 		} else {
 			$message['title']   = __('Graph Not Specified.  Not added to QuickTree', 'quicktree');
-			$message['message'] = __('No Graph was added to QuickTree as no Graph was specified.', $title);
+			$message['message'] = __('No Graph was added to QuickTree as no Graph was specified.', 'quicktree');
 			$message['level']   = MESSAGE_LEVEL_ERROR;
 		}
 
@@ -119,7 +120,7 @@ switch ($action) {
 
 		print '<tr>
 			<td>
-				<p><label for="branch">' .__('Branch Name', 'quicktree') . '</label></p>
+				<p><label for="branch">' . __('Branch Name', 'quicktree') . '</label></p>
 			</td>
 			<td>
 				<input class="ui-state-default ui-corner-all" id="branch" name="branch" value="' . __('QuickTree', 'quicktree') . '">
@@ -142,7 +143,7 @@ switch ($action) {
 		$queryrows = db_fetch_assoc_prepared('SELECT g.id, g.name
 			FROM graph_tree AS g
 			ORDER BY g.name',
-			array());
+			[]);
 
 		print '<tr><td>';
 
@@ -159,19 +160,19 @@ switch ($action) {
 			<td>
 				<select id="tree_id" name="tree_id">';
 
-				if (cacti_sizeof($queryrows)) {
-					foreach ($queryrows as $tr) {
-						printf('<option value="%d">%s</option>', $tr['id'], html_escape($tr['name']));
-					}
-				}
+		if (cacti_sizeof($queryrows)) {
+			foreach ($queryrows as $tr) {
+				printf('<option value="%d">%s</option>', $tr['id'], html_escape($tr['name']));
+			}
+		}
 
-				print '</select>
+		print '</select>
 			</td>
 		</tr>';
 
 		print '<tr>
 			<td>
-				<p><label for="branch">' .__('Branch Name', 'quicktree') . '</label></p>
+				<p><label for="branch">' . __('Branch Name', 'quicktree') . '</label></p>
 			</td>
 			<td>
 				<input class="ui-state-default ui-corner-all" id="branch" name="branch" value="' . __('QuickTree', 'quicktree') . '">
@@ -193,8 +194,6 @@ switch ($action) {
 
 		header('Location: quicktree.php?header=false&drp_action=&action=&location=' . $location);
 		exit;
-
-		break;
 	case 'save':
 		$new_tree_id = -1;
 		$parent_id   = 0;
@@ -202,7 +201,7 @@ switch ($action) {
 		$username = db_fetch_cell_prepared('SELECT username
 			FROM user_auth
 			WHERE id = ?',
-			array($user));
+			[$user]);
 
 		if (isset_request_var('tree_id')) {
 			$new_tree_id = get_filter_request_var('tree_id');
@@ -210,12 +209,12 @@ switch ($action) {
 			$tree_name = db_fetch_cell_prepared('SELECT name
 				FROM graph_tree
 				WHERE id = ?',
-				array($new_tree_id));
+				[$new_tree_id]);
 		} elseif (isset_request_var('tree')) {
 			$new_tree_id = db_fetch_cell_prepared('SELECT id
 				FROM graph_tree
 				WHERE name = ?',
-				array(get_nfilter_request_var('tree')));
+				[get_nfilter_request_var('tree')]);
 
 			$tree_name = get_nfilter_request_var('tree');
 		}
@@ -233,7 +232,7 @@ switch ($action) {
 		$graphs = db_fetch_assoc_prepared('SELECT *
 			FROM quicktree_graphs
 			WHERE userid = ?',
-			array($user));
+			[$user]);
 
 		if (cacti_sizeof($graphs)) {
 			include_once($config['base_path'] . '/lib/api_tree.php');
@@ -241,23 +240,20 @@ switch ($action) {
 			if (empty($new_tree_id)) {
 				$seq = db_fetch_cell_prepared('SELECT MAX(sequence)
 					FROM graph_tree',
-					array());
+					[]);
 
-				if ($seq == NULL || $seq < 0) {
+				if ($seq == null || $seq < 0) {
 					$seq = 1;
 				}
 
-				$save = array();
+				$save                  = [];
 				$save['id']            = '';
 				$save['name']          = $tree_name;
 				$save['sort_type']     = TREE_ORDERING_ALPHABETIC;
 				$save['sequence']      = $seq;
 				$save['last_modified'] = date('Y-m-d H:i:s', time());
 				$save['modified_by']   = $_SESSION['sess_user_id'];
-
-				if (empty($save['id'])) {
-					$save['user_id'] = $_SESSION['sess_user_id'];
-				}
+				$save['user_id']       = $_SESSION['sess_user_id'];
 
 				$new_tree_id = sql_save($save, 'graph_tree');
 
@@ -276,7 +272,7 @@ switch ($action) {
 					AND local_graph_id = 0
 					ORDER BY id
 					LIMIT 1',
-					array($new_tree_id, $branch));
+					[$new_tree_id, $branch]);
 
 				if (empty($parent_id)) {
 					$parent_id = api_tree_item_save(0, $new_tree_id, TREE_ITEM_TYPE_HEADER,
@@ -298,7 +294,7 @@ switch ($action) {
 			}
 
 			?>
-			<script type="text/javascript"> $(function() { document.location = "<?php print $url;?>"; }); </script>
+			<script type="text/javascript"> $(function() { document.location = "<?php print $url; ?>"; }); </script>
 			<?php
 
 			exit;
@@ -308,8 +304,6 @@ switch ($action) {
 			header('Location: ' . $config['url_path'] . 'plugins/quicktree/quicktree.php');
 			exit;
 		}
-
-		break;
 	case 'remove':
 		$graph = 0;
 
@@ -319,13 +313,11 @@ switch ($action) {
 			$result = db_execute_prepared('DELETE FROM quicktree_graphs
 				WHERE userid = ?
 				AND id = ?;',
-				array($user, $graph));
+				[$user, $graph]);
 		}
 
 		header('Location: quicktree.php?location=' . $location);
 		exit;
-
-		break;
 	case 'add_ajax':
 		header('Content-type: text/plain');
 
@@ -340,7 +332,7 @@ switch ($action) {
 		}
 
 		form_start('quicktree.php?location=' . $location, 'quicktree_form');
-		html_start_box(__('QuickTree', 'quicktree'), '100%', true, '3', 'center', '');
+		html_start_box(__('QuickTree', 'quicktree'), '100%', true, 3, 'center', '');
 
 		print "<div class='spacer formHeader collapsible' id='row_info'>
 			<div class='formHeaderText'>" . __('Information/Directions', 'quicktree') . "
@@ -352,26 +344,26 @@ switch ($action) {
 
 		print "<table class='cactiTable' id='row_info_child'>";
 
-		$form_items = array(
-			array(__('The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions', 'quicktree')),
-			array('<b>' . __('Save To New Tree', 'quicktree') . '</b>', __('Save your selection to a new Graph Tree so you can keep them for later and work on something new.', 'quicktree')),
-			array('<b>' . __('Save To Branch', 'quicktree') . '</b>', __('Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree.', 'quicktree')),
-			array('<b>' . __('Clear all graphs', 'quicktree') . '</b>', __('Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections', 'quicktree')),
-			array('<hr>' . __('You can manage the individual graphs that appear here by clicking:', 'quicktree')),
-			array('<i class="deviceUp fas fa-plus-circle"></i>' . __('Add', 'quicktree'), __('This icon is next to a Graph on the %s tab.', '<a href="../../graph_view.php">' . __('Graph View Page', 'quicktree') . '</a>', 'quicktree')),
-			array('<i class="deviceDown fas fa-times-circle"></i>' . __('Delete', 'quicktree'), __('This icon next to the Graphs below to remove them from the QuickTree Queue.', 'qucktree')),
-			array('<hr><b>' . __('Note:', 'quicktree') . '</br>'),
-			array(__('Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)', 'quicktree'))
-		);
+		$form_items = [
+			[__('The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions', 'quicktree')],
+			['<b>' . __('Save To New Tree', 'quicktree') . '</b>', __('Save your selection to a new Graph Tree so you can keep them for later and work on something new.', 'quicktree')],
+			['<b>' . __('Save To Branch', 'quicktree') . '</b>', __('Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree.', 'quicktree')],
+			['<b>' . __('Clear all graphs', 'quicktree') . '</b>', __('Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections', 'quicktree')],
+			['<hr>' . __('You can manage the individual graphs that appear here by clicking:', 'quicktree')],
+			['<i class="deviceUp fas fa-plus-circle"></i>' . __('Add', 'quicktree'), __('This icon is next to a Graph on the %s tab.', '<a href="../../graph_view.php">' . __('Graph View Page', 'quicktree') . '</a>', 'quicktree')],
+			['<i class="deviceDown fas fa-times-circle"></i>' . __('Delete', 'quicktree'), __('This icon next to the Graphs below to remove them from the QuickTree Queue.', 'quicktree')],
+			['<hr><b>' . __('Note:', 'quicktree') . '</br>'],
+			[__('Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)', 'quicktree')]
+		];
 
 		foreach ($form_items as $details) {
 			form_alternate_row();
 
-			if (cacti_sizeof($details) == 1) {
-				print '<td style=\'vertical-align:top;\' colspan=\'2\'>'.$details[0].'</td>';
+			if (isset($details[1])) {
+				print '<td class=\'nowrap\' style=\'vertical-align:top;\'>' . $details[0] . '</td>';
+				print '<td>' . $details[1] . '</td>';
 			} else {
-				print '<td class=\'nowrap\' style=\'vertical-align:top;\'>'.$details[0].'</td>';
-				print '<td>'.$details[1].'</td>';
+				print '<td style=\'vertical-align:top;\' colspan=\'2\'>' . $details[0] . '</td>';
 			}
 
 			form_end_row();
@@ -393,9 +385,9 @@ switch ($action) {
 			INNER JOIN graph_templates_graph AS gtg
 			ON qt.local_graph_id = gtg.local_graph_id
 			WHERE userid = ?',
-			array($user));
+			[$user]);
 
-        if (cacti_sizeof($queryrows)) {
+		if (cacti_sizeof($queryrows)) {
 			foreach ($queryrows as $gr) {
 				$graph_title = html_escape($gr['title_cache']);
 
@@ -409,12 +401,12 @@ switch ($action) {
 				print '<a style="padding:5px" class="pic" href="' . html_escape($config['url_path'] . 'graph.php?action=view&rra_id=all&local_graph_id=' . $gr['local_graph_id']) . '"><img class="graphimage" id="graph_' . $gr['local_graph_id'] . '" src="' . $config['url_path'] . '/graph_image.php?action=view&local_graph_id=' . $gr['local_graph_id'] . '&rra_id=' . $gr['rra_id'] . '" alt="' . $graph_title . '"></a>';
 
 				print '</td></tr></tbody></table>';
-            }
+			}
 
-            print '<hr>';
-        } else {
-            print '<p><em>' . __('No Graphs Added Yet', 'quicktree') . '</em></p>';
-        }
+			print '<hr>';
+		} else {
+			print '<p><em>' . __('No Graphs Added Yet', 'quicktree') . '</em></p>';
+		}
 
 		bottom_footer();
 

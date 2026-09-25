@@ -33,7 +33,7 @@
  *
  * @return string Either 'console' or 'tab'.
  */
-function quicktree_normalize_location($value) {
+function quicktree_normalize_location($value): string {
 	if ($value === 'console') {
 		return 'console';
 	}

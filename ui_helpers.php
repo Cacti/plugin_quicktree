@@ -22,13 +22,13 @@ if (!function_exists('quicktree_action_form_begin')) {
 	 *
 	 * @return void Outputs HTML directly.
 	 */
-	function quicktree_action_form_begin($title) {
+	function quicktree_action_form_begin(string $title): void {
 		if (get_nfilter_request_var('header') == null) {
 			top_header();
 		}
 
 		form_start('quicktree.php', 'quicktree_form');
-		html_start_box($title, '60%', '', '3', 'center', '');
+		html_start_box($title, '60%', false, 3, 'center', '');
 	}
 }
 
@@ -40,7 +40,7 @@ if (!function_exists('quicktree_action_form_end')) {
 	 *
 	 * @return void Outputs HTML directly.
 	 */
-	function quicktree_action_form_end() {
+	function quicktree_action_form_end(): void {
 		html_end_box();
 		form_end();
 	}
