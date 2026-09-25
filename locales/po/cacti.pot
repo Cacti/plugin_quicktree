@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-24 13:43-0400\n"
+"POT-Creation-Date: 2026-09-25 02:50-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Howard Jones <howie@thingy.com>>\n"
 "Language-Team: Howard Jones <howie@thingy.com>\n"
@@ -17,159 +17,159 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: quicktree.php:36 quicktree.php:357
+#: quicktree.php:37 quicktree.php:349
 msgid "Save To New Tree"
 msgstr ""
 
-#: quicktree.php:37 quicktree.php:358
+#: quicktree.php:38 quicktree.php:350
 msgid "Save To Branch"
 msgstr ""
 
-#: quicktree.php:38
+#: quicktree.php:39
 msgid "Clear All Graphs"
 msgstr ""
 
-#: quicktree.php:85
+#: quicktree.php:86
 msgid "Graph Added to QuickTree"
 msgstr ""
 
-#: quicktree.php:86
+#: quicktree.php:87
 #, php-format
 msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
 msgstr ""
 
-#: quicktree.php:89
+#: quicktree.php:90
 msgid "Graph Not Added to QuickTree"
 msgstr ""
 
-#: quicktree.php:90
+#: quicktree.php:91
 #, php-format
 msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
 msgstr ""
 
-#: quicktree.php:94
+#: quicktree.php:95
 msgid "Graph Not Specified.  Not added to QuickTree"
 msgstr ""
 
-#: quicktree.php:95
+#: quicktree.php:96
 msgid "No Graph was added to QuickTree as no Graph was specified."
 msgstr ""
 
-#: quicktree.php:107
+#: quicktree.php:108
 msgid "Click 'Continue' to Add the following Tree."
 msgstr ""
 
-#: quicktree.php:113 quicktree.php:157
+#: quicktree.php:114 quicktree.php:158
 msgid "Tree Name"
 msgstr ""
 
-#: quicktree.php:116
+#: quicktree.php:117
 msgid "New Tree"
 msgstr ""
 
-#: quicktree.php:122 quicktree.php:174
+#: quicktree.php:123 quicktree.php:175
 msgid "Branch Name"
 msgstr ""
 
-#: quicktree.php:125 quicktree.php:177 quicktree.php:343 setup.php:266
-#: setup.php:273 setup.php:280 setup.php:287 setup.php:294 setup.php:301
+#: quicktree.php:126 quicktree.php:178 quicktree.php:335 setup.php:269
+#: setup.php:276 setup.php:283 setup.php:290 setup.php:297 setup.php:304
 msgid "QuickTree"
 msgstr ""
 
-#: quicktree.php:133 quicktree.php:185
+#: quicktree.php:134 quicktree.php:186
 msgid "Add To Branch"
 msgstr ""
 
-#: quicktree.php:133 quicktree.php:185
+#: quicktree.php:134 quicktree.php:186
 msgid "Cancel"
 msgstr ""
 
-#: quicktree.php:133 quicktree.php:185
+#: quicktree.php:134 quicktree.php:186
 msgid "Continue"
 msgstr ""
 
-#: quicktree.php:149
+#: quicktree.php:150
 msgid "Click 'Continue' to Add the following Tree Branch."
 msgstr ""
 
-#: quicktree.php:151
+#: quicktree.php:152
 msgid "Add to which Graph Tree?"
 msgstr ""
 
-#: quicktree.php:292
+#: quicktree.php:288
 msgid "QuickTree has Created Tree and/or Branch and added Graphs"
 msgstr ""
 
-#: quicktree.php:306
+#: quicktree.php:302
 msgid "QuickTree has no Graphs Queued"
 msgstr ""
 
-#: quicktree.php:346
+#: quicktree.php:338
 msgid "Information/Directions"
 msgstr ""
 
-#: quicktree.php:356
+#: quicktree.php:348
 msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
 msgstr ""
 
-#: quicktree.php:357
+#: quicktree.php:349
 msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
 msgstr ""
 
-#: quicktree.php:358
+#: quicktree.php:350
 msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
 msgstr ""
 
-#: quicktree.php:359
+#: quicktree.php:351
 msgid "Clear all graphs"
 msgstr ""
 
-#: quicktree.php:359
+#: quicktree.php:351
 msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
 msgstr ""
 
-#: quicktree.php:360
+#: quicktree.php:352
 msgid "You can manage the individual graphs that appear here by clicking:"
 msgstr ""
 
-#: quicktree.php:361
+#: quicktree.php:353
 msgid "Add"
 msgstr ""
 
-#: quicktree.php:361
+#: quicktree.php:353
 msgid "Graph View Page"
 msgstr ""
 
-#: quicktree.php:361
+#: quicktree.php:353
 #, php-format
 msgid "This icon is next to a Graph on the %s tab."
 msgstr ""
 
-#: quicktree.php:362
+#: quicktree.php:354
 msgid "Delete"
 msgstr ""
 
-#: quicktree.php:362
+#: quicktree.php:354
 msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
 msgstr ""
 
-#: quicktree.php:363
+#: quicktree.php:355
 msgid "Note:"
 msgstr ""
 
-#: quicktree.php:364
+#: quicktree.php:356
 msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
 msgstr ""
 
-#: quicktree.php:381
+#: quicktree.php:373
 msgid "Actions"
 msgstr ""
 
-#: quicktree.php:405
+#: quicktree.php:397
 msgid "Remove This Graph From QuickTree"
 msgstr ""
 
-#: quicktree.php:416
+#: quicktree.php:408
 msgid "No Graphs Added Yet"
 msgstr ""
 
@@ -177,42 +177,42 @@ msgstr ""
 msgid "QuickTree Management"
 msgstr ""
 
-#: setup.php:88
+#: setup.php:90
 msgid "Misc"
 msgstr ""
 
-#: setup.php:92 setup.php:172
+#: setup.php:94 setup.php:175
 msgid "Quicktree"
 msgstr ""
 
-#: setup.php:96
+#: setup.php:98
 msgid "Page Style"
 msgstr ""
 
-#: setup.php:97
+#: setup.php:99
 msgid "Where to display the QuickTree page"
 msgstr ""
 
-#: setup.php:100
+#: setup.php:102
 msgid "Tab"
 msgstr ""
 
-#: setup.php:101
+#: setup.php:103
 msgid "Console Menu"
 msgstr ""
 
-#: setup.php:102
+#: setup.php:104
 msgid "Both Tab and Console Menu"
 msgstr ""
 
-#: setup.php:200
+#: setup.php:203
 msgid "Add this graph to QuickTree"
 msgstr ""
 
-#: setup.php:223
+#: setup.php:226
 msgid "Management"
 msgstr ""
 
-#: setup.php:223
+#: setup.php:226
 msgid "QuickTree Trees"
 msgstr ""
