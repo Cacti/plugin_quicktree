@@ -24,6 +24,22 @@
 */
 
 /**
+ * Return the CSP nonce attribute for inline <script> tags, safely across
+ * Cacti versions. Newer Cacti releases enforce a Content-Security-Policy that
+ * requires a per-request nonce on parser-inserted scripts; older releases lack
+ * the CactiSecureHeaders class, so this returns an empty string there.
+ *
+ * @return string The nonce attribute when supported, otherwise empty string.
+ */
+function plugin_quicktree_csp_nonce(): string {
+	if (class_exists('CactiSecureHeaders')) {
+		return CactiSecureHeaders::getNonceAttribute();
+	}
+
+	return '';
+}
+
+/**
  * Installs the quicktree plugin: registers its Cacti hooks (top_header_tabs,
  * top_graph_header_tabs, config_arrays, config_settings,
  * draw_navigation_text, graph_buttons, graph_buttons_thumbnails, page_head),
@@ -243,10 +259,10 @@ function quicktree_page_head(): void {
 
 	$page = get_current_page();
 
-	print '<script type="text/javascript" src="' . $config['url_path'] . 'plugins/quicktree/js/quicktree.js"></script>';
+	print get_md5_include_js('plugins/quicktree/js/quicktree.js');
 
 	if (strstr($page, 'quicktree.php') !== false) {
-		print '<link rel="stylesheet" href="' . $config['url_path'] . 'plugins/quicktree/css/quicktree.css"></link>';
+		print get_md5_include_css('plugins/quicktree/css/quicktree.css');
 	}
 }
 
