@@ -294,7 +294,7 @@ switch ($action) {
 			}
 
 			?>
-			<script type="text/javascript" ' . plugin_quicktree_csp_nonce() . '> $(function() { document.location = "<?php print $url; ?>"; }); </script>
+			<script type="text/javascript" <?php print plugin_quicktree_csp_nonce(); ?>> $(function() { document.location = "<?php print $url; ?>"; }); </script>
 			<?php
 
 			exit;
