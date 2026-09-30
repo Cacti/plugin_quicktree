@@ -21,6 +21,22 @@ beforeEach(function () {
 	$GLOBALS['__test_registered_hooks']             = array();
 	$GLOBALS['__test_db_fetch_cell_prepared_return'] = '';
 	unset($_SERVER['PHP_SELF']);
+
+	// Sandbox base_path so the version-drift branch runs
+	// plugin_quicktree_prune_files() against a throwaway tree with no
+	// manifest.json (prune no-ops), never the real checkout. The temp tree
+	// carries a copy of the real INFO so plugin_quicktree_version() still matches.
+	$GLOBALS['__quicktree_base_restore'] = $GLOBALS['config']['base_path'];
+	$base = sys_get_temp_dir() . '/quicktree-test-' . uniqid();
+	mkdir($base . '/plugins/quicktree', 0777, true);
+	copy(__DIR__ . '/../../INFO', $base . '/plugins/quicktree/INFO');
+	$GLOBALS['config']['base_path'] = $base;
+});
+
+afterEach(function () {
+	if (isset($GLOBALS['__quicktree_base_restore'])) {
+		$GLOBALS['config']['base_path'] = $GLOBALS['__quicktree_base_restore'];
+	}
 });
 
 it('does nothing when the current page is not in the allowed list', function () {

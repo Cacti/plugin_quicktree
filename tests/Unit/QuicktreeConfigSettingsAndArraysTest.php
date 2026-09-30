@@ -17,6 +17,21 @@ beforeAll(function () {
 beforeEach(function () {
 	$GLOBALS['__test_config_options'] = array();
 	unset($_SERVER['PHP_SELF']);
+
+	// Sandbox base_path so quicktree_config_arrays()->quicktree_check_upgrade()'s
+	// version-drift prune runs against a throwaway tree with no manifest.json
+	// (prune no-ops), never the real checkout.
+	$GLOBALS['__quicktree_base_restore'] = $GLOBALS['config']['base_path'];
+	$base = sys_get_temp_dir() . '/quicktree-test-' . uniqid();
+	mkdir($base . '/plugins/quicktree', 0777, true);
+	copy(__DIR__ . '/../../INFO', $base . '/plugins/quicktree/INFO');
+	$GLOBALS['config']['base_path'] = $base;
+});
+
+afterEach(function () {
+	if (isset($GLOBALS['__quicktree_base_restore'])) {
+		$GLOBALS['config']['base_path'] = $GLOBALS['__quicktree_base_restore'];
+	}
 });
 
 it('adds the misc tab and quicktree settings when no settings exist yet', function () {
