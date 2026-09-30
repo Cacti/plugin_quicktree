@@ -20,7 +20,7 @@
 ; +-------------------------------------------------------------------------+
 
 [info]
-compat = 1.2.32
+compat = 1.2.29
 author=The Cacti Group, Howard Jones
 homepage=https://github.com/howardjones/cacti-quicktree
 longname=QuickTree for Cacti
