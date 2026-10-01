@@ -23,7 +23,7 @@ beforeEach(function () {
 	unset($_SERVER['PHP_SELF']);
 
 	// Sandbox base_path so the version-drift branch runs
-	// plugin_quicktree_prune_files() against a throwaway tree with no
+	// quicktree_prune_files() against a throwaway tree with no
 	// manifest.json (prune no-ops), never the real checkout. The temp tree
 	// carries a copy of the real INFO so plugin_quicktree_version() still matches.
 	$GLOBALS['__quicktree_base_restore'] = $GLOBALS['config']['base_path'];

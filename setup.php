@@ -440,7 +440,7 @@ function quicktree_check_upgrade(): void {
 			);
 		}
 
-		plugin_quicktree_prune_files();
+		quicktree_prune_files();
 	}
 }
 
@@ -460,7 +460,7 @@ function quicktree_check_upgrade(): void {
  * @global array $config Cacti global configuration array; used to resolve
  *                       the plugin directory.
  */
-function plugin_quicktree_prune_files(): void {
+function quicktree_prune_files(): void {
 	global $config;
 
 	$plugin_dir    = $config['base_path'] . '/plugins/quicktree';
@@ -546,7 +546,7 @@ function plugin_quicktree_prune_files(): void {
 		}
 
 		if (is_dir($path) && !is_link($path)) {
-			$removed = plugin_quicktree_rmtree($path);
+			$removed = quicktree_rmtree($path);
 		} else {
 			$removed = @unlink($path);
 		}
@@ -580,14 +580,14 @@ function plugin_quicktree_prune_files(): void {
 
 /**
  * Recursively deletes a directory and its contents. Symlinks are removed
- * without being followed. Helper for plugin_quicktree_prune_files().
+ * without being followed. Helper for quicktree_prune_files().
  *
  * @param string $dir Absolute path to the directory to remove.
  *
  * @return bool True if the directory and everything under it was removed;
  *              false if any entry could not be deleted.
  */
-function plugin_quicktree_rmtree(string $dir): bool {
+function quicktree_rmtree(string $dir): bool {
 	$entries = scandir($dir);
 	$ok      = true;
 
@@ -599,7 +599,7 @@ function plugin_quicktree_rmtree(string $dir): bool {
 		$path = $dir . '/' . $entry;
 
 		if (is_dir($path) && !is_link($path)) {
-			if (!plugin_quicktree_rmtree($path)) {
+			if (!quicktree_rmtree($path)) {
 				$ok = false;
 			}
 		} elseif (!@unlink($path)) {
