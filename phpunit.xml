@@ -26,7 +26,7 @@
     <source>
         <include>
             <file>setup.php</file>
-            <file>quicktree_security.php</file>
+            <file>includes/security.php</file>
             <file>includes/helpers.php</file>
         </include>
     </source>

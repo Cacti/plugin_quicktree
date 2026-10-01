@@ -1,5 +1,6 @@
 {
     "tombstones": [
+        "quicktree_security.php",
         "ui_helpers.php"
     ],
     "expected": [
@@ -15,7 +16,6 @@
         "locales/",
         "manifest.json",
         "quicktree.php",
-        "quicktree_security.php",
         "setup.php"
     ],
     "whitelist": []
