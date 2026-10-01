@@ -25,10 +25,9 @@
     -->
     <source>
         <include>
-            <file>quicktree.php</file>
             <file>setup.php</file>
             <file>quicktree_security.php</file>
-            <file>ui_helpers.php</file>
+            <file>includes/helpers.php</file>
         </include>
     </source>
 </phpunit>

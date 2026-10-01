@@ -355,7 +355,7 @@ function evidence_test_load($path) {
 }
 
 /*
- * quicktree's ui_helpers.php calls these Cacti UI functions directly. They
+ * quicktree's includes/helpers.php calls these Cacti UI functions directly. They
  * live here, in the single bootstrap entry point, rather than in individual
  * specs, so a spec can never race another spec's own guarded declaration.
  */

@@ -1,5 +1,7 @@
 {
-    "tombstones": [],
+    "tombstones": [
+        "ui_helpers.php"
+    ],
     "expected": [
         "CHANGELOG.md",
         "INFO",
@@ -7,14 +9,14 @@
         "README.md",
         "css/",
         "images/",
+        "includes/",
         "index.php",
         "js/",
         "locales/",
         "manifest.json",
         "quicktree.php",
         "quicktree_security.php",
-        "setup.php",
-        "ui_helpers.php"
+        "setup.php"
     ],
     "whitelist": []
 }
