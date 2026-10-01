@@ -7,7 +7,7 @@
  +-------------------------------------------------------------------------+
 */
 
-require_once __DIR__ . '/../../quicktree_security.php';
+require_once __DIR__ . '/../../includes/security.php';
 
 describe('quicktree location normalization', function () {
 	it('allows only the supported quicktree locations', function () {

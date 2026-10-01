@@ -198,6 +198,8 @@ if (!function_exists('__esc')) {
 
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $also_print = false, $log_type = '', $level = 0) {
+		$args = func_get_args();
+		$GLOBALS["__test_cacti_log"][] = isset($args[0]) ? (string) $args[0] : "";
 	}
 }
 
@@ -353,7 +355,7 @@ function evidence_test_load($path) {
 }
 
 /*
- * quicktree's ui_helpers.php calls these Cacti UI functions directly. They
+ * quicktree's includes/helpers.php calls these Cacti UI functions directly. They
  * live here, in the single bootstrap entry point, rather than in individual
  * specs, so a spec can never race another spec's own guarded declaration.
  */

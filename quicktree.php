@@ -27,8 +27,8 @@ $guest_account = true;
 
 chdir('../../');
 include_once('include/auth.php');
-include_once('plugins/quicktree/ui_helpers.php');
-include_once('plugins/quicktree/quicktree_security.php');
+include_once('plugins/quicktree/includes/helpers.php');
+include_once('plugins/quicktree/includes/security.php');
 
 /** @var array<string,mixed> $config */
 define('QUICKTREE_BASE_URI', $config['url_path'] . 'plugins/quicktree/');

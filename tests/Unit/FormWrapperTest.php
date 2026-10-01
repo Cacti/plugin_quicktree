@@ -14,7 +14,7 @@
  * $GLOBALS['__test_request_vars'], which lets this file drive both branches
  * of quicktree_action_form_begin().
  */
-require_once __DIR__ . '/../../ui_helpers.php';
+require_once __DIR__ . '/../../includes/helpers.php';
 
 describe('shared quicktree action-form wrappers', function () {
 	it('begin/end wrapper includes top header when header var is not set', function () {
@@ -51,7 +51,7 @@ describe('shared quicktree action-form wrappers', function () {
 	it('quicktree.php includes ui helper file', function () {
 		$source = file_get_contents(realpath(__DIR__ . '/../../quicktree.php'));
 
-		expect(preg_match('/(?:include_once|require_once)\s*\(\s*[\'"]plugins\/quicktree\/ui_helpers\.php[\'"]\s*\)\s*;/', $source))->toBe(1);
+		expect(preg_match('/(?:include_once|require_once)\s*\(\s*[\'"]plugins\/quicktree\/includes\/helpers\.php[\'"]\s*\)\s*;/', $source))->toBe(1);
 	});
 
 	it('quicktree.php uses begin wrapper in add-tree and add-branch', function () {

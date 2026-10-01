@@ -15,7 +15,7 @@ describe('quicktree redirect and url wiring', function () {
 		$contents = file_get_contents($path);
 		expect($contents)->not->toBeFalse();
 
-		expect($contents)->toContain("include_once('plugins/quicktree/quicktree_security.php');");
+		expect($contents)->toContain("include_once('plugins/quicktree/includes/security.php');");
 		expect($contents)->toContain("\$location = quicktree_normalize_location(get_nfilter_request_var('location'));");
 		expect($contents)->toContain("header('Location: quicktree.php?location=' . \$location);");
 		expect($contents)->toContain("form_start('quicktree.php?location=' . \$location, 'quicktree_form');");
