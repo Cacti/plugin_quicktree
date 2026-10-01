@@ -24,15 +24,15 @@ When generating code for this repository:
 ## Project Structure
 
 ```
-quicktree/               # Repository root (install to plugins/quicktree/ in Cacti)
-├── images/                # UI icons
-├── locales/                 # Internationalization files
-├── quicktree.css              # Client-side styling
-├── quicktree.js                 # Client-side add/remove graph interactions
-├── quicktree.php                  # Main playlist view / management page
-├── INFO                              # Plugin metadata (name, version, compat)
+quicktree/        # Repository root (install to plugins/quicktree/ in Cacti)
+├── images/       # UI icons
+├── locales/      # Internationalization files
+├── quicktree.css # Client-side styling
+├── quicktree.js  # Client-side add/remove graph interactions
+├── quicktree.php # Main playlist view / management page
+├── INFO          # Plugin metadata (name, version, compat)
 ├── README.md
-└── setup.php                          # Plugin install/uninstall/upgrade hooks
+└── setup.php     # Plugin install/uninstall/upgrade hooks
 ```
 
 ## Naming Conventions
