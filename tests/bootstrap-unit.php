@@ -388,3 +388,29 @@ if (!function_exists('form_end')) {
 		$GLOBALS['__form_wrapper_events'][] = 'form_end';
 	}
 }
+
+/*
+ * quicktree_page_head() emits the plugin's JS/CSS includes and selects a
+ * theme-specific stylesheet. These stubs return the asset paths verbatim so
+ * specs can assert which includes were printed, and let the selected theme be
+ * controlled per test.
+ */
+if (!function_exists('get_md5_include_js')) {
+	function get_md5_include_js($path) {
+		return "<script src='$path'></script>";
+	}
+}
+
+if (!function_exists('get_md5_include_css')) {
+	function get_md5_include_css($path) {
+		return "<link rel='stylesheet' href='$path'>";
+	}
+}
+
+$GLOBALS['__test_selected_theme'] = 'modern';
+
+if (!function_exists('get_selected_theme')) {
+	function get_selected_theme() {
+		return $GLOBALS['__test_selected_theme'];
+	}
+}
