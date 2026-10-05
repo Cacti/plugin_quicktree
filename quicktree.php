@@ -350,8 +350,8 @@ switch ($action) {
 			['<b>' . __('Save To Branch', 'quicktree') . '</b>', __('Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree.', 'quicktree')],
 			['<b>' . __('Clear all graphs', 'quicktree') . '</b>', __('Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections', 'quicktree')],
 			['<hr>' . __('You can manage the individual graphs that appear here by clicking:', 'quicktree')],
-			['<i class="deviceUp fas fa-plus-circle"></i>' . __('Add', 'quicktree'), __('This icon is next to a Graph on the %s tab.', '<a href="../../graph_view.php">' . __('Graph View Page', 'quicktree') . '</a>', 'quicktree')],
-			['<i class="deviceDown fas fa-times-circle"></i>' . __('Delete', 'quicktree'), __('This icon next to the Graphs below to remove them from the QuickTree Queue.', 'quicktree')],
+			['<i class="quicktreeAdd fas fa-plus-circle"></i>' . __('Add', 'quicktree'), __('This icon is next to a Graph on the %s tab.', '<a href="../../graph_view.php">' . __('Graph View Page', 'quicktree') . '</a>', 'quicktree')],
+			['<i class="quicktreeRemove fas fa-times-circle"></i>' . __('Delete', 'quicktree'), __('This icon next to the Graphs below to remove them from the QuickTree Queue.', 'quicktree')],
 			['<hr><b>' . __('Note:', 'quicktree') . '</br>'],
 			[__('Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)', 'quicktree')]
 		];
@@ -394,7 +394,7 @@ switch ($action) {
 				print '<table class="cactiTable"><thead><tr><th class="center">' . $graph_title;
 
 				print '&nbsp;&nbsp;<a class="pic iconLink" href="' . html_escape('quicktree.php?location=' . $location . '&action=remove&id=' . $gr['id'])
-					. '" title="' . __esc('Remove This Graph From QuickTree', 'quicktree') . '"><i class="deviceDown fas fa-times-circle"></i></a>';
+					. '" title="' . __esc('Remove This Graph From QuickTree', 'quicktree') . '"><i class="quicktreeRemove fas fa-times-circle"></i></a>';
 				print '</th></tr></thead>';
 
 				print '<tbody><tr><td style="padding:5px;" class="center">';

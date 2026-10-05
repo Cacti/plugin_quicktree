@@ -216,7 +216,7 @@ function quicktree_graph_buttons($data): void {
 		$local_graph_id = $data[1]['local_graph_id'];
 		$rra_id         = $data[1]['rra'];
 
-		print "<a class='iconLink' onClick='addQuickTree($local_graph_id, $rra_id)' title='" . __esc('Add this graph to QuickTree', 'quicktree') . "' href='#'><i class='deviceUp fas fa-plus-circle'></i></a><br>";
+		print "<a class='iconLink' onClick='addQuickTree($local_graph_id, $rra_id)' title='" . __esc('Add this graph to QuickTree', 'quicktree') . "' href='#'><i class='quicktreeAdd fas fa-plus-circle'></i></a><br>";
 	}
 }
 
@@ -245,9 +245,12 @@ function quicktree_config_arrays(): void {
 
 /**
  * Hook implementation for Cacti's 'page_head' filter. Includes this
- * plugin's JavaScript on every page, and its stylesheet specifically on
- * quicktree.php. Called by Cacti core via api_plugin_hook('page_head', ...)
- * while rendering the page <head> section.
+ * plugin's JavaScript and stylesheets on every page. The base stylesheet
+ * and, when present, a stylesheet matching the user's selected theme are
+ * both loaded on every page because QuickTree's action glyphs are rendered
+ * on the graph view page as well as on quicktree.php. Called by Cacti core
+ * via api_plugin_hook('page_head', ...) while rendering the page <head>
+ * section.
  *
  * @return void Outputs HTML directly.
  *
@@ -257,12 +260,12 @@ function quicktree_config_arrays(): void {
 function quicktree_page_head(): void {
 	global $config;
 
-	$page = get_current_page();
-
 	print get_md5_include_js('plugins/quicktree/js/quicktree.js');
 
-	if (strstr($page, 'quicktree.php') !== false) {
-		print get_md5_include_css('plugins/quicktree/css/quicktree.css');
+	print get_md5_include_css('plugins/quicktree/css/quicktree.css');
+
+	if (file_exists($config['base_path'] . '/plugins/quicktree/css/' . get_selected_theme() . '.css')) {
+		print get_md5_include_css('plugins/quicktree/css/' . get_selected_theme() . '.css');
 	}
 }
 
