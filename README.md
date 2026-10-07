@@ -32,6 +32,20 @@ Known Issue: the way Cacti caches Graph Trees means that you might need to
 switch to another graph tree before the newly-created one appears in your list.
 This is true for Cacti-created trees too, so it seems to just be how it is.
 
+## Cacti compatibility
+
+If you are running a version of Cacti below 1.2.31, please add the function
+below to the `applySkin()` function in `include/layout.js` to enable the Cancel
+buttons on forms to work:
+
+```js
+$(document).off('click.cactiReturnTo', '.cactiReturnTo')
+    .on('click.cactiReturnTo', '.cactiReturnTo', function(event) {
+        event.preventDefault();
+        cactiReturnTo($(this).attr('data-url'));
+    });
+```
+
 ## History
 
 See CHANGELOG.md

@@ -216,7 +216,7 @@ function quicktree_graph_buttons($data): void {
 		$local_graph_id = $data[1]['local_graph_id'];
 		$rra_id         = $data[1]['rra'];
 
-		print "<a class='iconLink' onClick='addQuickTree($local_graph_id, $rra_id)' title='" . __esc('Add this graph to QuickTree', 'quicktree') . "' href='#'><i class='quicktreeAdd fas fa-plus-circle'></i></a><br>";
+		print "<a class='iconLink quicktreeAddLink' data-local-graph-id='$local_graph_id' data-rra-id='$rra_id' title='" . __esc('Add this graph to QuickTree', 'quicktree') . "' href='#'><i class='quicktreeAdd fas fa-plus-circle'></i></a><br>";
 	}
 }
 

@@ -26,7 +26,8 @@ it('prints an Add-to-QuickTree glyph for the current graph when authorized', fun
 
 	expect($output)->toContain('quicktreeAdd');
 	expect($output)->toContain('fa-plus-circle');
-	expect($output)->toContain('addQuickTree(42, 7)');
+	expect($output)->toContain("data-local-graph-id='42'");
+	expect($output)->toContain("data-rra-id='7'");
 });
 
 it('prints nothing when the user is not authorized for the quicktree realm', function () {
