@@ -1,4 +1,4 @@
-<?php
+&lt;?php
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -79,7 +79,7 @@ it('re-enables the page_head hook and updates plugin_config when the version dri
 	quicktree_check_upgrade();
 
 	$pageHeadHooks = array_filter($GLOBALS['__test_registered_hooks'], function ($hook) {
-		return $hook['hook'] === 'page_head' && $hook['enabled'] === 1;
+		return $hook['hook'] === 'page_head' && $hook['enabled'] === true;
 	});
 
 	expect($pageHeadHooks)->not->toBeEmpty();
