@@ -423,7 +423,7 @@ function quicktree_check_upgrade(): void {
 		['quicktree']);
 
 	if ($current != $old) {
-		api_plugin_register_hook('quicktree', 'page_head', 'quicktree_page_head', 'setup.php', 1);
+		api_plugin_register_hook('quicktree', 'page_head', 'quicktree_page_head', 'setup.php', true);
 
 		quicktree_setup_table();
 
