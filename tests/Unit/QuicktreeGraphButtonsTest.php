@@ -26,7 +26,16 @@ it('prints an Add-to-QuickTree glyph for the current graph when authorized', fun
 
 	expect($output)->toContain('quicktreeAdd');
 	expect($output)->toContain('fa-plus-circle');
-	expect($output)->toContain('addQuickTree(42, 7)');
+	expect($output)->toContain("data-local-graph-id='42'");
+	expect($output)->toContain("data-rra-id='7'");
+
+	// The delegated click binding in js/quicktree.js keys off this class, so
+	// its presence is what actually wires the glyph up once the inline
+	// handler is gone.
+	expect($output)->toContain('quicktreeAddLink');
+
+	// Guard the CSP objective: no inline event-handler attribute may return.
+	expect($output)->not->toMatch('/on[a-z]+\s*=/i');
 });
 
 it('prints nothing when the user is not authorized for the quicktree realm', function () {

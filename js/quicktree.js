@@ -41,3 +41,11 @@ function addQuickTree(local_graph_id, rra_id) {
 		displayMessages();
 	});
 }
+
+$(function() {
+	$(document).off('click.quicktreeAdd', '.quicktreeAddLink')
+		.on('click.quicktreeAdd', '.quicktreeAddLink', function(event) {
+			event.preventDefault();
+			addQuickTree($(this).data('local-graph-id'), $(this).data('rra-id'));
+		});
+});

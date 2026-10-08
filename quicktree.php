@@ -131,7 +131,7 @@ switch ($action) {
 
 		print '<tr><td class="saveRow">
 			<input type="hidden" name="action" value="save">
-			<input type="button" value="' . __esc('Cancel') . '" onClick="cactiReturnTo()">&nbsp;<input type="submit" value="' . __esc('Continue') . '" title="' . __esc('Add To Branch', 'quicktree') . '">
+			<input type="button" class="cactiReturnTo" value="' . __esc('Cancel') . '">&nbsp;<input type="submit" value="' . __esc('Continue') . '" title="' . __esc('Add To Branch', 'quicktree') . '">
 		</td></tr>';
 
 		quicktree_action_form_end();
@@ -183,7 +183,7 @@ switch ($action) {
 
 		print '<tr><td class="saveRow">
 			<input type="hidden" name="action" value="save">
-			<input type="button" value="' . __esc('Cancel') . '" onClick="cactiReturnTo()"><input type="submit" value="' . __esc('Continue') . '" title="' . __esc('Add To Branch', 'quicktree') . '">
+			<input type="button" class="cactiReturnTo" value="' . __esc('Cancel') . '"><input type="submit" value="' . __esc('Continue') . '" title="' . __esc('Add To Branch', 'quicktree') . '">
 		</td></tr>';
 
 		quicktree_action_form_end();
