@@ -23,13 +23,11 @@
 */
 
 function addQuickTree(local_graph_id, rra_id) {
-	var strURL = urlPath +
-		'plugins/quicktree/quicktree.php' +
-		'?action=add' +
-		'&rra_id='    + rra_id +
-		'&graph_id='  + local_graph_id;
+	const strURL = urlPath + 'plugins/quicktree/quicktree.php';
 
-	$.getJSON(strURL, function(message) {
+	$.ajax({type: 'POST', url: strURL, dataType: 'json',
+		data: {action: 'add', rra_id: rra_id, graph_id: local_graph_id},
+		success: function(message) {
 		if (message.title) {
 			sessionMessageTitle = message.title;
 		}
@@ -39,5 +37,5 @@ function addQuickTree(local_graph_id, rra_id) {
 		}
 
 		displayMessages();
-	});
+	}});
 }

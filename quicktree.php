@@ -55,6 +55,20 @@ if ($drp_action != null) {
 	$action = $code_actions[$drp_action];
 }
 
+// Validate the effective action, including the bulk-action clear alias.
+if (in_array($action, array('add', 'clear'), true)) {
+	if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+		header('Allow: POST');
+		http_response_code(405);
+		exit;
+	}
+
+	if (!function_exists('csrf_check') || !csrf_check(false)) {
+		http_response_code(403);
+		exit;
+	}
+}
+
 header('action_3_new: '. $action);
 
 switch ($action) {
