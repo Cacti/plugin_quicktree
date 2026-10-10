@@ -23,6 +23,31 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Authorize an existing tree before QuickTree writes any items to it.
+ *
+ * @param int $tree_id Existing tree ID.
+ *
+ * @return bool Whether the current user may edit this tree.
+ */
+function quicktree_can_edit_tree($tree_id) {
+	$user_id = isset($_SESSION['sess_user_id']) ? (int) $_SESSION['sess_user_id'] : 0;
+	if ($user_id <= 0 || $tree_id <= 0 || !is_tree_allowed($tree_id)) {
+		return false;
+	}
+
+	if (function_exists('cacti_authorize_resource')) {
+		return cacti_authorize_resource($user_id, $tree_id, 'graph_tree');
+	}
+
+	// Older hosts lack the ownership helper. Preserve its admin/owner policy.
+	if (api_user_realm_auth('user_admin.php')) {
+		return true;
+	}
+	$owner = db_fetch_cell_prepared('SELECT user_id FROM graph_tree WHERE id = ?', array($tree_id));
+	return $owner !== false && $owner !== null && (int) $owner === $user_id;
+}
+
 function plugin_quicktree_install() {
 	api_plugin_register_hook('quicktree', 'top_header_tabs',          'quicktree_show_tab',             'setup.php');
 	api_plugin_register_hook('quicktree', 'top_graph_header_tabs',    'quicktree_show_tab',             'setup.php');
