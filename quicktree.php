@@ -27,6 +27,7 @@ $guest_account = true;
 
 chdir('../../');
 include_once('include/auth.php');
+include_once('plugins/quicktree/setup.php');
 
 define('QUICKTREE_BASE_URI', $config['url_path'] . 'plugins/quicktree/');
 
@@ -173,6 +174,9 @@ switch ($action) {
 
 				if (cacti_sizeof($queryrows)) {
 					foreach ($queryrows as $tr) {
+						if (!quicktree_can_edit_tree((int) $tr['id'])) {
+							continue;
+						}
 						printf('<option value="%d">%s</option>', $tr['id'], html_escape($tr['name']));
 					}
 				}
@@ -231,6 +235,17 @@ switch ($action) {
 				array(get_nfilter_request_var('tree')));
 
 			$tree_name = get_nfilter_request_var('tree');
+		}
+
+		// Recheck submitted IDs AND names; filtering the dropdown is not authorization.
+		if ($new_tree_id > 0 && !quicktree_can_edit_tree((int) $new_tree_id)) {
+			http_response_code(403);
+			exit;
+		}
+
+		if (isset_request_var('tree_id') && ($new_tree_id <= 0 || empty($tree_name))) {
+			http_response_code(403);
+			exit;
 		}
 
 		if (empty($tree_name)) {
