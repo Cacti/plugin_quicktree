@@ -195,7 +195,7 @@ function quicktree_show_tab(): void {
 
 /**
  * Hook implementation for Cacti's 'graph_buttons'/'graph_buttons_thumbnails'
- * filters. Prints an "Add this graph to QuickTree" icon/link for the
+ * filters. Prints an "Add to Quicktree" icon/link for the
  * current graph, when the user is authorized. Called by Cacti core via
  * api_plugin_hook('graph_buttons'/'graph_buttons_thumbnails', ...) while
  * rendering a graph's action buttons.
@@ -216,7 +216,7 @@ function quicktree_graph_buttons($data): void {
 		$local_graph_id = $data[1]['local_graph_id'];
 		$rra_id         = $data[1]['rra'];
 
-		print "<a class='iconLink quicktreeAddLink' data-local-graph-id='$local_graph_id' data-rra-id='$rra_id' title='" . __esc('Add this graph to QuickTree', 'quicktree') . "' href='#'><i class='quicktreeAdd fas fa-plus-circle'></i></a><br>";
+		print "<a class='iconLink quicktreeAddLink' data-local-graph-id='$local_graph_id' data-rra-id='$rra_id' title='" . __esc('Add to Quicktree', 'quicktree') . "' href='#'><i class='quicktreeAdd fas fa-plus-circle'></i></a><br>";
 	}
 }
 
