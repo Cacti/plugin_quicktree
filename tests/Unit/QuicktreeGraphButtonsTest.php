@@ -7,7 +7,7 @@
 
 /*
  * Coverage for quicktree_graph_buttons(): the 'graph_buttons' hook prints an
- * "Add this graph to QuickTree" glyph for the current graph, but only when
+ * "Add to Quicktree" glyph for the current graph, but only when
  * the user is authorized for the quicktree realm.
  */
 
@@ -29,6 +29,8 @@ it('prints an Add-to-QuickTree glyph for the current graph when authorized', fun
 	expect($output)->toContain("data-local-graph-id='42'");
 	expect($output)->toContain("data-rra-id='7'");
 
+        // This PR's behavior: the shortened visible action label.
+        expect($output)->toContain("title='Add to Quicktree'");
 	// The delegated click binding in js/quicktree.js keys off this class, so
 	// its presence is what actually wires the glyph up once the inline
 	// handler is gone.
