@@ -1,6 +1,7 @@
 # ChangeLog
 
 --- develop ---
+* security: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 
 * feature: Shorten the graph 'Add to QuickTree' action icon's title to "Add to Quicktree" so it reads cleanly as a label in the Cacti graph drilldown action menu
 * bug: Pass a boolean (not the integer 1) to api_plugin_register_hook()'s $enable argument so the hook registration stays type-correct under Cacti 1.3's strict bool type-hint (the int only coerces while the file lacks declare(strict_types=1))
