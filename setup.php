@@ -284,44 +284,49 @@ function quicktree_page_head(): void {
  *               added.
  */
 function quicktree_draw_navigation_text($nav): array {
+	include_once(__DIR__ . '/includes/security.php');
+
+	$location = quicktree_normalize_location(get_nfilter_request_var('location'));
+	$mapping  = ($location == 'console' ? 'index.php:' : '');
+
 	$nav['quicktree.php:'] =  [
 		'title'   => __('QuickTree', 'quicktree'),
-		'mapping' => (get_nfilter_request_var('location') == 'console' ? 'index.php:' : ''),
-		'url'     => 'quicktree.php?location=' . get_nfilter_request_var('location'),
+		'mapping' => $mapping,
+		'url'     => 'quicktree.php?location=' . $location,
 		'level'   => '1'
 	];
 
 	$nav['quicktree.php:add_ajax'] =  [
 		'title'   => __('QuickTree', 'quicktree'),
-		'mapping' => (get_nfilter_request_var('location') == 'console' ? 'index.php:' : ''),
+		'mapping' => $mapping,
 		'url'     => 'quicktree.php?location=console',
 		'level'   => '1'
 	];
 
 	$nav['quicktree.php:add'] =  [
 		'title'   => __('QuickTree', 'quicktree'),
-		'mapping' => (get_nfilter_request_var('location') == 'console' ? 'index.php:' : ''),
+		'mapping' => $mapping,
 		'url'     => 'quicktree.php?location=console',
 		'level'   => '1'
 	];
 
 	$nav['quicktree.php:remove'] =  [
 		'title'   => __('QuickTree', 'quicktree'),
-		'mapping' => (get_nfilter_request_var('location') == 'console' ? 'index.php:' : ''),
+		'mapping' => $mapping,
 		'url'     => 'quicktree.php?location=console',
 		'level'   => '1'
 	];
 
 	$nav['quicktree.php:save'] =  [
 		'title'   => __('QuickTree', 'quicktree'),
-		'mapping' => (get_nfilter_request_var('location') == 'console' ? 'index.php:' : ''),
+		'mapping' => $mapping,
 		'url'     => 'quicktree.php?location=console',
 		'level'   => '1'
 	];
 
 	$nav['quicktree.php:clear'] =  [
 		'title'   => __('QuickTree', 'quicktree'),
-		'mapping' => (get_nfilter_request_var('location') == 'console' ? 'index.php:' : ''),
+		'mapping' => $mapping,
 		'url'     => 'quicktree.php?location=console',
 		'level'   => '1'
 	];
