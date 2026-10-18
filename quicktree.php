@@ -29,7 +29,6 @@ chdir('../../');
 include_once('include/auth.php');
 include_once('plugins/quicktree/includes/helpers.php');
 include_once('plugins/quicktree/includes/security.php');
-include_once('plugins/quicktree/setup.php');
 
 /** @var array<string,mixed> $config */
 define('QUICKTREE_BASE_URI', $config['url_path'] . 'plugins/quicktree/');

@@ -12,7 +12,7 @@
  */
 
 beforeAll(function () {
-	require_once __DIR__ . '/../../setup.php';
+	require_once __DIR__ . '/../../includes/security.php';
 
 	if (!function_exists('is_tree_allowed')) {
 		function is_tree_allowed($tree_id) {
