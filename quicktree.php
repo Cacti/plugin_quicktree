@@ -59,17 +59,16 @@ if ($drp_action != null) {
 	$action = $code_actions[$drp_action];
 }
 
-// Validate the effective action, including the bulk-action clear alias.
 // remove stays GET until its row links become POST forms.
 if (in_array($action, array('add', 'clear', 'save'), true)) {
-	if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
-		header('Allow: POST');
-		http_response_code(405);
-		exit;
-	}
+	$status = quicktree_mutation_status();
 
-	if (!function_exists('csrf_check') || !csrf_check(false)) {
-		http_response_code(403);
+	if ($status !== 0) {
+		if ($status === 405) {
+			header('Allow: POST');
+		}
+
+		http_response_code($status);
 		exit;
 	}
 }

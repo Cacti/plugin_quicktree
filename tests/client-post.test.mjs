@@ -9,10 +9,10 @@ test('adding a graph sends a POST body and preserves the success notification', 
 	let notifications = 0;
 	const context = {
 		urlPath: '/cacti/',
-		$: { ajax: (options) => { request = options; } },
+		$: Object.assign(() => ({}), { ajax: (options) => { request = options; } }),
 		displayMessages: () => { notifications++; },
 	};
-	runInNewContext(readFileSync(new URL('../quicktree.js', import.meta.url), 'utf8'), context);
+	runInNewContext(readFileSync(new URL('../js/quicktree.js', import.meta.url), 'utf8'), context);
 	context.addQuickTree(42, 7);
 	assert.equal(request.type, 'POST');
 	assert.equal(request.url, '/cacti/plugins/quicktree/quicktree.php');
