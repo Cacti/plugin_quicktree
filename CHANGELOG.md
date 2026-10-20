@@ -11,6 +11,7 @@
 * dev: Enforce patch coverage of changed lines in CI and remove the inert COMPOSER_ROOT_VERSION env from the Pest step
 * dev: Pin the CI database image and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 * security: Add a version-safe CSP nonce (`plugin_quicktree_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
+* security: Authorize the target tree before QuickTree adds items to an existing tree, and hide trees the user cannot edit from the tree selector
 - issue: Quicktree continually registers a realm
 - issue: Fix quicktree_show_tab() building an invalid `?location=tabtab`/`?location=tabconsole` URL, an undefined-variable text-domain typo in the QuickTree page's "no graph specified" message, and a misspelled `qucktree` text domain
 - security: Migrate quicktree SQL helpers to prepared statements, normalize location handling, and ensure redirects terminate execution
