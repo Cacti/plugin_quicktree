@@ -8,8 +8,11 @@
 * security: Require a POST request with a valid CSRF token for the add, clear and save actions, and send the add request from the graph button as a POST
 * dev: Replace the translation-template CI check that regenerated locales/po/cacti.pot and compared it with a diff-based gate (tests/bin/check-i18n-pot.php) requiring cacti.pot to be updated only when a pull request adds, removes, or modifies an i18n function call
 * dev: Measure CI coverage with xdebug instead of pcov so the plugin's own sources are instrumented (pcov auto-scopes to the Composer root and skipped cacti/plugins/, leaving the patch-coverage gate with nothing to measure)
+* security: Normalize the requested location before building the breadcrumb URL so a crafted location value is not reflected into the navigation
 * dev: Enforce patch coverage of changed lines in CI and remove the inert COMPOSER_ROOT_VERSION env from the Pest step
+* dev: Pin the CI database image and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 * security: Add a version-safe CSP nonce (`plugin_quicktree_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
+* security: Authorize the target tree before QuickTree adds items to an existing tree, and hide trees the user cannot edit from the tree selector
 - issue: Quicktree continually registers a realm
 - issue: Fix quicktree_show_tab() building an invalid `?location=tabtab`/`?location=tabconsole` URL, an undefined-variable text-domain typo in the QuickTree page's "no graph specified" message, and a misspelled `qucktree` text domain
 - security: Migrate quicktree SQL helpers to prepared statements, normalize location handling, and ensure redirects terminate execution
