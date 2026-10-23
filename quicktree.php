@@ -60,15 +60,18 @@ if ($drp_action != null) {
 }
 
 // remove stays GET until its row links become POST forms.
-if (in_array($action, array('add', 'clear', 'save'), true)) {
-	$status = quicktree_mutation_status();
+if (in_array($action, ['add', 'clear', 'save'], true)) {
+	if (function_exists('csrf_require_post')) {
+		csrf_require_post();
+	} elseif (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+		header('Allow: POST');
+		http_response_code(405);
+		exit;
+	}
 
-	if ($status !== 0) {
-		if ($status === 405) {
-			header('Allow: POST');
-		}
-
-		http_response_code($status);
+	// The 1.2.x helper checks the method only; validate the token on every host.
+	if (!function_exists('csrf_check') || !csrf_check(false)) {
+		http_response_code(403);
 		exit;
 	}
 }
@@ -208,7 +211,7 @@ switch ($action) {
 
 		break;
 	case 'clear':
-		$SQL = db_execute_prepared('DELETE FROM quicktree_graphs WHERE userid = ?', array($user));
+		$SQL = db_execute_prepared('DELETE FROM quicktree_graphs WHERE userid = ?', [$user]);
 
 		header('Location: quicktree.php?header=false&drp_action=&action=&location=' . $location);
 		exit;

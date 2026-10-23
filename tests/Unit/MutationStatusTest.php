@@ -7,33 +7,14 @@
  +-------------------------------------------------------------------------+
 */
 
+it('protects mutation routes with legacy, method-only and token-checking Cacti guards', function () {
+	$process = proc_open([PHP_BINARY, __DIR__ . '/../csrf-actions.php'], [1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
+	$stdout  = stream_get_contents($pipes[1]);
+	$stderr  = stream_get_contents($pipes[2]);
+	fclose($pipes[1]);
+	fclose($pipes[2]);
 
-require_once __DIR__ . '/../../includes/security.php';
-
-describe('quicktree mutation status', function () {
-	// A function cannot be undefined once declared, so the case without
-	// csrf_check has to run before the stub below exists.
-	it('rejects non-POST requests and POSTs that fail the CSRF check', function () {
-		$_SERVER['REQUEST_METHOD'] = 'GET';
-		expect(quicktree_mutation_status())->toBe(405);
-
-		unset($_SERVER['REQUEST_METHOD']);
-		expect(quicktree_mutation_status())->toBe(405);
-
-		$_SERVER['REQUEST_METHOD'] = 'POST';
-		expect(quicktree_mutation_status())->toBe(403);
-
-		function csrf_check($fatal) {
-			return $GLOBALS['__test_csrf_valid'];
-		}
-
-		$GLOBALS['__test_csrf_valid'] = false;
-		expect(quicktree_mutation_status())->toBe(403);
-
-		$GLOBALS['__test_csrf_valid'] = true;
-		expect(quicktree_mutation_status())->toBe(0);
-
-		$_SERVER['REQUEST_METHOD'] = 'GET';
-		expect(quicktree_mutation_status())->toBe(405);
-	});
+	expect(proc_close($process))->toBe(0)
+		->and($stderr)->toBe('')
+		->and(trim($stdout))->toBe('69 mutation guard cases passed');
 });

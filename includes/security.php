@@ -42,29 +42,6 @@ function quicktree_normalize_location($value): string {
 }
 
 /**
- * Reports why a QuickTree request may not change state, or 0 when it may.
- * Returns 405 when the request is not a POST, 403 when the CSRF token is
- * missing or invalid, and 0 for a CSRF-validated POST. The caller sends the
- * response and ends the request. Called from quicktree.php's dispatcher for
- * the add, clear and save actions, including the clear alias selected by
- * the bulk drp_action. The remove action stays GET until its row links
- * become POST forms.
- *
- * @return int An HTTP status code, or 0 when the request is allowed.
- */
-function quicktree_mutation_status(): int {
-	if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
-		return 405;
-	}
-
-	if (!function_exists('csrf_check') || !csrf_check(false)) {
-		return 403;
-	}
-
-	return 0;
-}
-
-/**
  * Authorize an existing tree before QuickTree writes any items to it.
  *
  * @param int $tree_id Existing tree ID.

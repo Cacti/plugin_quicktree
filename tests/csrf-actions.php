@@ -23,33 +23,28 @@
  +-------------------------------------------------------------------------+
 */
 
-
-$source = file_get_contents(__DIR__ . '/../quicktree.php');
-$start = strpos($source, 'if ($drp_action != null)');
-$end = strpos($source, 'switch ($action) {', $start);
+$source         = file_get_contents(__DIR__ . '/../quicktree.php');
+$start          = strpos($source, 'if ($drp_action != null)');
+$end            = strpos($source, 'switch ($action) {', $start);
 $dispatch_guard = substr($source, $start, $end - $start);
-$security = file_get_contents(__DIR__ . '/../includes/security.php');
-$start = strpos($security, 'function quicktree_mutation_status()');
-$end = strpos($security, "\n}\n", $start) + 3;
-$guard = substr($security, $start, $end - $start);
-
-$mutation_cases = array(array('GET', null, 405), array('POST', null, 403), array('POST', 'invalid', 403), array('POST', 'valid', 200));
-$remove_cases = array(array('GET', null, 200), array('POST', null, 200), array('POST', 'invalid', 200));
-$routes = array(
-	array('add', null, $mutation_cases),
-	array('clear', null, $mutation_cases),
-	array('save', null, $mutation_cases),
-	array('', 3, $mutation_cases),
-	array('view', 3, $mutation_cases),
-	array('remove', null, $remove_cases),
-);
+$mutation_cases = [['GET', null, 405], ['POST', null, 403], ['POST', 'invalid', 403], ['POST', 'valid', 200]];
+$remove_cases   = [['GET', null, 200], ['POST', null, 200], ['POST', 'invalid', 200]];
+$routes         = [
+	['add', null, $mutation_cases],
+	['clear', null, $mutation_cases],
+	['save', null, $mutation_cases],
+	['', 3, $mutation_cases],
+	['view', 3, $mutation_cases],
+	['remove', null, $remove_cases],
+];
 $count = 0;
 
-foreach ($routes as $route) {
-	foreach ($route[2] as $case) {
-		list($method, $token, $expected) = $case;
-		$seed = var_export(array('method' => $method, 'token' => $token, 'action' => $route[0], 'drp_action' => $route[1]), true);
-		$script = '<?php $seed = ' . $seed . ';' . <<<'PHP'
+foreach (['legacy', 'method-only', 'method-and-token'] as $host) {
+	foreach ($routes as $route) {
+		foreach ($route[2] as $case) {
+			[$method, $token, $expected] = $case;
+			$seed                        = var_export(['method' => $method, 'token' => $token, 'action' => $route[0], 'drp_action' => $route[1]], true);
+			$script                      = '<?php $seed = ' . $seed . ';' . <<<'PHP'
 
 $_SERVER['REQUEST_METHOD'] = $seed['method'];
 http_response_code(200);
@@ -60,19 +55,38 @@ $mutated = false;
 function csrf_check($fatal) { return $GLOBALS['seed']['token'] === 'valid'; }
 register_shutdown_function(function () { echo json_encode(array('status' => http_response_code(), 'mutated' => $GLOBALS['mutated'])); });
 PHP;
-		$script .= "\n" . $guard . "\n" . $dispatch_guard . "\n\$mutated = true;";
-		$process = proc_open(array(PHP_BINARY), array(0 => array('pipe', 'r'), 1 => array('pipe', 'w'), 2 => array('pipe', 'w')), $pipes);
-		fwrite($pipes[0], $script);
-		fclose($pipes[0]);
-		$result = json_decode(stream_get_contents($pipes[1]), true);
-		$stderr = stream_get_contents($pipes[2]);
-		fclose($pipes[1]);
-		fclose($pipes[2]);
-		if (proc_close($process) !== 0 || $stderr !== '' || $result['status'] !== $expected || $result['mutated'] !== ($expected === 200)) {
-			throw new RuntimeException('QuickTree mutation guard regression: ' . $stderr);
-		}
 
-		$count++;
+			if ($host !== 'legacy') {
+				$script .= <<<'PHP'
+
+function csrf_require_post() {
+	if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+		header('Allow: POST');
+		http_response_code(405);
+		exit;
+	}
+PHP;
+
+				if ($host === 'method-and-token') {
+					$script .= 'if (!csrf_check(false)) { http_response_code(403); exit; }';
+				}
+				$script .= "\n}\n";
+			}
+			$script .= "\n" . $dispatch_guard . "\n\$mutated = true;";
+			$process = proc_open([PHP_BINARY], [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
+			fwrite($pipes[0], $script);
+			fclose($pipes[0]);
+			$result = json_decode(stream_get_contents($pipes[1]), true);
+			$stderr = stream_get_contents($pipes[2]);
+			fclose($pipes[1]);
+			fclose($pipes[2]);
+
+			if (proc_close($process) !== 0 || $stderr !== '' || $result['status'] !== $expected || $result['mutated'] !== ($expected === 200)) {
+				throw new RuntimeException('QuickTree mutation guard regression: ' . $stderr);
+			}
+
+			$count++;
+		}
 	}
 }
-echo "$count mutation guard cases passed\n";
+print "$count mutation guard cases passed\n";
