@@ -52,14 +52,17 @@ $action = $seed['action'];
 $drp_action = $seed['drp_action'];
 $code_actions = array(1 => 'add_tree', 2 => 'add_branch', 3 => 'clear');
 $mutated = false;
+$core_guard_calls = 0;
 function csrf_check($fatal) { return $GLOBALS['seed']['token'] === 'valid'; }
-register_shutdown_function(function () { echo json_encode(array('status' => http_response_code(), 'mutated' => $GLOBALS['mutated'])); });
+register_shutdown_function(function () { echo json_encode(array('status' => http_response_code(), 'mutated' => $GLOBALS['mutated'], 'core_guard_calls' => $GLOBALS['core_guard_calls'])); });
 PHP;
+			$script .= "\nrequire " . var_export(__DIR__ . '/../includes/security.php', true) . ';';
 
 			if ($host !== 'legacy') {
 				$script .= <<<'PHP'
 
 function csrf_require_post() {
+	$GLOBALS['core_guard_calls']++;
 	if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 		header('Allow: POST');
 		http_response_code(405);
@@ -81,7 +84,9 @@ PHP;
 			fclose($pipes[1]);
 			fclose($pipes[2]);
 
-			if (proc_close($process) !== 0 || $stderr !== '' || $result['status'] !== $expected || $result['mutated'] !== ($expected === 200)) {
+			$uses_core_guard = $host !== 'legacy' && (in_array($route[0], ['add', 'clear', 'save'], true) || $route[1] === 3);
+
+			if (proc_close($process) !== 0 || $stderr !== '' || $result['status'] !== $expected || $result['mutated'] !== ($expected === 200) || $result['core_guard_calls'] !== (int) $uses_core_guard) {
 				throw new RuntimeException('QuickTree mutation guard regression: ' . $stderr);
 			}
 
