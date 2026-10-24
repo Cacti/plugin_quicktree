@@ -59,6 +59,23 @@ if ($drp_action != null) {
 	$action = $code_actions[$drp_action];
 }
 
+// remove stays GET until its row links become POST forms.
+if (in_array($action, ['add', 'clear', 'save'], true)) {
+	if (function_exists('csrf_require_post')) {
+		csrf_require_post();
+	} elseif (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+		header('Allow: POST');
+		http_response_code(405);
+		exit;
+	}
+
+	// The 1.2.x helper checks the method only; validate the token on every host.
+	if (!function_exists('csrf_check') || !csrf_check(false)) {
+		http_response_code(403);
+		exit;
+	}
+}
+
 switch ($action) {
 	case 'add':
 		$graph = 0;
