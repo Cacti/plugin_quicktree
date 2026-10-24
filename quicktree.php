@@ -211,7 +211,7 @@ switch ($action) {
 
 		break;
 	case 'clear':
-		$SQL = db_execute_prepared('DELETE FROM quicktree_graphs WHERE userid = ?', [$user]);
+		$SQL = db_execute_prepared('DELETE FROM quicktree_graphs WHERE userid = ?', array($user));
 
 		header('Location: quicktree.php?header=false&drp_action=&action=&location=' . $location);
 		exit;
