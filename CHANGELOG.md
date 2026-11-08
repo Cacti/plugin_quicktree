@@ -2,6 +2,7 @@
 
 --- develop ---
 
+* dev: Run the CI poller with the shared runner group so RRD files and structured directories pass permission verification
 * feature: Shorten the graph 'Add to QuickTree' action icon's title to "Add to Quicktree" so it reads cleanly as a label in the Cacti graph drilldown action menu
 * bug: Pass a boolean (not the integer 1) to api_plugin_register_hook()'s $enable argument so the hook registration stays type-correct under Cacti 1.3's strict bool type-hint (the int only coerces while the file lacks declare(strict_types=1))
 * security: Move the graph 'Add to QuickTree' icon's inline `onClick='addQuickTree()'` handler into a delegated jQuery binding in `js/quicktree.js` (via a `quicktreeAddLink` class and `data-` attributes) and replace the confirmation pages' inline `onClick='cactiReturnTo()'` Cancel buttons with the CSP-safe `cactiReturnTo` class, so the pages no longer trip Cacti's Content-Security-Policy script-src-attr directive
