@@ -29,6 +29,10 @@ and give the required users access to it. A green '+' icon should appear next to
 graphs where Cacti exposes the graph action hooks, including single-graph and
 thumbnail views supported by this branch.
 
+By default QuickTree appears as a tab. To change where it is shown, set 'Page
+Style' under Console > Settings > Misc to 'Tab', 'Console Menu', or 'Both Tab
+and Console Menu'.
+
 Known Issue: the way Cacti caches Graph Trees means that you might need to
 switch to another graph tree before the newly-created one appears in your list.
 This is true for Cacti-created trees too, so it seems to just be how it is.
