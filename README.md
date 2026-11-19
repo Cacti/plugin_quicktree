@@ -3,7 +3,8 @@
 Make play-lists of graphs in Cacti
 
 
-***NOTE*** Version 2.0 of QuickTree only works on Cacti 1.2.17 or above!
+This source branch requires Cacti 1.2.29 or later. The published 2.0 tag
+declares Cacti 1.2.17; use its tagged documentation when installing that package.
 
 ***NOTE*** Version 1.0 of QuickTree only works on Cacti 1.1.9 or above!
 
@@ -25,12 +26,34 @@ happy.
 
 Install using the Plugin Management screen. Then enter the User Management page
 and give the required users access to it. A green '+' icon should appear next to
-graphs on the 'single graph' viewing page (not in preview or list view - the
-hook doesn't exist to add one there).
+graphs where Cacti exposes the graph action hooks, including single-graph and
+thumbnail views supported by this branch.
+
+By default QuickTree appears as a tab. To change where it is shown, set 'Page
+Style' under Console > Settings > Misc to 'Tab', 'Console Menu', or 'Both Tab
+and Console Menu'.
 
 Known Issue: the way Cacti caches Graph Trees means that you might need to
 switch to another graph tree before the newly-created one appears in your list.
 This is true for Cacti-created trees too, so it seems to just be how it is.
+
+## Versions and compatibility
+
+This README describes the `main` source branch.
+
+| Code | Plugin version | Minimum Cacti declared in `INFO` |
+| --- | --- | --- |
+| [Source branch](https://github.com/Cacti/plugin_quicktree/blob/main/INFO) | 2.0 | 1.2.29 |
+| [Published v2.0](https://github.com/Cacti/plugin_quicktree/releases/tag/v2.0) | 2.0 | 1.2.17 |
+
+Use the published release’s assets and tagged documentation when installing that
+package. Branch code can include later changes, even when its version number
+matches the release. Cacti’s own PHP and database requirements also apply.
+
+Install this plugin in **`<cacti-root>/plugins/quicktree`**, using the directory
+name `quicktree` rather than `plugin_quicktree`.
+
+See [CHANGELOG.md](https://github.com/Cacti/plugin_quicktree/blob/main/CHANGELOG.md) for the version history.
 
 ## Cacti compatibility
 
