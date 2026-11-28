@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-12 14:07-0400\n"
+"PO-Revision-Date: 2026-11-27 18:00-0800\n"
+"Last-Translator: The Cacti Group <developers@cacti.net>\n"
+"Language-Team: Serbian <developers@cacti.net>\n"
+"Language: sr-RS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#: quicktree.php
+msgid "Save To New Tree"
+msgstr "Сачувај у ново стабло"
+
+#: quicktree.php
+msgid "Save To Branch"
+msgstr "Сачувај у грану"
+
+#: quicktree.php
+msgid "Clear All Graphs"
+msgstr "Очисти све графиконе"
+
+#: quicktree.php
+msgid "Graph Added to QuickTree"
+msgstr "Графикон је додат у QuickTree"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Графикон %s је додат у QuickTree. Идите на страницу QuickTree да преместите све графиконе у ново или постојеће стабло."
+
+#: quicktree.php
+msgid "Graph Not Added to QuickTree"
+msgstr "Графикон није додат у QuickTree"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Графикон %s НИЈЕ додат у QuickTree јер се већ налази тамо и чека постављање на стабло. Идите на страницу QuickTree да преместите све графиконе у ново или постојеће стабло."
+
+#: quicktree.php
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "Графикон није наведен. Није додат у QuickTree"
+
+#: quicktree.php
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "Ниједан графикон није додат у QuickTree јер није наведен ниједан графикон."
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "Кликните на 'Настави' да додате следеће стабло."
+
+#: quicktree.php
+msgid "Tree Name"
+msgstr "Назив стабла"
+
+#: quicktree.php
+msgid "New Tree"
+msgstr "Ново стабло"
+
+#: quicktree.php
+msgid "Branch Name"
+msgstr "Назив гране"
+
+#: quicktree.php setup.php
+msgid "QuickTree"
+msgstr "QuickTree"
+
+#: quicktree.php
+msgid "Add To Branch"
+msgstr "Додај у грану"
+
+#: quicktree.php
+msgid "Cancel"
+msgstr "Откажи"
+
+#: quicktree.php
+msgid "Continue"
+msgstr "Настави"
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "Кликните на 'Настави' да додате следећу грану стабла."
+
+#: quicktree.php
+msgid "Add to which Graph Tree?"
+msgstr "У које стабло графикона додати?"
+
+#: quicktree.php
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTree је креирао стабло и/или грану и додао графиконе"
+
+#: quicktree.php
+msgid "QuickTree has no Graphs Queued"
+msgstr "QuickTree нема графиконе на чекању"
+
+#: quicktree.php
+msgid "Information/Directions"
+msgstr "Информације/упутства"
+
+#: quicktree.php
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "Графикони испод чекају у реду за додавање у Cacti стабло. Можете их задржати овде колико год желите или извршити једну од следећих радњи"
+
+#: quicktree.php
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "Сачувајте свој избор у ново стабло графикона како бисте га сачували за касније и радили на нечем новом."
+
+#: quicktree.php
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "Сачувајте свој избор као грану постојећег стабла како би се појавили у одређеном одељку постојећег стабла."
+
+#: quicktree.php
+msgid "Clear all graphs"
+msgstr "Очисти све графиконе"
+
+#: quicktree.php
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "Очистите графиконе на овој страници из реда чекања како бисте имали празан QuickTree спреман за нове изборе"
+
+#: quicktree.php
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "Појединачним графиконима који се овде приказују можете управљати кликом на:"
+
+#: quicktree.php
+msgid "Add"
+msgstr "Додај"
+
+#: quicktree.php
+msgid "Graph View Page"
+msgstr "Страница приказа графикона"
+
+#: quicktree.php
+#, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "Ова икона се налази поред графикона на картици %s."
+
+#: quicktree.php
+msgid "Delete"
+msgstr "Обриши"
+
+#: quicktree.php
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "Ову икону поред графикона испод да бисте их уклонили из QuickTree реда чекања."
+
+#: quicktree.php
+msgid "Note:"
+msgstr "Напомена:"
+
+#: quicktree.php
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "Додавање, уклањање или чишћење на овој страници не утиче на друге делове система Cacti (утиче само креирање/чување)"
+
+#: quicktree.php
+msgid "Actions"
+msgstr "Радње"
+
+#: quicktree.php
+msgid "Remove This Graph From QuickTree"
+msgstr "Уклони овај графикон из QuickTree"
+
+#: quicktree.php
+msgid "No Graphs Added Yet"
+msgstr "Још увек нема додатих графикона"
+
+#: setup.php
+msgid "QuickTree Management"
+msgstr "Управљање додатком QuickTree"
+
+#: setup.php
+msgid "Misc"
+msgstr "Разно"
+
+#: setup.php
+msgid "Quicktree"
+msgstr "QuickTree"
+
+#: setup.php
+msgid "Page Style"
+msgstr "Стил странице"
+
+#: setup.php
+msgid "Where to display the QuickTree page"
+msgstr "Где приказати страницу QuickTree"
+
+#: setup.php
+msgid "Tab"
+msgstr "Картица"
+
+#: setup.php
+msgid "Console Menu"
+msgstr "Мени конзоле"
+
+#: setup.php
+msgid "Both Tab and Console Menu"
+msgstr "И картица и мени конзоле"
+
+#: setup.php
+msgid "Add to Quicktree"
+msgstr "Додај у QuickTree"
+
+#: setup.php
+msgid "Management"
+msgstr "Управљање"
+
+#: setup.php
+msgid "QuickTree Trees"
+msgstr "QuickTree стабла"
