@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-12 14:07-0400\n"
+"PO-Revision-Date: 2026-11-27 18:00-0800\n"
+"Last-Translator: The Cacti Group <developers@cacti.net>\n"
+"Language-Team: Malagasy <developers@cacti.net>\n"
+"Language: mg_MG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: quicktree.php
+msgid "Save To New Tree"
+msgstr "Tehirizo ao amin'ny Hazo Vaovao"
+
+#: quicktree.php
+msgid "Save To Branch"
+msgstr "Tehirizo ao amin'ny Sampana"
+
+#: quicktree.php
+msgid "Clear All Graphs"
+msgstr "Fafao daholo ny Kisary"
+
+#: quicktree.php
+msgid "Graph Added to QuickTree"
+msgstr "Nampiana tao amin'ny QuickTree ny Kisary"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Nampiana tao amin'ny QuickTree ny kisary %s.  Mandehana any amin'ny pejy QuickTree hamindrana ny kisary rehetra mankany amin'ny Hazo vaovao na efa misy."
+
+#: quicktree.php
+msgid "Graph Not Added to QuickTree"
+msgstr "Tsy nampiana tao amin'ny QuickTree ny Kisary"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "TSY nampiana tao amin'ny QuickTree ny kisary %s satria efa ao izy ary miandry hapetraka ao amin'ny Hazo.  Mandehana any amin'ny pejy QuickTree hamindrana ny kisary rehetra mankany amin'ny Hazo vaovao na efa misy."
+
+#: quicktree.php
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "Tsy voafaritra ny Kisary.  Tsy nampiana tao amin'ny QuickTree"
+
+#: quicktree.php
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "Tsy nisy kisary nampiana tao amin'ny QuickTree satria tsy nisy kisary voafaritra."
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "Tsindrio ny 'Tohizo' hanampiana ity Hazo manaraka ity."
+
+#: quicktree.php
+msgid "Tree Name"
+msgstr "Anaran'ny Hazo"
+
+#: quicktree.php
+msgid "New Tree"
+msgstr "Hazo Vaovao"
+
+#: quicktree.php
+msgid "Branch Name"
+msgstr "Anaran'ny Sampana"
+
+#: quicktree.php setup.php
+msgid "QuickTree"
+msgstr "QuickTree"
+
+#: quicktree.php
+msgid "Add To Branch"
+msgstr "Ampio ao amin'ny Sampana"
+
+#: quicktree.php
+msgid "Cancel"
+msgstr "Foano"
+
+#: quicktree.php
+msgid "Continue"
+msgstr "Tohizo"
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "Tsindrio ny 'Tohizo' hanampiana ity Sampan'ny Hazo manaraka ity."
+
+#: quicktree.php
+msgid "Add to which Graph Tree?"
+msgstr "Ampiana ao amin'ny Hazon-kisary iza?"
+
+#: quicktree.php
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "Namorona Hazo sy/na Sampana ary nampiditra Kisary ny QuickTree"
+
+#: quicktree.php
+msgid "QuickTree has no Graphs Queued"
+msgstr "Tsy misy kisary miandry ao amin'ny QuickTree"
+
+#: quicktree.php
+msgid "Information/Directions"
+msgstr "Fampahalalana/Torolalana"
+
+#: quicktree.php
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "Ireo kisary eto ambany dia ao anatin'ny laharam-piandrasana hampidirina ao amin'ny Hazo Cacti.  Azonao tazonina eto araka izay tianao izy ireo, na azonao atao ny iray amin'ireto hetsika manaraka ireto"
+
+#: quicktree.php
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "Tehirizo ao amin'ny Hazon-kisary vaovao ny safidinao mba hitahirizanao azy ireo ho amin'ny manaraka ary hiasanao zavatra vaovao."
+
+#: quicktree.php
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "Tehirizo ho sampana ao amin'ny hazo efa misy ny safidinao mba hisehoany amin'ny fizarana manokana ao amin'ny hazo efa misy."
+
+#: quicktree.php
+msgid "Clear all graphs"
+msgstr "Fafao daholo ny kisary"
+
+#: quicktree.php
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "Esory ao amin'ny laharam-piandrasan'ny kisary ny kisary eto amin'ity pejy ity mba hanananao QuickTree madio vonona amin'ny safidy vaovao"
+
+#: quicktree.php
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "Azonao tantanina tsirairay ireo kisary miseho eto amin'ny fipihana ny:"
+
+#: quicktree.php
+msgid "Add"
+msgstr "Manampy"
+
+#: quicktree.php
+msgid "Graph View Page"
+msgstr "Pejy Fijerena Kisary"
+
+#: quicktree.php
+#, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "Ity sary famantarana ity dia eo akaikin'ny Kisary ao amin'ny tabilao %s."
+
+#: quicktree.php
+msgid "Delete"
+msgstr "Fafao"
+
+#: quicktree.php
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "Ity sary famantarana eo akaikin'ireo Kisary eto ambany ity dia hanesorana azy ireo ao amin'ny laharam-piandrasan'ny QuickTree."
+
+#: quicktree.php
+msgid "Note:"
+msgstr "Fanamarihana:"
+
+#: quicktree.php
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "Ny fanampiana, fanesorana na famafana eto amin'ity pejy ity dia tsy misy fiantraikany amin'ny faritra hafa amin'ny Cacti (ny Famolavolana/Fitahirizana ihany no manova)"
+
+#: quicktree.php
+msgid "Actions"
+msgstr "Hetsika"
+
+#: quicktree.php
+msgid "Remove This Graph From QuickTree"
+msgstr "Esory ao amin'ny QuickTree ity Kisary ity"
+
+#: quicktree.php
+msgid "No Graphs Added Yet"
+msgstr "Tsy mbola nisy Kisary nampiana"
+
+#: setup.php
+msgid "QuickTree Management"
+msgstr "Fitantanana QuickTree"
+
+#: setup.php
+msgid "Misc"
+msgstr "Hafa"
+
+#: setup.php
+msgid "Quicktree"
+msgstr "Quicktree"
+
+#: setup.php
+msgid "Page Style"
+msgstr "Endriky ny Pejy"
+
+#: setup.php
+msgid "Where to display the QuickTree page"
+msgstr "Aiza no hampisehoana ny pejy QuickTree"
+
+#: setup.php
+msgid "Tab"
+msgstr "Tabilao"
+
+#: setup.php
+msgid "Console Menu"
+msgstr "Menion'ny Konsoly"
+
+#: setup.php
+msgid "Both Tab and Console Menu"
+msgstr "Sady Tabilao no Menion'ny Konsoly"
+
+#: setup.php
+msgid "Add to Quicktree"
+msgstr "Ampio ao amin'ny Quicktree"
+
+#: setup.php
+msgid "Management"
+msgstr "Fitantanana"
+
+#: setup.php
+msgid "QuickTree Trees"
+msgstr "Hazo QuickTree"

@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-12 14:07-0400\n"
+"PO-Revision-Date: 2026-11-27 18:00-0800\n"
+"Last-Translator: The Cacti Group <developers@cacti.net>\n"
+"Language-Team: Zulu <developers@cacti.net>\n"
+"Language: zu_ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: quicktree.php
+msgid "Save To New Tree"
+msgstr "Londoloza Esihlahleni Esisha"
+
+#: quicktree.php
+msgid "Save To Branch"
+msgstr "Londoloza Egatsheni"
+
+#: quicktree.php
+msgid "Clear All Graphs"
+msgstr "Sula Wonke Amagrafu"
+
+#: quicktree.php
+msgid "Graph Added to QuickTree"
+msgstr "Igrafu Yengezwe Ku-QuickTree"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Igrafu %s yengezwe ku-QuickTree. Iya ekhasini le-QuickTree ukuze uhambise wonke Amagrafu esihlahleni esisha noma esikhona."
+
+#: quicktree.php
+msgid "Graph Not Added to QuickTree"
+msgstr "Igrafu Ayengezwanga Ku-QuickTree"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Igrafu %s AYENGEZWANGA ku-QuickTree ngoba isivele ikhona ilinde ukubekwa Esihlahleni. Iya ekhasini le-QuickTree ukuze uhambise wonke Amagrafu esihlahleni esisha noma esikhona."
+
+#: quicktree.php
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "Igrafu Ayicacisiwe. Ayengezwanga ku-QuickTree"
+
+#: quicktree.php
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "Ayikho Igrafu eyengezwe ku-QuickTree ngoba ayikho Igrafu ecacisiwe."
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "Chofoza u-'Qhubeka' ukuze Wengeze Isihlahla esilandelayo."
+
+#: quicktree.php
+msgid "Tree Name"
+msgstr "Igama Lesihlahla"
+
+#: quicktree.php
+msgid "New Tree"
+msgstr "Isihlahla Esisha"
+
+#: quicktree.php
+msgid "Branch Name"
+msgstr "Igama Legatsha"
+
+#: quicktree.php setup.php
+msgid "QuickTree"
+msgstr "QuickTree"
+
+#: quicktree.php
+msgid "Add To Branch"
+msgstr "Engeza Egatsheni"
+
+#: quicktree.php
+msgid "Cancel"
+msgstr "Khansela"
+
+#: quicktree.php
+msgid "Continue"
+msgstr "Qhubeka"
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "Chofoza u-'Qhubeka' ukuze Wengeze Igatsha Lesihlahla elilandelayo."
+
+#: quicktree.php
+msgid "Add to which Graph Tree?"
+msgstr "Engeza kusiphi Isihlahla Segrafu?"
+
+#: quicktree.php
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "I-QuickTree Idale Isihlahla kanye/noma Igatsha futhi yengeza Amagrafu"
+
+#: quicktree.php
+msgid "QuickTree has no Graphs Queued"
+msgstr "I-QuickTree ayinawo Amagrafu Alindile"
+
+#: quicktree.php
+msgid "Information/Directions"
+msgstr "Ulwazi/Izikhombisi-ndlela"
+
+#: quicktree.php
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "Amagrafu angezansi asemugqeni wokwengezwa Esihlahleni se-Cacti. Ungawagcina lapha isikhathi eside ngendlela othanda ngayo, noma ungenza esinye salezi zenzo ezilandelayo"
+
+#: quicktree.php
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "Londoloza okukhethile Esihlahleni Segrafu esisha ukuze ukwazi ukukugcina kamuva futhi usebenze kokuthile okusha."
+
+#: quicktree.php
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "Londoloza okukhethile njengegatsha esihlahleni esikhona ukuze kuvele engxenyeni ethile yesihlahla esikhona."
+
+#: quicktree.php
+msgid "Clear all graphs"
+msgstr "Sula wonke amagrafu"
+
+#: quicktree.php
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "Sula Amagrafu akuleli khasi emugqeni WamaGrafu ukuze ube ne-QuickTree engenalutho elungele ukukhetha okusha"
+
+#: quicktree.php
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "Ungaphatha amagrafu ngamanye avela lapha ngokuchofoza:"
+
+#: quicktree.php
+msgid "Add"
+msgstr "Engeza"
+
+#: quicktree.php
+msgid "Graph View Page"
+msgstr "Ikhasi Lokubuka Igrafu"
+
+#: quicktree.php
+#, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "Lesi sithonjana siseduze Kwegrafu kuthebhu ye-%s."
+
+#: quicktree.php
+msgid "Delete"
+msgstr "Susa"
+
+#: quicktree.php
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "Lesi sithonjana esiseduze Kwamagrafu angezansi ukuze uwasuse emugqeni we-QuickTree."
+
+#: quicktree.php
+msgid "Note:"
+msgstr "Qaphela:"
+
+#: quicktree.php
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "Ukwengeza, ukususa noma ukusula kuleli khasi akuthinti ezinye izingxenye ze-Cacti (Ukudala/Ukulondoloza kuphela okwenza lokho)"
+
+#: quicktree.php
+msgid "Actions"
+msgstr "Izenzo"
+
+#: quicktree.php
+msgid "Remove This Graph From QuickTree"
+msgstr "Susa Le Grafu Ku-QuickTree"
+
+#: quicktree.php
+msgid "No Graphs Added Yet"
+msgstr "Awekho Amagrafu Engeziwe Okwamanje"
+
+#: setup.php
+msgid "QuickTree Management"
+msgstr "Ukuphathwa Kwe-QuickTree"
+
+#: setup.php
+msgid "Misc"
+msgstr "Okuxubile"
+
+#: setup.php
+msgid "Quicktree"
+msgstr "Quicktree"
+
+#: setup.php
+msgid "Page Style"
+msgstr "Isitayela Sekhasi"
+
+#: setup.php
+msgid "Where to display the QuickTree page"
+msgstr "Indawo yokubonisa ikhasi le-QuickTree"
+
+#: setup.php
+msgid "Tab"
+msgstr "Ithebhu"
+
+#: setup.php
+msgid "Console Menu"
+msgstr "Imenyu Yekhonsoli"
+
+#: setup.php
+msgid "Both Tab and Console Menu"
+msgstr "Kokubili Ithebhu Nemenu Yekhonsoli"
+
+#: setup.php
+msgid "Add to Quicktree"
+msgstr "Engeza ku-Quicktree"
+
+#: setup.php
+msgid "Management"
+msgstr "Ukuphathwa"
+
+#: setup.php
+msgid "QuickTree Trees"
+msgstr "Izihlahla Ze-QuickTree"

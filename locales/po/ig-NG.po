@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-12 14:07-0400\n"
+"PO-Revision-Date: 2026-11-27 18:00-0800\n"
+"Last-Translator: The Cacti Group <developers@cacti.net>\n"
+"Language-Team: Igbo <developers@cacti.net>\n"
+"Language: ig_NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: quicktree.php
+msgid "Save To New Tree"
+msgstr "Chekwaa n'Osisi Ọhụrụ"
+
+#: quicktree.php
+msgid "Save To Branch"
+msgstr "Chekwaa n'Alaka"
+
+#: quicktree.php
+msgid "Clear All Graphs"
+msgstr "Kpochapụ Eserese Niile"
+
+#: quicktree.php
+msgid "Graph Added to QuickTree"
+msgstr "Etinyela Eserese na QuickTree"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Etinyela Eserese %s na QuickTree.  Gaa na ibe QuickTree iji bufee Eserese niile n'Osisi ọhụrụ ma ọ bụ nke dị adị."
+
+#: quicktree.php
+msgid "Graph Not Added to QuickTree"
+msgstr "Etinyeghị Eserese na QuickTree"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "Etinyeghị Eserese %s na QuickTree n'ihi na ọ dịlarị ebe ahụ na-eche ka etinye ya n'Osisi.  Gaa na ibe QuickTree iji bufee Eserese niile n'Osisi ọhụrụ ma ọ bụ nke dị adị."
+
+#: quicktree.php
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "Akọwaghị Eserese.  Etinyeghị na QuickTree"
+
+#: quicktree.php
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "Enweghị Eserese etinyere na QuickTree n'ihi na akọwaghị Eserese ọ bụla."
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "Pịa 'Gaa n'ihu' iji tinye Osisi na-esote."
+
+#: quicktree.php
+msgid "Tree Name"
+msgstr "Aha Osisi"
+
+#: quicktree.php
+msgid "New Tree"
+msgstr "Osisi Ọhụrụ"
+
+#: quicktree.php
+msgid "Branch Name"
+msgstr "Aha Alaka"
+
+#: quicktree.php setup.php
+msgid "QuickTree"
+msgstr "QuickTree"
+
+#: quicktree.php
+msgid "Add To Branch"
+msgstr "Tinye n'Alaka"
+
+#: quicktree.php
+msgid "Cancel"
+msgstr "Kagbuo"
+
+#: quicktree.php
+msgid "Continue"
+msgstr "Gaa n'ihu"
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "Pịa 'Gaa n'ihu' iji tinye Alaka Osisi na-esote."
+
+#: quicktree.php
+msgid "Add to which Graph Tree?"
+msgstr "Tinye n'Osisi Eserese nke dị aṅaa?"
+
+#: quicktree.php
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTree emepụtala Osisi na/ma ọ bụ Alaka ma tinye Eserese"
+
+#: quicktree.php
+msgid "QuickTree has no Graphs Queued"
+msgstr "QuickTree enweghị Eserese ọ bụla n'ahịrị"
+
+#: quicktree.php
+msgid "Information/Directions"
+msgstr "Ozi/Ntụziaka"
+
+#: quicktree.php
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "Eserese ndị dị n'okpuru nọ n'ahịrị maka itinye ha n'Osisi Cacti.  Ị nwere ike idebe ha ebe a ogologo oge ị chọrọ, ma ọ bụ mee otu n'ime omume ndị a"
+
+#: quicktree.php
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "Chekwaa nhọrọ gị n'Osisi Eserese ọhụrụ ka ị nwee ike idebe ha maka oge ọzọ ma rụọ ọrụ n'ihe ọhụrụ."
+
+#: quicktree.php
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "Chekwaa nhọrọ gị dị ka alaka n'osisi dị adị ka ha pụta n'otu ngalaba nke osisi dị adị."
+
+#: quicktree.php
+msgid "Clear all graphs"
+msgstr "Kpochapụ eserese niile"
+
+#: quicktree.php
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "Kpochapụ Eserese dị na ibe a site n'Ahịrị Eserese ka ị nwee QuickTree tọgbọrọ chakoo dị njikere maka nhọrọ ọhụrụ"
+
+#: quicktree.php
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "Ị nwere ike ijikwa eserese nke ọ bụla pụtara ebe a site na ịpị:"
+
+#: quicktree.php
+msgid "Add"
+msgstr "Tinye"
+
+#: quicktree.php
+msgid "Graph View Page"
+msgstr "Ibe Nlele Eserese"
+
+#: quicktree.php
+#, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "Akara ngosi a dị n'akụkụ Eserese na taabụ %s."
+
+#: quicktree.php
+msgid "Delete"
+msgstr "Hichapụ"
+
+#: quicktree.php
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "Akara ngosi a dị n'akụkụ Eserese ndị dị n'okpuru iji wepụ ha n'Ahịrị QuickTree."
+
+#: quicktree.php
+msgid "Note:"
+msgstr "Rịba ama:"
+
+#: quicktree.php
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "Itinye, iwepụ ma ọ bụ ikpochapụ na ibe a anaghị emetụta akụkụ ndị ọzọ nke Cacti (naanị Imepụta/Ichekwa na-emetụta ya)"
+
+#: quicktree.php
+msgid "Actions"
+msgstr "Omume"
+
+#: quicktree.php
+msgid "Remove This Graph From QuickTree"
+msgstr "Wepụ Eserese A na QuickTree"
+
+#: quicktree.php
+msgid "No Graphs Added Yet"
+msgstr "Etinyebeghị Eserese Ọ Bụla"
+
+#: setup.php
+msgid "QuickTree Management"
+msgstr "Njikwa QuickTree"
+
+#: setup.php
+msgid "Misc"
+msgstr "Ihe Ndị Ọzọ"
+
+#: setup.php
+msgid "Quicktree"
+msgstr "Quicktree"
+
+#: setup.php
+msgid "Page Style"
+msgstr "Ụdị Ibe"
+
+#: setup.php
+msgid "Where to display the QuickTree page"
+msgstr "Ebe a ga-egosi ibe QuickTree"
+
+#: setup.php
+msgid "Tab"
+msgstr "Taabụ"
+
+#: setup.php
+msgid "Console Menu"
+msgstr "Menu Kọnsọlụ"
+
+#: setup.php
+msgid "Both Tab and Console Menu"
+msgstr "Ma Taabụ ma Menu Kọnsọlụ"
+
+#: setup.php
+msgid "Add to Quicktree"
+msgstr "Tinye na Quicktree"
+
+#: setup.php
+msgid "Management"
+msgstr "Njikwa"
+
+#: setup.php
+msgid "QuickTree Trees"
+msgstr "Osisi QuickTree"

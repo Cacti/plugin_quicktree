@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-12 14:07-0400\n"
+"PO-Revision-Date: 2026-11-27 18:00-0800\n"
+"Last-Translator: The Cacti Group <developers@cacti.net>\n"
+"Language-Team: Amharic <developers@cacti.net>\n"
+"Language: am_ET\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: quicktree.php
+msgid "Save To New Tree"
+msgstr "ወደ አዲስ ዛፍ አስቀምጥ"
+
+#: quicktree.php
+msgid "Save To Branch"
+msgstr "ወደ ቅርንጫፍ አስቀምጥ"
+
+#: quicktree.php
+msgid "Clear All Graphs"
+msgstr "ሁሉንም ግራፎች አጽዳ"
+
+#: quicktree.php
+msgid "Graph Added to QuickTree"
+msgstr "ግራፍ ወደ QuickTree ታክሏል"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "ግራፍ %s ወደ QuickTree ታክሏል። ሁሉንም ግራፎች ወደ አዲስ ወይም ነባር ዛፍ ለማዛወር ወደ QuickTree ገጽ ይሂዱ።"
+
+#: quicktree.php
+msgid "Graph Not Added to QuickTree"
+msgstr "ግራፍ ወደ QuickTree አልታከለም"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "ግራፍ %s ቀድሞውኑ በዛፍ ላይ ለመመደብ እየጠበቀ ስላለ ወደ QuickTree አልታከለም። ሁሉንም ግራፎች ወደ አዲስ ወይም ነባር ዛፍ ለማዛወር ወደ QuickTree ገጽ ይሂዱ።"
+
+#: quicktree.php
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "ግራፍ አልተገለጸም። ወደ QuickTree አልታከለም"
+
+#: quicktree.php
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "ምንም ግራፍ ስላልተገለጸ ወደ QuickTree የታከለ ግራፍ የለም።"
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "የሚከተለውን ዛፍ ለማከል 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: quicktree.php
+msgid "Tree Name"
+msgstr "የዛፍ ስም"
+
+#: quicktree.php
+msgid "New Tree"
+msgstr "አዲስ ዛፍ"
+
+#: quicktree.php
+msgid "Branch Name"
+msgstr "የቅርንጫፍ ስም"
+
+#: quicktree.php setup.php
+msgid "QuickTree"
+msgstr "QuickTree"
+
+#: quicktree.php
+msgid "Add To Branch"
+msgstr "ወደ ቅርንጫፍ አክል"
+
+#: quicktree.php
+msgid "Cancel"
+msgstr "ይቅር"
+
+#: quicktree.php
+msgid "Continue"
+msgstr "ቀጥል"
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "የሚከተለውን የዛፍ ቅርንጫፍ ለማከል 'ቀጥል' የሚለውን ጠቅ ያድርጉ።"
+
+#: quicktree.php
+msgid "Add to which Graph Tree?"
+msgstr "ወደ የትኛው የግራፍ ዛፍ ይታከል?"
+
+#: quicktree.php
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTree ዛፍ እና/ወይም ቅርንጫፍ ፈጥሯል እንዲሁም ግራፎችን አክሏል"
+
+#: quicktree.php
+msgid "QuickTree has no Graphs Queued"
+msgstr "QuickTree ምንም የተሰለፉ ግራፎች የሉትም"
+
+#: quicktree.php
+msgid "Information/Directions"
+msgstr "መረጃ/መመሪያዎች"
+
+#: quicktree.php
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "ከዚህ በታች ያሉት ግራፎች ወደ Cacti ዛፍ ለመታከል በወረፋ ላይ ናቸው። እዚህ የፈለጉትን ያህል ጊዜ ማቆየት ይችላሉ፣ ወይም ከሚከተሉት ድርጊቶች አንዱን ማከናወን ይችላሉ"
+
+#: quicktree.php
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "ለበኋላ ለማቆየት እና በአዲስ ነገር ላይ ለመስራት ምርጫዎን ወደ አዲስ የግራፍ ዛፍ ያስቀምጡ።"
+
+#: quicktree.php
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "በነባር ዛፍ ውስጥ በተወሰነ ክፍል እንዲታዩ ምርጫዎን እንደ ቅርንጫፍ ወደ ነባር ዛፍ ያስቀምጡ።"
+
+#: quicktree.php
+msgid "Clear all graphs"
+msgstr "ሁሉንም ግራፎች አጽዳ"
+
+#: quicktree.php
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "ለአዲስ ምርጫዎች ባዶ QuickTree እንዲኖርዎት በዚህ ገጽ ላይ ያሉትን ግራፎች ከግራፎች ወረፋ ያጽዱ"
+
+#: quicktree.php
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "እዚህ የሚታዩትን እያንዳንዱን ግራፎች የሚከተለውን ጠቅ በማድረግ ማስተዳደር ይችላሉ፦"
+
+#: quicktree.php
+msgid "Add"
+msgstr "አክል"
+
+#: quicktree.php
+msgid "Graph View Page"
+msgstr "የግራፍ እይታ ገጽ"
+
+#: quicktree.php
+#, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "ይህ አዶ በ%s ትር ላይ ከግራፍ ጎን ይገኛል።"
+
+#: quicktree.php
+msgid "Delete"
+msgstr "ሰርዝ"
+
+#: quicktree.php
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "ከQuickTree ወረፋ ለማስወገድ ከዚህ በታች ካሉት ግራፎች ጎን ያለውን ይህን አዶ ጠቅ ያድርጉ።"
+
+#: quicktree.php
+msgid "Note:"
+msgstr "ማስታወሻ፦"
+
+#: quicktree.php
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "በዚህ ገጽ ላይ ማከል፣ ማስወገድ ወይም ማጽዳት በሌሎች የCacti ክፍሎች ላይ ምንም ተጽዕኖ አያሳድርም (መፍጠር/ማስቀመጥ ብቻ ነው ተጽዕኖ የሚያሳድረው)"
+
+#: quicktree.php
+msgid "Actions"
+msgstr "ድርጊቶች"
+
+#: quicktree.php
+msgid "Remove This Graph From QuickTree"
+msgstr "ይህን ግራፍ ከQuickTree አስወግድ"
+
+#: quicktree.php
+msgid "No Graphs Added Yet"
+msgstr "እስካሁን የታከሉ ግራፎች የሉም"
+
+#: setup.php
+msgid "QuickTree Management"
+msgstr "የQuickTree አስተዳደር"
+
+#: setup.php
+msgid "Misc"
+msgstr "ልዩ ልዩ"
+
+#: setup.php
+msgid "Quicktree"
+msgstr "QuickTree"
+
+#: setup.php
+msgid "Page Style"
+msgstr "የገጽ ቅጥ"
+
+#: setup.php
+msgid "Where to display the QuickTree page"
+msgstr "የQuickTree ገጽ የሚታይበት ቦታ"
+
+#: setup.php
+msgid "Tab"
+msgstr "ትር"
+
+#: setup.php
+msgid "Console Menu"
+msgstr "የኮንሶል ምናሌ"
+
+#: setup.php
+msgid "Both Tab and Console Menu"
+msgstr "ትር እና የኮንሶል ምናሌ ሁለቱም"
+
+#: setup.php
+msgid "Add to Quicktree"
+msgstr "ወደ QuickTree አክል"
+
+#: setup.php
+msgid "Management"
+msgstr "አስተዳደር"
+
+#: setup.php
+msgid "QuickTree Trees"
+msgstr "የQuickTree ዛፎች"

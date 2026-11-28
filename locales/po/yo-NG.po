@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-12 14:07-0400\n"
+"PO-Revision-Date: 2026-11-27 18:00-0800\n"
+"Last-Translator: The Cacti Group <developers@cacti.net>\n"
+"Language-Team: Yoruba <developers@cacti.net>\n"
+"Language: yo_NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: quicktree.php
+msgid "Save To New Tree"
+msgstr "Fipamọ́ Sí Igi Tuntun"
+
+#: quicktree.php
+msgid "Save To Branch"
+msgstr "Fipamọ́ Sí Ẹ̀ka"
+
+#: quicktree.php
+msgid "Clear All Graphs"
+msgstr "Nu Gbogbo Àwọn Gíráàfù Kúrò"
+
+#: quicktree.php
+msgid "Graph Added to QuickTree"
+msgstr "A Ti Fi Gíráàfù Kún QuickTree"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s added to QuickTree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "A ti fi Gíráàfù %s kún QuickTree. Lọ sí ojú-ewé QuickTree láti gbé gbogbo Àwọn Gíráàfù sí Igi tuntun tàbí èyí tó wà tẹ́lẹ̀."
+
+#: quicktree.php
+msgid "Graph Not Added to QuickTree"
+msgstr "A Kò Fi Gíráàfù Kún QuickTree"
+
+#: quicktree.php
+#, php-format
+msgid "Graph %s was NOT added to QuickTree as it's already there waiting to be placed on a Tree.  Goto the QuickTree page to move all Graphs to a new or existing Tree."
+msgstr "A KÒ fi Gíráàfù %s kún QuickTree nítorí pé ó ti wà níbẹ̀ tẹ́lẹ̀ tó ń dúró láti gbé e sórí Igi. Lọ sí ojú-ewé QuickTree láti gbé gbogbo Àwọn Gíráàfù sí Igi tuntun tàbí èyí tó wà tẹ́lẹ̀."
+
+#: quicktree.php
+msgid "Graph Not Specified.  Not added to QuickTree"
+msgstr "A Kò Tọ́ka Sí Gíráàfù. A kò fi kún QuickTree"
+
+#: quicktree.php
+msgid "No Graph was added to QuickTree as no Graph was specified."
+msgstr "A kò fi Gíráàfù kankan kún QuickTree nítorí a kò tọ́ka sí Gíráàfù kankan."
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Fi Igi yìí Kún Un."
+
+#: quicktree.php
+msgid "Tree Name"
+msgstr "Orúkọ Igi"
+
+#: quicktree.php
+msgid "New Tree"
+msgstr "Igi Tuntun"
+
+#: quicktree.php
+msgid "Branch Name"
+msgstr "Orúkọ Ẹ̀ka"
+
+#: quicktree.php setup.php
+msgid "QuickTree"
+msgstr "QuickTree"
+
+#: quicktree.php
+msgid "Add To Branch"
+msgstr "Fi Kún Ẹ̀ka"
+
+#: quicktree.php
+msgid "Cancel"
+msgstr "Fagilé"
+
+#: quicktree.php
+msgid "Continue"
+msgstr "Tẹ̀síwájú"
+
+#: quicktree.php
+msgid "Click 'Continue' to Add the following Tree Branch."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Fi Ẹ̀ka Igi yìí Kún Un."
+
+#: quicktree.php
+msgid "Add to which Graph Tree?"
+msgstr "Fi kún Igi Gíráàfù wo?"
+
+#: quicktree.php
+msgid "QuickTree has Created Tree and/or Branch and added Graphs"
+msgstr "QuickTree ti Ṣẹ̀dá Igi àti/tàbí Ẹ̀ka ó sì ti fi Àwọn Gíráàfù kún un"
+
+#: quicktree.php
+msgid "QuickTree has no Graphs Queued"
+msgstr "QuickTree kò ní Àwọn Gíráàfù Kankan Ní Ìlà"
+
+#: quicktree.php
+msgid "Information/Directions"
+msgstr "Ìfitónilétí/Ìtọ́sọ́nà"
+
+#: quicktree.php
+msgid "The Graphs below are Queue to be added to a Cacti Tree.  You may keep them here for as long as you like, or you can perform one of the following actions"
+msgstr "Àwọn Gíráàfù tó wà nísàlẹ̀ wà ní ìlà láti fi kún Igi Cacti kan. O lè pa wọ́n mọ́ síbí fún ìgbà tó o bá fẹ́, tàbí kí o ṣe ọ̀kan nínú àwọn ìgbésẹ̀ wọ̀nyí"
+
+#: quicktree.php
+msgid "Save your selection to a new Graph Tree so you can keep them for later and work on something new."
+msgstr "Fipamọ́ yíyàn rẹ sí Igi Gíráàfù tuntun kí o lè pa wọ́n mọ́ fún ìgbà míràn kí o sì ṣiṣẹ́ lórí nǹkan tuntun."
+
+#: quicktree.php
+msgid "Save your selection as a branch to an existing tree so that they appear in a specific section of an existing tree."
+msgstr "Fipamọ́ yíyàn rẹ gẹ́gẹ́ bí ẹ̀ka sí igi tó wà tẹ́lẹ̀ kí wọ́n lè hàn ní apá pàtó kan nínú igi tó wà tẹ́lẹ̀."
+
+#: quicktree.php
+msgid "Clear all graphs"
+msgstr "Nu gbogbo àwọn gíráàfù kúrò"
+
+#: quicktree.php
+msgid "Clear the Graphs on this page from the Graphs Queue so that you have a blank QuickTree ready for new selections"
+msgstr "Nu Àwọn Gíráàfù tó wà lórí ojú-ewé yìí kúrò nínú Ìlà Gíráàfù kí o lè ní QuickTree òfo tó ṣetán fún àwọn yíyàn tuntun"
+
+#: quicktree.php
+msgid "You can manage the individual graphs that appear here by clicking:"
+msgstr "O lè ṣàkóso àwọn gíráàfù kọ̀ọ̀kan tó hàn níbí nípa títẹ:"
+
+#: quicktree.php
+msgid "Add"
+msgstr "Fi kún un"
+
+#: quicktree.php
+msgid "Graph View Page"
+msgstr "Ojú-ewé Ìwò Gíráàfù"
+
+#: quicktree.php
+#, php-format
+msgid "This icon is next to a Graph on the %s tab."
+msgstr "Àmì-àwòrán yìí wà lẹ́gbẹ̀ẹ́ Gíráàfù kan lórí táàbù %s."
+
+#: quicktree.php
+msgid "Delete"
+msgstr "Pa rẹ́"
+
+#: quicktree.php
+msgid "This icon next to the Graphs below to remove them from the QuickTree Queue."
+msgstr "Àmì-àwòrán yìí wà lẹ́gbẹ̀ẹ́ Àwọn Gíráàfù tó wà nísàlẹ̀ láti yọ wọ́n kúrò nínú Ìlà QuickTree."
+
+#: quicktree.php
+msgid "Note:"
+msgstr "Àkíyèsí:"
+
+#: quicktree.php
+msgid "Adding, removing or clearing on this page does not affect any other parts of Cacti (only Creating/Saving does)"
+msgstr "Fífikún, yíyọkúrò tàbí nínùkúrò lórí ojú-ewé yìí kò nípa lórí apá míràn kankan ti Cacti (Ṣíṣẹ̀dá/Fífipamọ́ nìkan ló ń nípa)"
+
+#: quicktree.php
+msgid "Actions"
+msgstr "Àwọn Ìgbésẹ̀"
+
+#: quicktree.php
+msgid "Remove This Graph From QuickTree"
+msgstr "Yọ Gíráàfù Yìí Kúrò Nínú QuickTree"
+
+#: quicktree.php
+msgid "No Graphs Added Yet"
+msgstr "A Kò Tíì Fi Gíráàfù Kankan Kún Un"
+
+#: setup.php
+msgid "QuickTree Management"
+msgstr "Ìṣàkóso QuickTree"
+
+#: setup.php
+msgid "Misc"
+msgstr "Àwọn Míràn"
+
+#: setup.php
+msgid "Quicktree"
+msgstr "Quicktree"
+
+#: setup.php
+msgid "Page Style"
+msgstr "Àṣà Ojú-ewé"
+
+#: setup.php
+msgid "Where to display the QuickTree page"
+msgstr "Ibi láti fi ojú-ewé QuickTree hàn"
+
+#: setup.php
+msgid "Tab"
+msgstr "Táàbù"
+
+#: setup.php
+msgid "Console Menu"
+msgstr "Àtòjọ Kọ́ńsólù"
+
+#: setup.php
+msgid "Both Tab and Console Menu"
+msgstr "Táàbù àti Àtòjọ Kọ́ńsólù Méjèèjì"
+
+#: setup.php
+msgid "Add to Quicktree"
+msgstr "Fi kún Quicktree"
+
+#: setup.php
+msgid "Management"
+msgstr "Ìṣàkóso"
+
+#: setup.php
+msgid "QuickTree Trees"
+msgstr "Àwọn Igi QuickTree"
